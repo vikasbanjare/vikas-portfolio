@@ -141,7 +141,6 @@ SCRIPT = """
         });
         h += '</div>';
       }
-      h += '<a href="' + p.url + '" target="_blank" rel="noopener" data-cursor="Behance" style="display:inline-flex; align-items:center; gap:8px; margin-top:clamp(26px,4vh,44px); font-size:13.5px; color:#8da0c4; border-bottom:1px solid rgba(255,255,255,.18); padding-bottom:4px;">View this project on Behance &#8599;</a>';
       body.innerHTML = h;
 
       if (window.matchMedia('(max-width: 820px)').matches) {
@@ -172,7 +171,16 @@ SCRIPT = """
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 
-    var closeBtn = el('[data-vbgal-close]');
+    // The host page owns wheel events (window listener, passive:false, always
+  // preventDefault) for its custom smooth scroll. Keep those off the overlay
+  // so a trackpad scrolls it the normal way.
+  if (gal) {
+    ['wheel', 'touchmove'].forEach(function (evt) {
+      gal.addEventListener(evt, function (e) { e.stopPropagation(); }, { passive: true });
+    });
+  }
+
+  var closeBtn = el('[data-vbgal-close]');
     if (closeBtn) {
       closeBtn.addEventListener('click', close);
       closeBtn.addEventListener('mouseenter', function () {

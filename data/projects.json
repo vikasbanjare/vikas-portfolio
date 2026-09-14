@@ -40,7 +40,7 @@
       "kind": "image",
       "cover": "https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/0358a7255679453.Y3JvcCwxMjAzLDk0MSwyMzUsMA.png",
       "images": [
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/7954f1255679453.6aa7a47d46282.png"
+        "https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/7954f1255679453.6aa7a47d46282.png"
       ],
       "videos": [
         "B_VI_yIeqbt"
@@ -111,11 +111,15 @@
       "cover": "https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/78be36232940741.Y3JvcCwxMjAzLDk0MSwyMzUsMA.png",
       "images": [],
       "videos": [
+        "QjLzVh5qDWs",
+        "6tYhpwyc8Ez",
         "6jTpX5dmhI4",
         "WAvhuYnWdDj"
       ],
       "behanceSlug": "AI-Videos",
       "posters": {
+        "QjLzVh5qDWs": "assets/posters/QjLzVh5qDWs.jpg",
+        "6tYhpwyc8Ez": "assets/posters/6tYhpwyc8Ez.jpg",
         "6jTpX5dmhI4": "assets/posters/6jTpX5dmhI4.jpg",
         "WAvhuYnWdDj": "assets/posters/WAvhuYnWdDj.jpg"
       }
