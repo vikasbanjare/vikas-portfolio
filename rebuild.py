@@ -309,9 +309,36 @@ tpl = tpl.replace(
 assert "03e043a0" not in tpl, "wordmark not fully replaced"
 tpl = tpl.replace('alt="aifloh"', 'alt="Vikas Banjare"')
 
+tpl = tpl.replace("<html>", '<html lang="en">', 1)
+assert '<html lang="en">' in tpl, "html lang not set"
+
 # page <title> — the dc runtime swaps the whole document in, so the title has to
 # live inside the template head, not just the outer bundle shell.
-TITLE = "<title>Vikas Banjare — Creative Lead, Video &amp; Design</title>"
+SITE = "https://vikasbanjare.github.io/vikas-portfolio/"
+DESC = ("Vikas Banjare — Creative Lead in Mumbai. Eight years of video direction, "
+        "editing, motion and design for fintech and edtech, plus the in-house tools "
+        "that automate the production.")
+TITLE = (
+    "<title>Vikas Banjare — Creative Lead, Video &amp; Design</title>\n"
+    f'<meta name="description" content="{DESC}">\n'
+    '<meta name="author" content="Vikas Banjare">\n'
+    '<meta name="theme-color" content="#04060d">\n'
+    f'<link rel="canonical" href="{SITE}">\n'
+    '<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">\n'
+    # share preview: without these, a link pasted into LinkedIn or WhatsApp
+    # renders as a bare URL with no title, image or blurb
+    '<meta property="og:type" content="website">\n'
+    '<meta property="og:title" content="Vikas Banjare — Creative Lead, Video &amp; Design">\n'
+    f'<meta property="og:description" content="{DESC}">\n'
+    f'<meta property="og:url" content="{SITE}">\n'
+    f'<meta property="og:image" content="{SITE}assets/og-card.jpg">\n'
+    '<meta property="og:image:width" content="1200">\n'
+    '<meta property="og:image:height" content="630">\n'
+    '<meta name="twitter:card" content="summary_large_image">\n'
+    '<meta name="twitter:title" content="Vikas Banjare — Creative Lead, Video &amp; Design">\n'
+    f'<meta name="twitter:description" content="{DESC}">\n'
+    f'<meta name="twitter:image" content="{SITE}assets/og-card.jpg">'
+)
 if "<title>" in tpl:
     tpl = re.sub(r"<title>.*?</title>", TITLE, tpl, flags=re.S)
 else:

@@ -47,6 +47,15 @@ SCRIPT = """
 
   function el(sel, root) { return (root || document).querySelector(sel); }
 
+  // Titles, tags and image paths come from a scrape of Behance — outside-the-
+  // build data concatenated into innerHTML. Escape every interpolation rather
+  // than trusting the source stays well-behaved.
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
   // The dc runtime swaps the document in and React renders after this file
   // executes, so wait for our own nodes to exist before wiring anything.
   function ready(cb) {
@@ -71,14 +80,14 @@ SCRIPT = """
         card.style.cssText = 'position:relative; display:block; width:100%; padding:0; text-align:left; border:1px solid rgba(255,255,255,.1); border-radius:16px; overflow:hidden; background:#080d1a; cursor:pointer; font-family:inherit; transition:transform .5s cubic-bezier(.2,.7,.3,1), border-color .4s ease, box-shadow .4s ease;';
         card.innerHTML =
           '<div style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#0a1226;">' +
-            '<img src="' + p.cover + '" alt="' + p.title + '" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.2,.7,.3,1);">' +
+            '<img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.2,.7,.3,1);">' +
             '<span style="position:absolute; top:11px; left:11px; font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:5px 10px; border-radius:100px; background:rgba(4,6,13,.72); border:1px solid ' + (p.kind === 'video' ? 'rgba(182,245,0,.45); color:#b6f500;' : 'rgba(255,255,255,.16); color:#cfe0ff;') + ' backdrop-filter:blur(8px);">' + (p.kind === 'video' ? 'Film' : 'Design') + '</span>' +
             '<span style="position:absolute; inset:0; background:linear-gradient(to top, rgba(4,6,13,.9), rgba(4,6,13,0) 58%);"></span>' +
           '</div>' +
           '<div style="display:flex; align-items:flex-end; justify-content:space-between; gap:12px; padding:14px 16px 16px; margin-top:-46px; position:relative;">' +
             '<span style="display:flex; flex-direction:column; gap:4px; min-width:0;">' +
-              '<span style="font-family:\\'Space Grotesk\\',sans-serif; font-size:16.5px; font-weight:600; letter-spacing:-.02em; color:#f6f9ff;">' + p.title + '</span>' +
-              '<span style="font-size:12px; color:#8da0c4;">' + p.tags.join(' · ') + '</span>' +
+              '<span style="font-family:\\'Space Grotesk\\',sans-serif; font-size:16.5px; font-weight:600; letter-spacing:-.02em; color:#f6f9ff;">' + esc(p.title) + '</span>' +
+              '<span style="font-size:12px; color:#8da0c4;">' + esc(p.tags.join(' · ')) + '</span>' +
             '</span>' +
             '<span style="flex:0 0 auto; font-family:\\'Space Grotesk\\',sans-serif; font-size:12px; color:#b6f500;">' + n + (p.kind === 'video' ? ' films' : ' pieces') + '</span>' +
           '</div>';
@@ -118,8 +127,8 @@ SCRIPT = """
         p.videos.forEach(function (id) {
           // a real frame from THIS video, not the shared project cover
           var poster = (p.posters && p.posters[id]) || p.cover;
-          h += '<div data-ccv="' + id + '" data-cursor="Play" style="position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:#0a1226; cursor:pointer;">' +
-                 '<img src="' + poster + '" alt="" loading="lazy" style="width:100%; height:100%; object-fit:cover; opacity:.75; display:block;">' +
+          h += '<div data-ccv="' + esc(id) + '" data-cursor="Play" style="position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:#0a1226; cursor:pointer;">' +
+                 '<img src="' + esc(poster) + '" alt="" loading="lazy" style="width:100%; height:100%; object-fit:cover; opacity:.75; display:block;">' +
                  '<span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none;">' +
                    '<span style="width:60px; height:60px; border-radius:50%; background:#b6f500; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 40px rgba(182,245,0,.38);">' +
                      '<svg width="16" height="18" viewBox="0 0 16 18" style="margin-left:3px; display:block;"><path d="M0 0l16 9L0 18z" fill="#06140a"></path></svg>' +
@@ -136,7 +145,7 @@ SCRIPT = """
         h += '<div style="columns:' + cols + '; column-gap:clamp(12px,1.6vw,20px);" data-vbcols>';
         p.images.forEach(function (src) {
           h += '<figure style="break-inside:avoid; margin:0 0 clamp(12px,1.6vw,20px); border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:#0a1226;">' +
-                 '<img src="' + src + '" alt="' + p.title + '" loading="lazy" style="width:100%; display:block;">' +
+                 '<img src="' + esc(src) + '" alt="' + esc(p.title) + '" loading="lazy" style="width:100%; display:block;">' +
                '</figure>';
         });
         h += '</div>';
@@ -149,8 +158,10 @@ SCRIPT = """
       body.querySelectorAll('[data-ccv]').forEach(function (tile) {
         tile.addEventListener('click', function () {
           // ponytail: iframe only on click — 33 eager players would stall the page
-          tile.innerHTML = '<iframe src="' + CCV + tile.getAttribute('data-ccv') +
+          var vid = encodeURIComponent(tile.getAttribute('data-ccv'));
+          tile.innerHTML = '<iframe src="' + CCV + vid +
             '/embed?api_key=behance1&bgcolor=%2304060d" allow="autoplay; fullscreen" allowfullscreen ' +
+            'referrerpolicy="no-referrer" loading="lazy" title="Project video" ' +
             'style="width:100%; height:100%; border:0; display:block;"></iframe>';
         });
       });
