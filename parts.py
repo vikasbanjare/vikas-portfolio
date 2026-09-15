@@ -50,6 +50,15 @@ SCRIPT = """
   // Titles, tags and image paths come from a scrape of Behance — outside-the-
   // build data concatenated into innerHTML. Escape every interpolation rather
   // than trusting the source stays well-behaved.
+  // "1 pieces" read wrong, and a project holding both images and films only
+  // ever reported one of them.
+  function countLabel(p) {
+    var bits = [];
+    if (p.images.length) bits.push(p.images.length + (p.images.length === 1 ? ' piece' : ' pieces'));
+    if (p.videos.length) bits.push(p.videos.length + (p.videos.length === 1 ? ' film' : ' films'));
+    return bits.join(' · ') || 'no items';
+  }
+
   function esc(v) {
     return String(v == null ? '' : v)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -72,7 +81,7 @@ SCRIPT = """
     var grid = el('[data-vbgrid]');
     if (grid) {
       WORK.forEach(function (p) {
-        var n = p.kind === 'video' ? p.videos.length : p.images.length;
+        var n = countLabel(p);
         var card = document.createElement('button');
         card.type = 'button';
         card.setAttribute('data-cursor', 'Open');
@@ -89,7 +98,7 @@ SCRIPT = """
               '<span style="font-family:\\'Space Grotesk\\',sans-serif; font-size:16.5px; font-weight:600; letter-spacing:-.02em; color:#f6f9ff;">' + esc(p.title) + '</span>' +
               '<span style="font-size:12px; color:#8da0c4;">' + esc(p.tags.join(' · ')) + '</span>' +
             '</span>' +
-            '<span style="flex:0 0 auto; font-family:\\'Space Grotesk\\',sans-serif; font-size:12px; color:#b6f500;">' + n + (p.kind === 'video' ? ' films' : ' pieces') + '</span>' +
+            '<span style="flex:0 0 auto; font-family:\\'Space Grotesk\\',sans-serif; font-size:12px; color:#b6f500;">' + esc(n) + '</span>' +
           '</div>';
         card.addEventListener('mouseenter', function () {
           card.style.transform = 'translateY(-6px)';
@@ -117,9 +126,7 @@ SCRIPT = """
       if (!p || !gal) return;
       lastFocus = document.activeElement;
       el('[data-vbgal-title]').textContent = p.title;
-      el('[data-vbgal-meta]').textContent =
-        p.tags.join(' · ') + ' — ' +
-        (p.kind === 'video' ? p.videos.length + ' films' : p.images.length + ' pieces');
+      el('[data-vbgal-meta]').textContent = p.tags.join(' · ') + ' — ' + countLabel(p);
 
       var h = '';
       if (p.videos.length) {

@@ -43,10 +43,12 @@
         "https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/7954f1255679453.6aa7a47d46282.png"
       ],
       "videos": [
-        "B_VI_yIeqbt"
+        "B_VI_yIeqbt",
+        "-bwq7EwgwxS"
       ],
       "posters": {
-        "B_VI_yIeqbt": "assets/posters/B_VI_yIeqbt.jpg"
+        "B_VI_yIeqbt": "assets/posters/B_VI_yIeqbt.jpg",
+        "-bwq7EwgwxS": "assets/posters/-bwq7EwgwxS.jpg"
       }
     },
     {

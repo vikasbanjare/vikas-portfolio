@@ -209,11 +209,9 @@ R = [
     # ── 08 quote cards: factual, attributed to the role — not invented praise ──
     ("They replaced four vendors and shipped more in a month than we had all quarter.",
      "Built custom AI automation for podcast and social editing — a full day of manual work cut to roughly 30 minutes."),
-    ("Client name", "Mirae Asset Capital Markets"),
-    ("Head of Growth, Company", "Design Studio Lead · Mumbai"),
+
     ("The automations alone paid for the engagement. The film was the part our board kept quoting.",
      "Designed studio setups for 150+ channels and re-engineered workflows — productivity up 25%, output up 35%."),
-    ("Marketing Director, Company", "Studio Operations Specialist · Unacademy"),
 
     # ── 09 contact ──
     ("Tell us what", "Tell me what"),
@@ -460,6 +458,26 @@ for pos, (name, sub) in zip(reversed(pad_positions), reversed(LAUNCH_CARDS)):
                    lambda m: m.group(1) + sub + "<", fixed, count=1)
     assert fixed != card, "launch card unchanged"
     tpl = tpl[:pos] + fixed + tpl[end:]
+
+# 4c-ter. Both testimonial cards ship the same placeholder name and the same
+#         "C" avatar, so one global swap branded the Unacademy quote as Mirae
+#         Asset. Attribute each card positionally.
+QUOTES = [
+    ("q1", "Mirae Asset Capital Markets", "Design Studio Lead · Mumbai", "M"),
+    ("q2", "Unacademy", "Studio Operations Specialist · Bengaluru", "U"),
+]
+for key, name, role, initial in QUOTES:
+    start = tpl.index(f'data-reveal="{key}"')
+    end = tpl.index("</blockquote>", start)
+    card = tpl[start:end]
+    fixed = re.sub(r'(font-size:14\.5px; font-weight:600; color:#f6f9ff;">)[^<]*<',
+                   lambda m: m.group(1) + name + "<", card, count=1)
+    fixed = re.sub(r'(<span style="font-size:13px; color:#8da0c4;">)[^<]*<',
+                   lambda m: m.group(1) + role + "<", fixed, count=1)
+    fixed = re.sub(r'(font-size:20px; line-height:1; color:#b6f500;">)[^<]*<',
+                   lambda m: m.group(1) + initial + "<", fixed, count=1)
+    assert fixed != card, f"quote card {key} unchanged"
+    tpl = tpl[:start] + fixed + tpl[end:]
 
 # 4d-ter. The node graph still carried aifloh's wiring, so after "Website" was
 #         relabelled "UI/UX" it claimed UI/UX links to SEO. Rewire it to match
