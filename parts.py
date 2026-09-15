@@ -638,3 +638,37 @@ EXP_SCRIPT = """
   });
 })();
 """
+
+
+# ── analytics ────────────────────────────────────────────────────────────────
+# GitHub Pages keeps no visitor logs, so counting visits needs a script on the
+# page. The bundler rewrites <script src> in the template into its own blob
+# URLs, so the vendor tag has to be created at runtime instead of written into
+# the markup. All three providers below are cookieless — no consent banner.
+ANALYTICS_SCRIPT = """
+(function () {
+  "use strict";
+  var P = __ANALYTICS__;
+  if (!P || !P.provider || !P.id) return;          // nothing configured: ship nothing
+  if (document.querySelector('[data-vb-analytics]')) return;
+
+  var s = document.createElement('script');
+  s.setAttribute('data-vb-analytics', P.provider);
+  s.defer = true;
+
+  if (P.provider === 'cloudflare') {
+    s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon', JSON.stringify({ token: P.id }));
+  } else if (P.provider === 'goatcounter') {
+    s.src = 'https://gc.zgo.at/count.js';
+    s.setAttribute('data-goatcounter', 'https://' + P.id + '.goatcounter.com/count');
+  } else if (P.provider === 'plausible') {
+    s.src = 'https://plausible.io/js/script.js';
+    s.setAttribute('data-domain', P.id);
+  } else {
+    return;
+  }
+
+  (document.head || document.documentElement).appendChild(s);
+})();
+"""

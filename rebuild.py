@@ -660,6 +660,21 @@ tpl = re.sub(r'(?<!-webkit-)backdrop-filter:\s*([^;"]+)',
 assert len(re.findall(r'(?<!-webkit-)backdrop-filter:', tpl)) == _plain, "prefix pass incomplete"
 print(f"  safari prefixes    : {_plain} backdrop-filter rules")
 
+# 4h. Analytics, if configured. data/analytics.json ships empty, so by default
+#     the page carries no tracking at all.
+_acfg = json.loads((ROOT / "data" / "analytics.json").read_text())
+ANALYTICS = {"provider": _acfg.get("provider", ""), "id": _acfg.get("id", "")}
+if ANALYTICS["provider"] and ANALYTICS["id"]:
+    an_js = parts.ANALYTICS_SCRIPT.replace(
+        "__ANALYTICS__", json.dumps(ANALYTICS, separators=(",", ":")))
+    AN_UUID = "b4e9d370-51ac-4a62-9d18-7f0c3e5ab926"
+    manifest[AN_UUID] = {"mime": "text/javascript", "compressed": False,
+                         "data": base64.b64encode(an_js.encode()).decode()}
+    tpl = tpl.replace(head_anchor, head_anchor + f'\n<script src="{AN_UUID}"></script>', 1)
+    print(f"  analytics          : {ANALYTICS['provider']} ({ANALYTICS['id']})")
+else:
+    print("  analytics          : none configured (no tracking shipped)")
+
 # ── 5. write the bundle back out ─────────────────────────────────────────────
 out = raw
 # The original escapes every "/" as \\u002F so a literal </script> inside the
