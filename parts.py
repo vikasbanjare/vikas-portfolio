@@ -27,7 +27,7 @@ GALLERY = """
       <h3 data-vbgal-title style="font-family:'Space Grotesk',sans-serif; font-size:clamp(17px,2.4vw,26px); font-weight:600; letter-spacing:-.02em; color:#f6f9ff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></h3>
       <span data-vbgal-meta style="display:block; font-size:10.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#5d6e8e; margin-top:5px;"></span>
     </div>
-    <button data-vbgal-close aria-label="Close" style="flex:0 0 auto; width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.05); color:#eaf0ff; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; transition:background .3s ease, color .3s ease, border-color .3s ease;">
+    <button data-vbgal-close aria-label="Close" style="flex:0 0 auto; width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.05); color:#eaf0ff; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; transition:background .3s ease, color .3s ease, border-color .3s ease;">
       <svg width="15" height="15" viewBox="0 0 15 15" style="display:block;"><path d="M2 2l11 11M13 2L2 13" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"></path></svg>
     </button>
   </div>
@@ -90,7 +90,7 @@ SCRIPT = """
         card.innerHTML =
           '<div style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#0a1226;">' +
             '<img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.2,.7,.3,1);">' +
-            '<span style="position:absolute; top:11px; left:11px; font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:5px 10px; border-radius:100px; background:rgba(4,6,13,.72); border:1px solid ' + (p.kind === 'video' ? 'rgba(182,245,0,.45); color:#b6f500;' : 'rgba(255,255,255,.16); color:#cfe0ff;') + ' backdrop-filter:blur(8px);">' + (p.kind === 'video' ? 'Film' : 'Design') + '</span>' +
+            '<span style="position:absolute; top:11px; left:11px; font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:5px 10px; border-radius:100px; background:rgba(4,6,13,.72); border:1px solid ' + (p.kind === 'video' ? 'rgba(182,245,0,.45); color:#b6f500;' : 'rgba(255,255,255,.16); color:#cfe0ff;') + ' -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);">' + (p.kind === 'video' ? 'Film' : 'Design') + '</span>' +
             '<span style="position:absolute; inset:0; background:linear-gradient(to top, rgba(4,6,13,.9), rgba(4,6,13,0) 58%);"></span>' +
           '</div>' +
           '<div style="display:flex; align-items:flex-end; justify-content:space-between; gap:12px; padding:14px 16px 16px; margin-top:-46px; position:relative;">' +
@@ -423,17 +423,22 @@ TOOLS_SCRIPT = """
         '<span style="font-size:13px; line-height:1.6; color:#8da0c4;">' + t.desc + '</span>' +
         (t.url ? '<span style="margin-top:4px; font-size:13px; font-weight:600; color:#b6f500;">Visit contentintel.in &#8599;</span>' : '');
 
-      card.addEventListener('mouseenter', function () {
+      function focusNode() {
         if (!pipe) return;
         pipe.classList.add('vb-focus');
+        pipe.querySelectorAll('g[data-node]').forEach(function (g) { g.classList.remove('vb-on'); });
         var g = pipe.querySelector('g[data-node="' + t.slug + '"]');
         if (g) g.classList.add('vb-on');
-      });
-      card.addEventListener('mouseleave', function () {
+      }
+      function blurNode() {
         if (!pipe) return;
         pipe.classList.remove('vb-focus');
         pipe.querySelectorAll('g[data-node]').forEach(function (g) { g.classList.remove('vb-on'); });
-      });
+      }
+      card.addEventListener('mouseenter', focusNode);
+      card.addEventListener('mouseleave', blurNode);
+      // touch has no hover, so the pipeline highlight was dead on phones
+      card.addEventListener('touchstart', focusNode, { passive: true });
       wrap.appendChild(card);
     });
   });

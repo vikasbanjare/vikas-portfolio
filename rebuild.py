@@ -497,6 +497,15 @@ for node, links in OS_LINKS.items():
     tpl, n = pat.subn(lambda m: m.group(1) + links + m.group(3), tpl)
     assert n == 1, f"os node {node} not rewired ({n})"
 
+# 4c-quater. Cross-platform hardening.
+# 100vw counts the scrollbar, so on any platform that reserves gutter space
+# (Windows especially, where scrollbars are always visible) the hero sat ~15px
+# wider than the viewport and the whole page scrolled sideways. macOS overlay
+# scrollbars hide the bug entirely.
+n = tpl.count("width:100vw;")
+assert n == 1, f"hero width anchor drifted ({n})"
+tpl = tpl.replace("width:100vw;", "width:100%;")
+
 # 4e. all-work index + gallery viewer + behaviour
 def poster_uris(pr):
     """Each video gets its own frame, inlined so the page stays one file."""
@@ -641,6 +650,15 @@ EXP_UUID = "a71f4c92-6d0b-4e55-8f31-2c94b7e0d18a"
 manifest[EXP_UUID] = {"mime": "text/javascript", "compressed": False,
                       "data": base64.b64encode(exp_js.encode()).decode()}
 tpl = tpl.replace(head_anchor, head_anchor + f'\n<script src="{EXP_UUID}"></script>', 1)
+
+# Safari (iOS and macOS) needs -webkit-backdrop-filter or every frosted panel —
+# header, menu, viewer bar, badges — renders flat. Run this last so it also
+# covers the markup injected above.
+_plain = len(re.findall(r'(?<!-webkit-)backdrop-filter:', tpl))
+tpl = re.sub(r'(?<!-webkit-)backdrop-filter:\s*([^;"]+)',
+             lambda m: f"-webkit-backdrop-filter:{m.group(1)}; backdrop-filter:{m.group(1)}", tpl)
+assert len(re.findall(r'(?<!-webkit-)backdrop-filter:', tpl)) == _plain, "prefix pass incomplete"
+print(f"  safari prefixes    : {_plain} backdrop-filter rules")
 
 # ── 5. write the bundle back out ─────────────────────────────────────────────
 out = raw
