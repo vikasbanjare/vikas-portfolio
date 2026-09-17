@@ -70,7 +70,7 @@ SCRIPT = """
   function ready(cb) {
     var tries = 0;
     (function poll() {
-      if (el('[data-vbgrid]') && el('[data-vbgal]')) return cb();
+      if (el('[data-vbgal]')) return cb();   // the index grid was replaced by the work-section component
       if (++tries > 120) return;            // ~12s, then give up quietly
       setTimeout(poll, 100);
     })();
@@ -218,26 +218,7 @@ SCRIPT = """
     // The three planets hold fixed artwork, but the scan card rotates through
     // projects as you scroll. Clicking the card must open whatever the card is
     // *currently naming* — read the live index instead of a fixed one.
-    var FLY = ['podcast-videos', 'wealthy-yt-ads', 'social-media-designs'];
     var LAUNCH = ['trailer-video', 'motion-graphic', 'thumbnail-designs'];
-    var idxEl = el('[data-fly-idx]');
-
-    // The scan card rotates through projects on scroll while the planets hold
-    // fixed artwork, so ANY click in this section opens whatever the card is
-    // naming right now. That keeps what you see and what opens identical.
-    function openScanned() {
-      var n = parseInt(idxEl ? idxEl.textContent : '', 10);
-      var slug = FLY[(isNaN(n) ? 1 : n) - 1];
-      if (slug && BY[slug]) open(slug);
-    }
-
-    ['[data-fly-planet]', '[data-fly-scan]'].forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (node) {
-        node.style.cursor = 'pointer';
-        node.setAttribute('data-cursor', 'Open');
-        node.addEventListener('click', openScanned);
-      });
-    });
 
     document.querySelectorAll('[data-launch]').forEach(function (node, i) {
       if (!LAUNCH[i] || !BY[LAUNCH[i]]) return;

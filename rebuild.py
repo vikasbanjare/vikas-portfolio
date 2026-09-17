@@ -507,14 +507,22 @@ assert n == 1, f"hero width anchor drifted ({n})"
 tpl = tpl.replace("width:100vw;", "width:100%;")
 
 # 4e. all-work index + gallery viewer + behaviour
-def poster_uris(pr):
-    """Each video gets its own frame, inlined so the page stays one file."""
-    out = {}
-    for vid in pr["videos"]:
-        f = ROOT / "assets" / "posters" / f"{vid}.jpg"
-        if f.exists():
-            out[vid] = data_uri(f.read_bytes())
-    return out
+def poster_paths(pr):
+    """Each video gets its own real frame. Served as files: the site self-hosts
+    its assets now, so inlining them as base64 only bloated the page (~1.3 MB)."""
+    return {vid: f"assets/posters/{vid}.jpg" for vid in pr["videos"]
+            if (ROOT / "assets" / "posters" / f"{vid}.jpg").exists()}
+
+
+def cover_path(pr):
+    hit = sorted((ROOT / "assets" / "img" / pr["slug"]).glob("cover.*"))
+    return f"assets/img/{pr['slug']}/{hit[0].name}" if hit else pr["cover"]
+
+
+def frame_paths(pr):
+    """Light 760px stills of the first gallery images, for the work monitor."""
+    return [f"assets/frames/{f.name}"
+            for f in sorted((ROOT / "assets" / "frames").glob(f"{pr['slug']}-*.jpg"))]
 
 
 def gallery_srcs(pr):
@@ -533,20 +541,30 @@ def gallery_srcs(pr):
 
 WORKDATA = [{
     "slug": p["slug"], "title": p["title"], "tags": p["tags"],
-    "kind": p["kind"], "cover": p["cover"],
+    "kind": p["kind"], "cover": cover_path(p),
     "images": gallery_srcs(p), "videos": p["videos"],
-    "posters": poster_uris(p),
+    "posters": poster_paths(p), "frames": frame_paths(p),
     "url": p["url_behance"],
 } for p in projects]
 _local = sum(1 for p in WORKDATA for s in p["images"] if not s.startswith("http"))
 _total = sum(len(p["images"]) for p in WORKDATA)
 
-WORDS = {11: "Eleven", 12: "Twelve", 13: "Thirteen", 14: "Fourteen", 15: "Fifteen"}
-grid_html = (parts.INDEX_GRID
-             .replace("__COUNTS__", f"{N_IMG} design pieces · {N_VID} films")
-             .replace("__NPROJ__", WORDS.get(len(projects), str(len(projects)))))
-close_work = tpl.index("</section>", tpl.index('id="work"'))
-tpl = tpl[:close_work] + grid_html + tpl[close_work:]
+# The circular flyby and the 13-card grid are both replaced by one component:
+# a curated project list with a docked "program monitor" (components/work-section.html,
+# chosen from four judged prototypes and hardened by a three-lens review).
+# The host's _setupWork() bails when the flyby markup is absent, so removing it is safe.
+comp = (ROOT / "components" / "work-section.html").read_text(encoding="utf-8")
+m_css = re.search(r"<style>\s*(/\*.*?)</style>", comp, re.S) or re.search(r"<style>(.*?\[data-vbwork2\].*?)</style>", comp, re.S)
+m_sec = re.search(r"(<section data-vbwork2.*?</section>)", comp, re.S)
+_scripts = re.findall(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", comp, re.S)
+assert m_css and m_sec and _scripts, "work-section component is missing its style/section/script"
+WORK_CSS, WORK_HTML, WORK_IIFE = m_css.group(1), m_sec.group(1), max(_scripts, key=len).strip()
+assert "[data-vbwork2]" in WORK_CSS and "VB_WORK" in WORK_IIFE
+
+w_open = tpl.rfind("<section", 0, tpl.index('id="work"'))
+w_close = tpl.index("</section>", w_open) + len("</section>")
+assert 'data-fly-pin' in tpl[w_open:w_close], "expected to be replacing the flyby section"
+tpl = tpl[:w_open] + WORK_HTML + tpl[w_close:]
 
 # Inline <script> in the template does NOT run: the loader only executes
 # scripts it can resolve through the manifest, so ship this as a bundle asset
@@ -563,6 +581,59 @@ tpl = tpl.replace("</body>", parts.GALLERY + "</body>", 1)
 head_anchor = '<script src="eb552694-613e-47d3-9baa-773be587dd3e"></script>'
 assert head_anchor in tpl, "head script anchor missing"
 tpl = tpl.replace(head_anchor, head_anchor + f'\n<script src="{GAL_UUID}"></script>', 1)
+
+# 4e-bis. Work-section behaviour. The component's script expects its root to
+# exist and window.VB_WORK to be set, but head scripts run before the dc runtime
+# mounts the document — so poll for the root, then run the component verbatim.
+VB_WORK = [{
+    "slug": w["slug"], "title": w["title"], "tags": w["tags"], "kind": w["kind"],
+    "cover": w["cover"], "images": w["images"], "videos": w["videos"],
+    "posters": w["posters"], "frames": w["frames"],
+} for w in WORKDATA]
+work_js = """
+(function () {
+  "use strict";
+  window.VB_WORK = __VBWORK__;
+  var tries = 0;
+  (function poll() {
+    if (document.querySelector('[data-vbwork2]')) { run(); watchdog(); return; }
+    if (++tries > 150) return;
+    setTimeout(poll, 100);
+  })();
+
+  function run() {
+__IIFE__
+  }
+
+  // Entrance relies on IntersectionObserver. If a callback is ever late or
+  // never arrives, rows would sit invisible at translateY(105%). Anything that
+  // is on screen and still un-entered gets revealed; stops once all are in.
+  function watchdog() {
+    var timer = setInterval(function () {
+      var root = document.querySelector('[data-vbwork2]');
+      if (!root || !root.classList.contains('vw2-anim')) { clearInterval(timer); return; }
+      var els = root.querySelectorAll('.vw2-head-top, .vw2-bar, .vw2-row, .vw2-mon-in');
+      var pending = 0, vh = window.innerHeight || 800, i, e, box, r;
+      for (i = 0; i < els.length; i++) {
+        e = els[i];
+        if (e.classList.contains('vw2-in')) continue;
+        box = e.classList.contains('vw2-row') && e.parentNode ? e.parentNode : e;
+        r = box.getBoundingClientRect();
+        if (!r.width && !r.height) continue;            // filtered out / hidden
+        if (r.top < vh && r.bottom > 0) { e.classList.add('vw2-in'); } else { pending++; }
+      }
+      if (!pending) clearInterval(timer);
+    }, 1200);
+  }
+})();
+"""
+work_js = (work_js.replace("__VBWORK__", json.dumps(VB_WORK, separators=(",", ":")))
+                  .replace("__IIFE__", WORK_IIFE))
+WORK_UUID = "c83a1f56-2e7d-4b09-a4c1-5d96e0f7b312"
+manifest[WORK_UUID] = {"mime": "text/javascript", "compressed": False,
+                       "data": base64.b64encode(work_js.encode()).decode()}
+tpl = tpl.replace(head_anchor, head_anchor + f'\n<script src="{WORK_UUID}"></script>', 1)
+tpl = tpl.replace("</head>", "<style>" + WORK_CSS + "</style></head>", 1)
 
 # 4f. Tools section — inserted after 03, so 04..09 shift down by one.
 #     Renumber in reverse so "04 → 05" can't then be caught by "05 → 06".
@@ -691,7 +762,7 @@ out = out.replace("<title>Bundled Page</title>", "<title>Vikas Banjare — Creat
 # silently as a dead section. Fail the build instead.
 if shutil.which("node"):
     import tempfile
-    for uuid in (GAL_UUID, TOOLS_UUID, EXP_UUID):
+    for uuid in (GAL_UUID, WORK_UUID, TOOLS_UUID, EXP_UUID):
         src = base64.b64decode(manifest[uuid]["data"]).decode()
         with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
             fh.write(src)
