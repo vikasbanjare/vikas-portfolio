@@ -12,6 +12,7 @@ h1{font-size:28px;letter-spacing:-.03em;margin-bottom:6px}.lead{color:#5F6B85;fo
 .ln{height:9px;border-radius:5px;background:#CDD3E1;margin:7px 0}.ln.s{width:55%}.ln.m{width:78%}.ln.xs{width:32%}
 .row{display:flex;gap:10px;align-items:center}.gap{margin-top:12px}.sp{justify-content:space-between}
 .btn{height:50px;border-radius:14px;border:2px solid #1B2233;background:#1B2233;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}.btn.o{background:#fff;color:#1B2233}
+.row>.btn,.row>.b:not([style*="width"]){flex:1}
 .chip{height:30px;padding:0 14px;border:1.5px solid #AAB3C7;border-radius:99px;font-size:12px;font-weight:700;color:#5F6B85;display:flex;align-items:center;background:#fff}.chip.on{background:#1B2233;color:#fff;border-color:#1B2233}
 .tab{position:absolute;left:0;right:0;bottom:0;height:74px;border-top:1.5px solid #AAB3C7;background:#fff;display:flex;justify-content:space-around;padding-top:10px;font-size:10.5px;font-weight:700;color:#5F6B85}
 .tab div{text-align:center}.tab i{display:block;width:24px;height:24px;border:1.5px solid #AAB3C7;border-radius:7px;margin:0 auto 4px}.tab .on{color:#1B2233}.tab .on i{background:#1B2233;border-color:#1B2233}

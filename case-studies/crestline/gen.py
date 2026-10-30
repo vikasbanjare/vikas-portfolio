@@ -1,7 +1,7 @@
 import re, math, pathlib, os
 THEME = os.environ.get('CREST_THEME','v1')
-UP,DN,LN=("#06784A","#C42A32","#E1E6F0") if THEME=='v2' else ("#0C8F52","#D13B3B","#E6E6E0")
-BRAND="#3447F5" if THEME=='v2' else "#7A5CFF"
+UP,DN,LN={"v2":("#06784A","#C42A32","#E1E6F0"),"v4":("#057A55","#C81E1E","#E2E8F0")}.get(THEME,("#0C8F52","#D13B3B","#E6E6E0"))
+BRAND={"v2":"#3447F5","v4":"#EA580C"}.get(THEME,"#7A5CFF")
 base = pathlib.Path("screens.html").read_text()
 CSS = re.search(r"<style>(.*?)</style>", base, re.S).group(1)
 SYM = re.search(r'(<svg width="0".*?</svg>)', base, re.S).group(1)
@@ -35,6 +35,31 @@ body{background:#D9DEEA;font-family:Manrope,system-ui,sans-serif}
 """
 FONTS_V1='<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">'
 FONTS_V2='<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+
+V4_CSS = """
+:root{--bg:#F8FAFC;--card:#fff;--ink:#0A1120;--ink2:#334155;--ink3:#475569;--line:#E2E8F0;--lime:#0F2942;--limeD:#E0F2FE;--up:#057A55;--upBg:#DEF7EC;--dn:#C81E1E;--dnBg:#FDE8E8;--brandInk:#0C4A6E;--brandLine:#BAE6FD;--warn:#B45309;--warnBg:#FEF3C7;--upLine:#A7F3D0;--onlime:#fff;--spark:#EA580C;--signal:#C2410C;--signalSoft:#FFEDD5;--elev:#F1F5F9}
+body{background:#D8DEE8;font-family:Inter,system-ui,sans-serif}
+.h1,h1,.h2{font-family:Manrope,system-ui,sans-serif;letter-spacing:-.025em}
+.num{font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.num[style*="font-size:2"],.num[style*="font-size:3"]{font-family:Manrope,system-ui,sans-serif;font-weight:800;letter-spacing:-.025em}
+.lime,[style*="var(--lime)"]{color:#fff}
+[style*="background:var(--spark)"]{color:var(--ink)!important}
+.sub{font-size:12.5px;color:var(--ink3)}.lbl{font-size:11.5px}
+.chip{white-space:nowrap}
+.tab{background:rgba(255,255,255,.92)}.tab div{font-size:11.5px}
+.btn{border-radius:16px;height:54px;font-weight:700}
+.card{border-radius:16px}
+.phone{box-shadow:0 30px 60px -20px rgba(10,17,32,.35)}
+.bdg{display:inline-block;font:700 10px/1 'JetBrains Mono',monospace;padding:4px 6px;border-radius:4px;letter-spacing:.02em;vertical-align:middle;white-space:nowrap}
+.b-ex{background:var(--elev);color:var(--ink2)}.b-t0{background:var(--signalSoft);color:var(--signal)}.b-mtf{background:var(--limeD);color:var(--brandInk)}.b-asm{background:var(--warnBg);color:var(--warn)}.b-ill{background:var(--dnBg);color:var(--dn)}.b-stale{background:var(--warnBg);color:var(--warn)}
+"""
+FONTS_V4='<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">'
+COPY_V4=[("Credited in 1 working day","Usually next working day · tracked live"),
+ ("Markets are closed. This order will be placed when trading opens at 9:15 AM tomorrow.","Markets are closed. This order joins the queue for the next trading session. Its status shows here."),
+ ("Tomorrow, 9:15 AM","Next session open"),("Released in 3 days","Released after allotment"),
+ ("Your account is open. It can take up to a day for your demat details to go live.","Your application is signed. Exchange and depository activation is in progress."),
+ ("You&#39;re all set, Aarav","Almost there, Aarav"),("You're all set, Aarav","Almost there, Aarav"),
+ ("Schedule order","Queue order")]
 IC = {"back":"M15 5l-7 7 7 7","bell":"M6 17V11a6 6 0 0 1 12 0v6l2 2H4zM10 21h4","search":"M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4","shield":"M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z","cam":"M4 8h3l2-3h6l2 3h3v11H4zM12 11a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z","bank":"M3 9l9-5 9 5M5 10v8M10 10v8M14 10v8M19 10v8M3 20h18","doc":"M7 3h7l4 4v14H7zM14 3v5h5M10 13h5M10 17h5","gear":"M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2","help":"M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17v.5M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z","out":"M10 4H5v16h5M14 8l5 4-5 4M19 12H9","plus":"M12 5v14M5 12h14","check":"M5 12l4 4 10-10","star":"M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z","lock":"M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3","wifi":"M3 9a14 14 0 0 1 18 0M6 12.5a9 9 0 0 1 12 0M9 16a4.5 4.5 0 0 1 6 0M12 19.5v.1","user":"M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM4 21c1-4 4-6 8-6s7 2 8 6","bulb":"M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z","news":"M4 5h13v14H6a2 2 0 0 1-2-2zM17 9h3v8a2 2 0 0 1-2 2M7 9h7M7 13h7","trend":"M3 17l6-6 4 4 8-9"}
 def ic(n,s=22,c="currentColor"): return f'<svg width="{s}" height="{s}" viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{IC[n]}"/></svg>'
 _SMALL={"a","an","the","and","or","nor","but","for","yet","so","to","of","in","on","at","by","with","from","as"}
@@ -49,7 +74,7 @@ def tcase(t):
 def sb(): return '<div class="sb">9:41<i></i><b></b></div>'
 def top(t,r=''): return f'<div class="pad row" style="height:50px"><span>{ic("back")}</span><b>{tcase(t)}</b><span style="min-width:22px;text-align:right;font-size:13px;font-weight:600">{r}</span></div>'
 def tabbar(on):
-    it=[("home","Home","i-home"),("watch","Markets" if THEME=="v2" else "Watchlist","i-bars" if THEME=="v2" else "i-eye"),("port","Portfolio","i-pie"),("ord","Orders","i-list"),("acc","Account","i-user")]
+    it=[("home","Home","i-home"),("watch","Markets" if THEME in ("v2","v4") else "Watchlist","i-bars" if THEME in ("v2","v4") else "i-eye"),("port","Portfolio","i-pie"),("ord","Orders","i-list"),("acc","Account","i-user")]
     return '<div class="tab">'+''.join(f'<div class="{"on" if k==on else ""}"><svg><use href="#{i}"/></svg>{l}</div>' for k,l,i in it)+'</div>'
 EXTRA={}
 def phone(cap,inner,tab=None):
@@ -89,9 +114,11 @@ def candles(n=34,w=350,h=210):
     ma="M"+" L".join(f"{6+i*(w-12)/n+4:.1f},{h-10-(100+(i-n/2)*.18-70)*(h-30)/70:.1f}" for i in range(n))
     return f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}">{s}<path d="{ma}" fill="none" stroke="{BRAND}" stroke-width="1.6" stroke-dasharray="3 3"/></svg>'
 def sheet(fn,title,screens):
-    v2=THEME=='v2'; css=CSS+(V2_CSS if v2 else ''); fonts=FONTS_V2 if v2 else FONTS_V1
+    css=CSS+{'v2':V2_CSS,'v4':V4_CSS}.get(THEME,''); fonts={'v2':FONTS_V2,'v4':FONTS_V4}.get(THEME,FONTS_V1)
     html=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{title}</title>{fonts}<style>{css}</style></head><body>{SYM}<div class="grid">{"".join(screens)}</div></body></html>'
-    out=pathlib.Path('v2')/fn if v2 else pathlib.Path(fn); out.parent.mkdir(exist_ok=True); out.write_text(html); print(out,len(screens),"screens")
+    if THEME=='v4':
+        for a,b in COPY_V4: html=html.replace(a,b)
+    out=pathlib.Path(THEME)/fn if THEME in ('v2','v4') else pathlib.Path(fn); out.parent.mkdir(exist_ok=True); out.write_text(html); print(out,len(screens),"screens")
 
 
 # ───────── extensions used by the v2 flows ─────────
@@ -134,7 +161,7 @@ def tile(sym,pct,w=1):
     up=pct>=0; a=min(abs(pct),4)/4; bg=f"rgba(6,120,74,{.12+a*.78})" if up else f"rgba(196,42,50,{.12+a*.78})"; fg="#fff" if a>.45 else ("var(--up)" if up else "var(--dn)")
     return f'<div style="grid-column:span {w};background:{bg};color:{fg};border-radius:12px;padding:10px 8px;min-height:62px;display:flex;flex-direction:column;justify-content:space-between"><b style="font-size:12.5px">{sym}</b><span class="num" style="font-size:12px">{"+" if up else ""}{pct:.2f}%</span></div>'
 def ichip(i,t,on=False): return f'<span class="chip{" on" if on else ""}" style="display:inline-flex;gap:6px;align-items:center">{ic(i,14)}{t}</span>'
-def sec(t,r=""): return f'<div class="row" style="margin:20px 0 8px"><span class="lbl">{t}</span><span style="font-size:13px;font-weight:700;color:var(--lime)">{r}</span></div>' if THEME!="v2" else f'<div class="row" style="margin:22px 0 8px"><b style="font-size:15px;letter-spacing:-.01em">{t}</b><span style="font-size:13px;font-weight:700;color:var(--brandInk)">{r}</span></div>'
+def sec(t,r=""): return f'<div class="row" style="margin:20px 0 8px"><span class="lbl">{t}</span><span style="font-size:13px;font-weight:700;color:var(--lime)">{r}</span></div>' if THEME not in ("v2","v4") else f'<div class="row" style="margin:22px 0 8px"><b style="font-size:15px;letter-spacing:-.01em">{t}</b><span style="font-size:13px;font-weight:700;color:var(--brandInk)">{r}</span></div>'
 def stat(l,v): return f'<div style="flex:1"><div class="sub">{l}</div><div class="num" style="font-size:14.5px;margin-top:3px">{v}</div></div>'
 def avatar(t,c="var(--ink)",s=40): return f'<span class="logo" style="background:{c};width:{s}px;height:{s}px;font-size:{s//3}px">{t}</span>'
 
@@ -156,5 +183,7 @@ def chart2(a,b,w=330,h=130,ca=None,cb="#7A86A8"):
         lo,hi=min(min(a),min(b)),max(max(a),max(b)); return " L".join(f"{i*w/(len(v)-1):.1f},{h-8-(x-lo)/(hi-lo)*(h-24):.1f}" for i,x in enumerate(v))
     return f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" style="display:block"><line x1="0" y1="{h-1}" x2="{w}" y2="{h-1}" stroke="{LN}"/><path d="M{pts(b)}" fill="none" stroke="{cb}" stroke-width="2.2" stroke-linejoin="round"/><path d="M{pts(a)}" fill="none" stroke="{ca}" stroke-width="2.6" stroke-linejoin="round"/></svg>'
 
-if THEME=='v2':
+if THEME in ('v2','v4'):
     import extras_v2
+if THEME=='v4':
+    IC['flame']=IC['up']; IC['bolt']=IC['tag']  # v4 bans promotional icons in lists

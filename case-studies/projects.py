@@ -230,60 +230,59 @@ def pulllogic():
 
 # ------------------------------------------------------------------ Crestline
 def crestline():
-    sh = lambda k, n: 'crestline/v2/shots/%s%02d.png' % (k, n)
-    sh = lambda k, n: 'v2/shots/%s%02d.png' % (k, n)
+    sh = lambda k, n: 'v4/shots/%s%02d.png' % (k, n)
     sflat = lambda srcs, caps: g.strip(srcs, caps, flat=True)
     one = lambda src: '<div class="shot"><img src="%s" alt="" style="width:min(100%%,320px)"></div>' % src
-    CS = 'v2/case-study.html'
+    CS = 'v4/case-study.html'
     S = []
-    S.append(g.intro('The brief', 'A trading app, <span class="serif">made calm.</span>',
-        'Crestline is a fictional stock-trading broker. It started as a dark, lime-accented app called Pocket. Version 1 rebuilt it in a light theme. Version 2 researches what people expect from a stock app, closes 32 feature gaps and redesigns the look, structure and flows.',
-        [('Readable first', 'A new palette and typeface fix low-contrast text and make every number easy to read.'), ('Complete', '92 screens across eight flows, from account opening to tax, security and trading tools.'),
-         ('Documented', 'Research plan, personas, wireframes, motion, writing and a design review sit in one case study.')])
-        + '<div style="text-align:center;margin-top:-30px;padding-bottom:20px"><a class="cta" href="' + CS + '">Read the full case study</a></div>')
+    S.append(g.intro('The brief', 'A broking app that <span class="serif">never lies about money.</span>',
+        'Crestline is a fictional Indian broker. Version 4 follows a master specification: fifteen real-world blind spots where investors lose money or get stuck, an institutional navy and signal-orange system, three typefaces with one job each, Wealth and Trader modes, and live states in place of promises.',
+        [('Honest states', 'Orders, pledges, withdrawals and account activation show what is actually happening.'), ('Two modes', 'Wealth mode is calm and roomy. Trader mode packs 14 rows above the fold.'),
+         ('Self-contained case study', 'Every screen and wireframe is embedded, so the page works when shared on its own.')])
+        + '<div style="text-align:center;margin-top:-30px;padding-bottom:20px"><a class="cta" href="' + CS + '">Read the v4 case study</a></div>')
     S.append(g.section(
-        g.spread('01', 'Home and portfolio', [('A dark portfolio card', 'anchors a light, calm home screen.'), ('Index ticker and top movers', 'give market context at a glance.'), ('Five tabs', 'with Markets replacing a narrow watchlist.')],
-                 ['Home', 'Portfolio', 'Navigation'], one(sh('k', 1)))
+        g.spread('01', 'Command home', [('Investor notice', 'shown up front, as the regulator asks.'), ('Net worth and UPI block', 'in one navy card.'), ('Actions and deadlines', 'such as a pledge due by 7 PM or expiry-day margin.')],
+                 ['Home', 'Deadlines', 'Wealth mode'], one(sh('n', 1)))
         + '<div class="gap"></div>'
-        + g.spread('02', 'Markets and discovery', [('Sector heatmap and breadth', 'show where money is moving.'), ('Screener, depth, news, calendar', 'were missing in version 1.'), ('Invest hub', 'collects ETFs, gold, bonds, FDs and funds.')],
-                   ['Markets', 'Discover', 'Invest'], one(sh('k', 2)), flip=True)
+        + g.spread('02', 'Trader mode', [('42-pixel rows', 'with exchange, settlement and surveillance badges.'), ('Margin meter', 'warns at 85% before a peak-margin penalty.'), ('Open positions strip', 'with an Exit all button.')],
+                   ['Density', 'Badges', 'Margin'], one(sh('n', 2)), flip=True)
         + '<div class="gap"></div>'
-        + g.spread('03', 'An order pad you can trust', [('Total required', 'includes charges before you commit.'), ('Order types as chips', 'with a stepper for quantity.'), ('Swipe to confirm', 'prevents accidental orders.')],
-                   ['Orders', 'Confirmation'], one(sh('k', 4)))
+        + g.spread('03', 'An order pad that shows the maths', [('MTF 4x drawer', 'splits your cash, the funded amount and daily interest.'), ('Protected market orders', 'cap slippage on thin strikes.'), ('Pledge reminder', 'for the 4 PM to 7 PM window.')],
+                   ['MTF', 'Order pad', 'Charges'], one(sh('n', 4)))
         + '<div class="gap"></div>'
-        + g.spread('04', 'Tools for active traders', [('Baskets, bracket orders', 'and a margin calculator.'), ('Market depth', 'and a pro chart with indicators.'), ('Risk calculator', 'turns a stop-loss into a share count.')],
-                   ['Depth', 'Baskets', 'Risk'], one(sh('g', 1)), flip=True)
+        + g.spread('04', 'Nothing double-fires', [('Network drop', 'locks Buy and reconciles with the exchange.'), ('Rejections', 'come with a plain reason and one-tap fixes.'), ('Feed failover', 'switches to BSE when NSE stalls.')],
+                   ['Reliability', 'Errors', 'Failover'], one(sh('n', 6)), flip=True)
         + '<div class="gap"></div>'
-        + g.spread('05', 'Trust and growth', [('Security centre and privacy lock', 'put safety up front.'), ('First-trade guide and practice mode', 'help new investors.'), ('Tax report and family view', 'for filing season.')],
-                   ['Security', 'Onboarding', 'Tax'], one(sh('h', 7))), band=True))
+        + g.spread('05', 'Risk you can see', [('Option chain', 'with lot 65, future-equivalent OI and expiry-day margin.'), ('Physical delivery warning', 'for stock options in expiry week.'), ('Kill switch', 'pauses F&O after a daily loss limit, exits still allowed.')],
+                   ['F&O', 'Expiry', 'Limits'], one(sh('n', 9))), band=True))
     S.append(g.section(
-        g.heading('New in version 2', 'Thirty-three screens <span class="serif">the first version missed.</span>')
-        + sflat([sh('f', i) for i in (1, 3, 5, 8, 10, 11)], ['Top movers', 'Screener', 'Market depth', 'News', 'Calendar', 'Compare'])
-        + sflat([sh('g', i) for i in (1, 2, 3, 4, 6, 8)], ['Basket', 'Bracket order', 'Margin calculator', 'Strategy', 'Pro chart', 'Trade book'])
-        + sflat([sh('h', i) for i in (1, 2, 3, 4, 5, 7)], ['Welcome', 'First-trade guide', 'Practice mode', 'Tax report', 'Family', 'Security'])))
+        g.heading('New in version 4', 'Twenty-three screens <span class="serif">from the specification.</span>')
+        + sflat([sh('n', i) for i in (5, 7, 8, 10, 11, 12)], ['Surveillance lock', 'Rejection fixes', 'CDSL pledge', 'Kill switch', 'Physical delivery', 'Diagnostics'])
+        + sflat([sh('n', i) for i in (13, 14, 15, 16, 17, 18)], ['FIFO tax lots', 'Fix buy average', 'Fund cut-off', 'Bond checkout', 'UPI block', 'Withdrawable'])
+        + sflat([sh('n', i) for i in (19, 20, 21, 22, 23, 3)], ['Activation pipeline', 'KYC fast-track', 'Nominees', 'Trader watchlist', 'Service status', 'Feed failover'])))
     S.append(g.section(
-        g.heading('The flows', 'Account, orders, <span class="serif">portfolio and more.</span>', 'All flows now use the new look and gained the sections they lacked.')
-        + sflat([sh('a', i) for i in range(1, 12)], ['Welcome', 'Mobile', 'OTP', 'Email', 'PAN', 'Aadhaar', 'Bank', 'Selfie', 'Nominee', 'PIN', 'Ready'])
+        g.heading('Every flow, re-themed', 'Account, orders, <span class="serif">portfolio and more.</span>', 'All earlier flows use the v4 system and copy rules.')
+        + sflat([sh('a', i) for i in range(1, 12)], ['Welcome', 'Mobile', 'OTP', 'Email', 'PAN', 'Aadhaar', 'Bank', 'Selfie', 'Nominee', 'PIN', 'Activation'])
         + sflat([sh('c', i) for i in range(1, 8)], ['Open', 'Executed', 'GTT', 'Detail', 'Modify', 'Rejected', 'Sell'])
-        + sflat([sh('d', i) for i in range(1, 9)], ['Positions', 'P&L', 'Holding', 'Dividends', 'Fund', 'SIPs', 'IPOs', 'Apply'])
-        + sflat([sh('e', i) for i in range(1, 10)], ['Account', 'Funds', 'Withdraw', 'Reports', 'Settings', 'Alerts', 'Help', 'Empty', 'Offline']), band=True))
+        + sflat([sh('f', i) for i in (1, 3, 5, 8, 10, 11)], ['Top movers', 'Screener', 'Depth', 'News', 'Calendar', 'Compare'])
+        + sflat([sh('h', i) for i in (2, 3, 4, 7, 8, 10)], ['First trade', 'Practice', 'Tax', 'Security', 'Privacy', 'Display']), band=True))
     S.append(g.section(
-        g.heading('Design system', 'Ultramarine, ink <span class="serif">and tabular numbers.</span>', 'Contrast is computed: every text pair passes WCAG AA. The first version failed on secondary text, gain and loss colours.')
-        + g.system(SW(('Paper', '#F4F6FB', '#0B1220'), ('Ink', '#0B1220', '#fff'), ('Brand', '#3447F5', '#fff'), ('Gain', '#06784A', '#fff'), ('Loss', '#C42A32', '#fff')),
-                   '\u20b91,03,255.60', 'font-family:Manrope,sans-serif;font-weight:800',
-                   [('Typeface', 'Manrope, tabular figures'), ('Secondary text', '#5F6B85, 4.9:1 on paper'), ('Gain and loss', 'Always with a sign or arrow')],
-                   'Components', '<div style="display:grid;gap:14px;margin-top:20px"><div style="background:#3447F5;color:#fff;border-radius:18px;padding:15px;font-weight:800;text-align:center">Start SIP</div><div style="display:flex;gap:8px"><span style="background:#0B1220;color:#fff;border-radius:99px;padding:8px 14px;font-size:13px;font-weight:700">1Y</span><span style="background:#222c44;color:#cfd6e6;border-radius:99px;padding:8px 14px;font-size:13px;font-weight:700">3Y</span></div><div style="display:flex;gap:10px"><div style="flex:1;background:#C42A32;color:#fff;border-radius:14px;padding:13px;text-align:center;font-weight:800">Sell</div><div style="flex:1;background:#06784A;color:#fff;border-radius:14px;padding:13px;text-align:center;font-weight:800">Buy</div></div></div>')))
-    S.append('<section><div class="wrap" style="text-align:center"><p class="p rv" style="margin:0 auto 14px;text-align:center">Personas and priorities are hypotheses with a ready research and test plan. No user research has been run yet.</p><a class="cta" href="' + CS + '">Read the full case study</a><div style="margin-top:20px">'
+        g.heading('Design system', 'Navy, signal orange <span class="serif">and three typefaces.</span>', 'Manrope for wealth figures, Inter for the interface, JetBrains Mono for live data. Orange text uses a darker shade because the specified orange is only 3.5:1 on white.')
+        + g.system(SW(('Navy', '#0F2942', '#fff'), ('Canvas', '#F8FAFC', '#0A1120'), ('Signal', '#EA580C', '#0A1120'), ('Buy', '#057A55', '#fff'), ('Sell', '#C81E1E', '#fff')),
+                   '\u20b914,82,450', 'font-family:Manrope,sans-serif;font-weight:800',
+                   [('Wealth and titles', 'Manrope'), ('Interface', 'Inter'), ('Live data', 'JetBrains Mono')],
+                   'Badges', '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;font:700 12px JetBrains Mono,monospace">' + ''.join('<span style="background:%s;color:%s;border-radius:4px;padding:5px 8px">%s</span>' % (b, c, t) for t, b, c in [('NSE', '#E2E8F0', '#334155'), ('T+0', '#FFEDD5', '#C2410C'), ('MTF 4x', '#E0F2FE', '#0C4A6E'), ('ASM-I', '#FEF3C7', '#B45309'), ('ILLIQUID', '#FDE8E8', '#C81E1E'), ('STALE 4s', '#FEF3C7', '#B45309')]) + '</div>')))
+    S.append('<section><div class="wrap" style="text-align:center"><p class="p rv" style="margin:0 auto 14px;text-align:center">Regulatory details follow the v4 specification and must be checked with compliance before real use. Personas are hypotheses with a ready research plan.</p><a class="cta" href="' + CS + '">Read the v4 case study</a> <a class="cta ghost" href="v2/case-study.html">Version 2 case study</a><div style="margin-top:20px">'
              + g.credit('VB', 'Concept by <b>Vikas Banjare</b> &middot; Crestline is a fictional broker') + '</div></div></section>')
-    return dict(title='Crestline Trading App Showcase', desc='A light-theme stock-trading app concept: 92 screens, research plan, wireframes, motion, writing and design review.',
-                bg='#0B1018', bg2='#101826', surface='#182235', mut='#A9B4CC', mut2='#8E9AB4', accent='#8C9BFF', accent_ink='#0B1220',
-                sans='"Manrope",system-ui,sans-serif', serif='"Instrument Serif",serif',
-                fonts='https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap',
-                herobg='radial-gradient(900px 520px at 50% 12%,#1D2A6B 0%,rgba(11,16,24,0) 70%),#0B1018',
-                kicker='Fintech · Mobile app UI · Concept', h1='Crest<span class="serif">line</span>',
-                lede='A stock-trading app, rebuilt calm. Eight flows, 92 screens and a full case study.',
-                hero_vis='<div class="wrap"><div class="stage phones">' + ''.join('<div class="phone flatp p%d"><img src="%s" alt=""></div>' % (i + 1, s) for i, s in enumerate([sh('k', 1), sh('k', 3), sh('k', 4)])) + '</div></div>',
-                meta=[('Type', 'Mobile app, concept'), ('Screens', '92 across 8 flows'), ('Theme', 'Light and dark tokens'), ('Platform', 'iOS')],
+    return dict(title='Crestline Trading App Showcase', desc='Crestline v4: an Indian broking app concept with fifteen blind spots designed, honest state machines and 115 screens.',
+                bg='#0A1626', bg2='#0F1E33', surface='#16263F', mut='#B4C0D3', mut2='#97A6BD', accent='#FB923C', accent_ink='#0A1120',
+                sans='"Inter",system-ui,sans-serif', serif='"Instrument Serif",serif',
+                fonts='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&family=Instrument+Serif:ital@1&display=swap',
+                herobg='radial-gradient(900px 520px at 50% 12%,#1E3A5F 0%,rgba(10,22,38,0) 70%),#0A1626',
+                kicker='Fintech · Mobile app · Concept · v4', h1='Crest<span class="serif">line</span>',
+                lede='An Indian broking app that never lies about money. 115 screens, a 128-screen map and a self-contained case study.',
+                hero_vis='<div class="wrap"><div class="stage phones">' + ''.join('<div class="phone flatp p%d"><img src="%s" alt=""></div>' % (i + 1, s) for i, s in enumerate([sh('n', 1), sh('n', 4), sh('n', 9)])) + '</div></div>',
+                meta=[('Type', 'Mobile app, concept'), ('Screens', '115 designed · 128 mapped'), ('Modes', 'Wealth and Trader'), ('Platform', 'iOS')],
                 sections=S, cols=6, swn=5, outro_h2='More work, <span class="serif">same care.</span>',
                 footer='Crestline concept &middot; designed by Vikas Banjare &middot; fictional broker, no real brand implied',
                 nav_label='Case study', nav_link=CS,

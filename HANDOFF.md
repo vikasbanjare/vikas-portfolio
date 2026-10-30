@@ -203,6 +203,7 @@ lines). The count line and filter counts are computed.
 - `components/uiux-section.html` is static markup + CSS (no script). `rebuild.py` inserts it after `#work`, shifts every later `NN —` label down one, and adds a "UI/UX" menu tab.
 - Section 02's list gets a 14th row from `WORKDATA` (`slug ui-ux-websites`, `href` + `label`, thumbnails in `assets/uiux/`). A project with `href` opens that URL instead of the gallery viewer and adds nothing to the piece count.
 - **Crestline v2** lives in `case-studies/crestline/`. Run generators from that folder with `CREST_THEME=v2` (writes to `v2/`): `flow_a..e.py`, `core2.py`, `flow_f/g/h.py`, `wire.py`, then `cs3.py` for `v2/case-study.html`. `gen.py` holds the theme, icons and helpers, `extras_v2.py` adds content to thin screens by screen id. `/tmp`-style per-screen PNGs in `v2/shots/` come from a headless Chrome loop (see git history). Without `CREST_THEME` the generators still produce the v1 files.
+- **Crestline v4** (current): `CREST_THEME=v4` renders every flow plus `flow_v4.py` (23 new screens) into `v4/`. `gen.py` holds the v4 tokens (`V4_CSS`), the three fonts and `COPY_V4` (replaces hard-coded promises). `python3 cs4.py` writes `v4/case-study.html`, which embeds every screen and wireframe as scoped HTML, so it needs no image files. Orange text uses #C2410C because the spec's #EA580C is only 3.5:1 on white.
 - Credit lines (Mohit Mehra for both Wealthy items) live in `projects.py` and the cards in `components/uiux-section.html`.
 
 ---
