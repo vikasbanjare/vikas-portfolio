@@ -77,7 +77,7 @@ def wealthy_web():
                 herobg='radial-gradient(900px 520px at 50% 12%,#3A1D9B 0%,rgba(14,10,34,0) 70%),#0E0A22',
                 kicker='Fintech · Website UI · 2025', h1='Wealthy <span class="serif">website</span>',
                 lede='Structured UI focused on trust and demo conversions.', hero_vis=g.hero_fig('img/laptop.jpg', 'Wealthy website on a laptop'),
-                meta=[('Company', 'Wealthy'), ('Service', 'Website UI'), ('Industry', 'Fintech'), ('Year', '2025')],
+                meta=[('Design', 'Mohit Mehra'), ('Company', 'Wealthy'), ('Service', 'Website UI'), ('Year', '2025')],
                 sections=S, stepcols=4, swn=6, outro_h2='More work, <span class="serif">same care.</span>',
                 footer='Wealthy website UI &middot; design by <a href="' + MOHIT_WEB + '" target="_blank" rel="noopener">Mohit Mehra</a> &middot; showcased by Vikas Banjare',
                 nav_label='Original case study', nav_link=MOHIT_WEB)
@@ -138,7 +138,7 @@ def wealthy_app():
                 kicker='Fintech · Mobile app UI · 2025', h1='Wealthy <span class="serif">Partner</span> App',
                 lede='Built for distributors managing multiple clients and portfolios.',
                 hero_vis=g.hero_phones(['img/s02.png', 'img/s01.png', 'img/s03.png']),
-                meta=[('Company', 'Wealthy'), ('Platform', 'Mobile app'), ('Industry', 'Fintech'), ('Year', '2025')],
+                meta=[('Design', 'Mohit Mehra'), ('Company', 'Wealthy'), ('Platform', 'Mobile app'), ('Year', '2025')],
                 sections=S, cols=6, stepcols=3, swn=6, outro_h2='More work, <span class="serif">same care.</span>',
                 footer='Wealthy Partner App &middot; design by <a href="' + MOHIT_APP + '" target="_blank" rel="noopener">Mohit Mehra</a> &middot; showcased by Vikas Banjare',
                 nav_label='Original case study', nav_link=MOHIT_APP)
@@ -189,7 +189,7 @@ def leadsquared():
                 herobg='radial-gradient(900px 520px at 50% 10%,#10337F 0%,rgba(8,10,18,0) 70%),#080A12',
                 kicker='UX / Landing page design · 2025', h1='LeadSquared <span class="serif">Healthcare</span> CRM',
                 lede='A conversion-first landing page for the healthcare enterprise.', hero_vis=g.hero_fig('img/desktop.jpg', 'Landing page hero'),
-                meta=[('Brief', 'Interview task'), ('Deliverable', 'Homepage landing page'), ('Scope', 'Strategy, visual design, copy'), ('Responsive', 'Desktop + mobile')],
+                meta=[('My role', 'Strategy, UI and copy'), ('Brief', 'Interview task'), ('Deliverable', 'Homepage landing page'), ('Responsive', 'Desktop + mobile')],
                 sections=S, stepcols=5, swn=5, outro_h2='More work, <span class="serif">same care.</span>',
                 footer='LeadSquared Healthcare CRM concept &middot; designed by Vikas Banjare &middot; not an official LeadSquared page')
 
@@ -223,7 +223,7 @@ def pulllogic():
                 herobg='radial-gradient(900px 520px at 50% 10%,#4A3205 0%,rgba(5,5,5,0) 70%),#050505',
                 kicker='Landing page · Webinar · 2025', h1='Pull <span class="serif">Logic</span> webinar',
                 lede='Intelligent inventory. Competitive edge.', hero_vis=g.hero_fig('img/desktop.jpg', 'Landing page hero'),
-                meta=[('Type', 'Webinar landing page'), ('Event', 'Sep 29, 2025'), ('Goal', 'Registrations'), ('Formats', 'Desktop + mobile')],
+                meta=[('My role', 'Design and build'), ('Type', 'Webinar landing page'), ('Goal', 'Registrations'), ('Formats', 'Desktop + mobile')],
                 sections=S, stepcols=5, swn=5, outro_h2='More work, <span class="serif">same care.</span>',
                 footer='Pull Logic webinar page &middot; designed by Vikas Banjare')
 
@@ -272,7 +272,7 @@ def crestline():
                    '\u20b914,82,450', 'font-family:Manrope,sans-serif;font-weight:800',
                    [('Wealth and titles', 'Manrope'), ('Interface', 'Inter'), ('Live data', 'JetBrains Mono')],
                    'Badges', '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;font:700 12px JetBrains Mono,monospace">' + ''.join('<span style="background:%s;color:%s;border-radius:4px;padding:5px 8px">%s</span>' % (b, c, t) for t, b, c in [('NSE', '#E2E8F0', '#334155'), ('T+0', '#FFEDD5', '#C2410C'), ('MTF 4x', '#E0F2FE', '#0C4A6E'), ('ASM-I', '#FEF3C7', '#B45309'), ('ILLIQUID', '#FDE8E8', '#C81E1E'), ('STALE 4s', '#FEF3C7', '#B45309')]) + '</div>')))
-    S.append('<section><div class="wrap" style="text-align:center"><p class="p rv" style="margin:0 auto 14px;text-align:center">Regulatory details follow the v4 specification and must be checked with compliance before real use. Personas are hypotheses with a ready research plan.</p><a class="cta" href="' + CS + '">Read the v4 case study</a> <a class="cta ghost" href="v2/case-study.html">Version 2 case study</a><div style="margin-top:20px">'
+    S.append('<section><div class="wrap" style="text-align:center"><p class="p rv" style="margin:0 auto 14px;text-align:center">How this was made: I set the brief, the research framing and the design direction. Screens, specifications and documentation were produced with AI assistance and directed and reviewed by me. Regulatory details follow the v4 specification and must be checked with compliance before real use.</p><a class="cta" href="' + CS + '">Read the v4 case study</a> <a class="cta ghost" href="v2/case-study.html">Version 2 case study</a><div style="margin-top:20px">'
              + g.credit('VB', 'Concept by <b>Vikas Banjare</b> &middot; Crestline is a fictional broker') + '</div></div></section>')
     return dict(title='Crestline Trading App Showcase', desc='Crestline v4: an Indian broking app concept with fifteen blind spots designed, honest state machines and 115 screens.',
                 bg='#0A1626', bg2='#0F1E33', surface='#16263F', mut='#B4C0D3', mut2='#97A6BD', accent='#FB923C', accent_ink='#0A1120',
@@ -282,7 +282,7 @@ def crestline():
                 kicker='Fintech · Mobile app · Concept · v4', h1='Crest<span class="serif">line</span>',
                 lede='An Indian broking app that never lies about money. 115 screens, a 128-screen map and a self-contained case study.',
                 hero_vis='<div class="wrap"><div class="stage phones">' + ''.join('<div class="phone flatp p%d"><img src="%s" alt=""></div>' % (i + 1, s) for i, s in enumerate([sh('n', 1), sh('n', 4), sh('n', 9)])) + '</div></div>',
-                meta=[('Type', 'Mobile app, concept'), ('Screens', '115 designed · 128 mapped'), ('Modes', 'Wealth and Trader'), ('Platform', 'iOS')],
+                meta=[('My role', 'Product design, research, system'), ('Screens', '115 designed · 128 mapped'), ('Modes', 'Wealth and Trader'), ('Type', 'Mobile app, concept')],
                 sections=S, cols=6, swn=5, outro_h2='More work, <span class="serif">same care.</span>',
                 footer='Crestline concept &middot; designed by Vikas Banjare &middot; fictional broker, no real brand implied',
                 nav_label='Case study', nav_link=CS,
@@ -293,7 +293,7 @@ def crestline():
 def purple():
     S = []
     S.append(g.intro('The project', 'Lending for small business, <span class="serif">made approachable.</span>',
-        'Purple Finance lends to micro, small and medium businesses. The website has to do two jobs at once: reassure a shop owner that a loan is within reach, and give investors and regulators the disclosures they expect.',
+        'Purple Finance lends to micro, small and medium businesses. I designed the whole website. It has to do two jobs at once: reassure a shop owner that a loan is within reach, and give investors and regulators the disclosures they expect.',
         [('One promise up front', 'Levelling the playing field, with real borrowers in the hero.'), ('Proof in numbers', 'Growth figures and branch reach sit right under the hero.'),
          ('Two audiences, clear paths', 'Borrowers get eligibility and benefits. Investors get disclosures in one place.')]))
     S.append(g.section(
@@ -307,16 +307,16 @@ def purple():
     S.append(g.section(
         g.heading('Visual system', 'Purple, paper <span class="serif">and plain type.</span>', 'Colours sampled from the live site.')
         + g.swatches(SW(('Purple', '#772682', '#fff'), ('Paper', '#F4F5EF', '#1a1a1a'), ('Ink', '#000000', '#fff'), ('Soft purple', '#BF8CC7', '#2a0f30'))), band=True))
-    S.append('<section><div class="wrap" style="text-align:center"><a class="cta" href="https://www.purplefinance.in/" target="_blank" rel="noopener">Visit purplefinance.in</a></div></section>')
+    S.append('<section><div class="wrap" style="text-align:center"><a class="cta" href="https://www.purplefinance.in/" target="_blank" rel="noopener">Visit purplefinance.in</a><div style="margin-top:20px">' + g.credit('VB', 'Designed by <b>Vikas Banjare</b> &middot; every page, end to end') + '</div></div></section>')
     return dict(title='Purple Finance Website Showcase', desc='The Purple Finance website: MSME lending, borrower stories and investor disclosures.',
                 bg='#140A17', bg2='#1B0F1F', surface='#24142A', mut='#C7B3CC', mut2='#A893AE', accent='#D9A6E2', accent_ink='#1B0F1F',
                 sans='"Plus Jakarta Sans",system-ui,sans-serif', serif='"Instrument Serif",serif', fonts=g.FONT_PJS,
                 herobg='radial-gradient(900px 520px at 50% 10%,#5A1C66 0%,rgba(20,10,23,0) 70%),#140A17',
                 kicker='Fintech · Website · Lending', h1='Purple <span class="serif">Finance</span>',
                 lede='A website for small-business lending: approachable for borrowers, complete for investors.', hero_vis=g.hero_fig('img/home.jpg', 'Purple Finance home page'),
-                meta=[('Company', 'Purple Finance'), ('Type', 'Website'), ('Audience', 'MSME borrowers, investors'), ('Pages shown', 'Home, loans, about, investors')],
+                meta=[('My role', 'Website design, end to end'), ('Company', 'Purple Finance'), ('Audience', 'MSME borrowers, investors'), ('Pages shown', 'Home, loans, about, investors')],
                 sections=S, stepcols=4, swn=4, outro_h2='More work, <span class="serif">same care.</span>',
-                footer='Purple Finance website &middot; shown with permission &middot; showcased by Vikas Banjare', nav_label='Visit site', nav_link='https://www.purplefinance.in/')
+                footer='Purple Finance website &middot; designed by Vikas Banjare &middot; shown with permission', nav_label='Visit site', nav_link='https://www.purplefinance.in/')
 
 
 def build():

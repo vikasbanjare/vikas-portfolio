@@ -68,13 +68,13 @@ def hero():
     n_v4=len(CAP['flow-v4-new.html']); n_all=sum(len(v) for v in CAP.values())
     return f'''<div class="hero"><div class="eyebrow">Case study · Crestline v4 · Concept</div><h1>A broking app that <em>never lies</em> about money.</h1>
 <p class="lede">Version 4 follows the master specification: fifteen real-world blind spots, an institutional navy and signal-orange system, three typefaces with one job each, two density modes, honest state machines instead of hard-coded promises, and a 128-screen map.</p>
-<div class="chips"><span class="chip">{n_all} screens designed</span><span class="chip">{n_v4} new in v4</span><span class="chip">128-screen inventory</span><span class="chip">15 blind spots</span><span class="chip">Self-contained page, no image files</span><span class="chip">Concept · fictional broker</span></div></div>'''
+<div class="chips"><span class="chip">{n_all} screens designed</span><span class="chip">{n_v4} new in v4</span><span class="chip">128-screen inventory</span><span class="chip">15 blind spots</span><span class="chip">Self-contained page, no image files</span><span class="chip">Concept · fictional broker</span><span class="chip">Made with AI assistance, directed by me</span></div></div>'''
 def summary():
     body=cards([("What v2 got wrong","Lime was illegible as text and read as a gaming app. Ultramarine buttons fought green Buy and red Sell. One heavy font blurred dense tables. Screens promised timings the system could not guarantee."),
       ("What v4 does","Navy for calm authority, orange only for focus and deadlines. Manrope for wealth, Inter for UI, JetBrains Mono for data. Wealth and Trader density modes. Live states for orders, pledges, withdrawals and activation."),
       ("Read this first","Regulatory details (SEBI rules, margins, tax rates, cut-offs) come from the v4 specification and are dated 2026. Verify every figure with compliance before any real use.")],3)
     show=gal(pick('flow-v4-new.html',{'V1W','V1T','V4M','TR03'}),.5)
-    return sec("00","summary","Summary","Four of the new screens, then the detail.",body+show)
+    return sec("00","summary","Summary","Four of the new screens, then the detail.",body+show+note("<b>How this was made.</b> I set the brief, the research framing and the design direction. Screens, specifications and this document were produced with AI assistance, then directed and reviewed by me.","b"))
 def blind():
     R=[("Physical delivery on stock F&amp;O","Margin climbs from T-4 to full contract value; positions can be squared off or default on delivery","Expiry-week warning with margin ladder and exit, roll or fund options","TR07"),
        ("UPI block for trading","Money sits idle in a broker wallet","Trade from a bank block that keeps earning interest","FD01, V1W"),
