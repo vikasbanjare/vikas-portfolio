@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Airlearn UI Showcase</title>
+<meta name="description" content="Gamified daily-quest UI for a language-learning app: Home, Rewards and Daily Missions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1226; --bg2:#0E1A38; --surface:#121F42; --line:rgba(255,255,255,.1);
+  --text:#F4F7FF; --mut:#9DA9C7; --mut2:#8D99BB;
+  --navy:#27385E; --amber:#F4A217; --sky:#E8F8FF; --green:#81C600; --ring:#2F54E0;
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600}
+
+/* nav */
+.nav{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center}
+.nav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--mut)}
+.nav a:hover{color:var(--text)}
+
+/* hero */
+.hero{position:relative;padding:120px 0 0;background:radial-gradient(900px 520px at 50% 18%,#1B2E63 0%,rgba(10,18,38,0) 70%),var(--bg);overflow:hidden}
+.hero h1{font-size:clamp(56px,11vw,150px);line-height:.92;letter-spacing:-.04em;font-weight:800;text-align:center;margin-top:18px}
+.hero h1 .serif{color:var(--amber);letter-spacing:-.02em}
+.hero .lede{max-width:560px;margin:22px auto 0;text-align:center;color:var(--mut);font-size:clamp(16px,2vw,19px)}
+.hero .top{text-align:center}
+.stage{position:relative;height:clamp(420px,58vw,700px);margin-top:50px}
+.phone{position:absolute;bottom:-60px;left:50%;width:clamp(170px,26vw,320px);aspect-ratio:750/1624;border-radius:clamp(26px,4vw,46px);background:#05070f;padding:clamp(5px,.9vw,10px);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 40px 80px rgba(0,0,0,.55);transition:transform .9s var(--ease)}
+.phone img{width:100%;height:100%;border-radius:clamp(21px,3.3vw,37px);object-fit:cover}
+.p1{transform:translateX(-142%) rotate(-7deg) translateY(30px)}
+.p2{transform:translateX(-50%) translateY(-6px);z-index:2}
+.p3{transform:translateX(42%) rotate(7deg) translateY(30px)}
+.stage.in .p1{transform:translateX(-118%) rotate(-6deg)}
+.stage.in .p3{transform:translateX(18%) rotate(6deg)}
+.stage:not(.in) .p2{transform:translateX(-50%) translateY(60px)}
+.stage.in .p2{transform:translateX(-50%)}
+
+/* meta strip */
+.meta{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:3}
+.meta .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:34px;padding-bottom:34px}
+.meta b{display:block;font-size:17px;margin-top:6px;font-weight:700}
+
+/* generic section */
+section{padding:clamp(70px,10vw,130px) 0}
+h2{font-size:clamp(34px,5vw,60px);letter-spacing:-.03em;line-height:1.02;font-weight:800;margin-top:14px}
+h2 .serif{color:var(--amber)}
+.p{color:var(--mut);font-size:17px;max-width:620px;margin-top:20px}
+
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+.facts{display:grid;gap:14px}
+.fact{background:var(--surface);border-radius:20px;padding:22px 24px;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.fact i{font-style:normal;font-family:"Instrument Serif",serif;font-size:34px;line-height:1;color:var(--amber)}
+.fact b{display:block;font-size:16px;margin-bottom:3px}
+.fact span{color:var(--mut);font-size:14.5px}
+
+/* screen spreads */
+.spread{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.spread.flip .shot{order:2}
+.shot{position:relative;display:grid;place-items:center;padding:clamp(30px,5vw,56px);border-radius:36px;background:var(--bg2);overflow:hidden}
+.shot.sky{background:linear-gradient(180deg,#BFE3FA,#E8F8FF)}
+.shot.navy{background:linear-gradient(160deg,#27385E,#162244)}
+.shot.amber{background:linear-gradient(160deg,#F7B33F,#E58E00)}
+.shot .phone{position:relative;left:auto;bottom:auto;transform:none;width:min(100%,300px);box-shadow:0 30px 60px rgba(8,14,36,.45),0 0 0 1px rgba(255,255,255,.12)}
+.num{font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(70px,10vw,120px);line-height:.8;color:var(--amber)}
+.spread h3{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;line-height:1.05;font-weight:800;margin:14px 0 0}
+.spread ul{list-style:none;margin-top:26px;display:grid;gap:16px}
+.spread li{display:grid;grid-template-columns:28px 1fr;gap:14px;color:var(--mut);font-size:16px}
+.spread li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--amber);margin-top:9px;margin-left:4px}
+.spread li b{color:var(--text);font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tag{font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:99px;background:var(--surface);color:var(--mut)}
+.gap{height:clamp(70px,9vw,120px)}
+
+/* detail band */
+.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.details{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:50px}
+.d{border-radius:28px;overflow:hidden;position:relative;background:var(--sky)}
+.d img{width:100%;height:100%;object-fit:cover}
+.d figcaption{position:absolute;left:14px;bottom:14px;background:rgba(10,18,38,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:99px}
+.d.a{grid-column:span 5;aspect-ratio:1/1}
+.d.b{grid-column:span 7;aspect-ratio:7/5}
+.d.c{grid-column:span 7;aspect-ratio:7/3.2}
+.d.e{grid-column:span 5;aspect-ratio:5/3.2}
+.d.f{grid-column:span 12;aspect-ratio:12/4.2}
+.d.f img{object-position:center 40%}
+
+/* system */
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+.sw{border-radius:24px;padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end}
+.sw b{font-size:17px}.sw span{font-size:13px;opacity:.9;font-weight:500;letter-spacing:.04em}
+.sys{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:18px}
+.card{background:var(--surface);border-radius:28px;padding:30px}
+.card h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600}
+.type .big{font-size:clamp(44px,6vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:18px}
+.type .rows{margin-top:24px;display:grid;gap:12px;color:var(--mut)}
+.type .rows div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;font-size:14px}
+.type .rows b{color:var(--text)}
+.comp{display:grid;gap:16px;margin-top:20px}
+.pill{display:inline-flex;gap:6px;background:#fff;border-radius:99px;padding:6px}
+.pill span{padding:8px 15px;border-radius:99px;font-weight:600;font-size:14px;color:#8EA0BF}
+.pill .on{background:var(--navy);color:#fff}
+.btn{background:var(--green);color:#10240A;font-weight:700;border-radius:18px;padding:16px;text-align:center;box-shadow:inset 0 -4px 0 rgba(0,0,0,.14)}
+.bar{height:14px;border-radius:99px;background:#FFF2DB;overflow:hidden}
+.bar i{display:block;height:100%;width:34%;background:var(--amber);border-radius:99px}
+.tiles{display:flex;gap:10px}
+.tile{flex:1;border-radius:18px;background:#EAF6FF;border:3px solid #A9D5F0;color:#1F5A86;text-align:center;padding:10px 0;font-weight:700;font-size:13px}
+.tile.on{background:var(--amber);border-color:#FBD48B;color:#2A1A00}
+.rings{display:flex;gap:12px}
+.ring{width:56px;height:56px;border-radius:50%;border:5px solid var(--ring);border-right-color:#C9D4FA;background:#fff}
+.ring:nth-child(2){border-color:#E94A4A;border-right-color:#FAD0D0}.ring:nth-child(3){border-color:#C9DB1A;border-right-color:#EEF2B3}
+
+/* outro */
+.outro{text-align:center}
+.outro h2{margin-left:auto;margin-right:auto;max-width:760px}
+.cta{display:inline-block;margin-top:34px;background:var(--amber);color:#1B1305;font-weight:700;text-decoration:none;padding:16px 28px;border-radius:99px;transition:transform .3s var(--ease)}
+.cta:hover{transform:translateY(-3px)}
+footer{padding:30px 0 50px;color:var(--mut2);font-size:13px;text-align:center}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .meta .wrap{grid-template-columns:1fr 1fr}
+  .intro,.spread,.sys{grid-template-columns:1fr}
+  .spread.flip .shot{order:0}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .swatches .sw:last-child{grid-column:span 2}
+  .d.a,.d.b,.d.c,.d.e,.d.f{grid-column:span 12;aspect-ratio:auto}
+  .d img{height:auto}
+  .stage.in .p1{transform:translateX(-104%) rotate(-5deg)}
+  .stage.in .p3{transform:translateX(4%) rotate(5deg)}
+}
+@media (prefers-reduced-motion:reduce){.rv,.phone{transition:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap"><a href="../index.html">&larr; All UI/UX work</a><a href="#screens">Screens</a></div></header>
+
+<div class="hero">
+  <div class="wrap top">
+    <div class="eyebrow">Mobile app UI &middot; iOS</div>
+    <h1>Air<span class="serif">learn</span></h1>
+    <p class="lede">A language-learning app that turns a daily habit into a quest. Three screens, one idea: make showing up feel like progress.</p>
+  </div>
+  <div class="wrap">
+    <div class="stage" id="stage">
+      <div class="phone p1"><img src="rewards.png" alt="Airlearn Rewards screen" loading="eager"></div>
+      <div class="phone p2"><img src="home.png" alt="Airlearn Home screen" loading="eager"></div>
+      <div class="phone p3"><img src="daily-missions.png" alt="Airlearn Daily Missions screen" loading="eager"></div>
+    </div>
+  </div>
+</div>
+
+<div class="meta"><div class="wrap">
+  <div><span class="eyebrow">Platform</span><b>iOS</b></div>
+  <div><span class="eyebrow">Deliverable</span><b>3 key screens</b></div>
+  <div><span class="eyebrow">Focus</span><b>Gamification</b></div>
+  <div><span class="eyebrow">Design</span><b>Vikas Banjare</b></div>
+</div></div>
+
+<section>
+  <div class="wrap intro">
+    <div class="rv">
+      <div class="eyebrow">The idea</div>
+      <h2>Learning is a streak. <span class="serif">Design it like one.</span></h2>
+      <p class="p">Language apps lose people in week two. This UI gives every day a place on a visible path, a reward to collect and a friendly guide to walk with. The interface stays light and airy so the playful 3D elements do the talking.</p>
+    </div>
+    <div class="facts rv">
+      <div class="fact"><i>1</i><div><b>A path, not a list</b><span>Days become tiles on a bridge, so progress reads as distance travelled.</span></div></div>
+      <div class="fact"><i>2</i><div><b>One reason to come back</b><span>A daily reward grid and badges give each login a payoff.</span></div></div>
+      <div class="fact"><i>3</i><div><b>A mascot with a job</b><span>The cat guides, celebrates and sets the tone on every screen.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="screens">
+  <div class="wrap">
+    <div class="spread rv">
+      <div class="shot sky"><div class="phone"><img src="home.png" alt="Airlearn Home screen" loading="lazy"></div></div>
+      <div>
+        <div class="num">01</div>
+        <h3>Home: the daily quest</h3>
+        <ul>
+          <li><span><b>Week strip with a clear "today".</b> A navy pill marks the current day, so orientation takes no thought.</span></li>
+          <li><span><b>Progress in one glance.</b> An amber bar and a 30% bubble show how much of today is done.</span></li>
+          <li><span><b>Isometric day bridge.</b> The mascot stands on the current tile with a speech bubble, and the next days wait ahead.</span></li>
+          <li><span><b>Floating pill tab bar.</b> Home, Tasks, Rewards and Settings, with amber marking the active tab.</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Hierarchy</span><span class="tag">Progress</span><span class="tag">Illustration</span></div>
+      </div>
+    </div>
+    <div class="gap"></div>
+    <div class="spread flip rv">
+      <div class="shot amber"><div class="phone"><img src="rewards.png" alt="Airlearn Rewards screen" loading="lazy"></div></div>
+      <div>
+        <div class="num">02</div>
+        <h3>Rewards: a reason to return</h3>
+        <ul>
+          <li><span><b>Eight-tile reward grid.</b> The active day glows amber against calm blue tiles, so the state is obvious.</span></li>
+          <li><span><b>One loud action.</b> A glossy green "Collect Reward" button is the clear next step.</span></li>
+          <li><span><b>Badges worth showing off.</b> Hexagon trophies in blue, green and red give each skill its own colour.</span></li>
+          <li><span><b>Warm, plain copy.</b> Short lines like "Collect your daily reward" keep the tone friendly.</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Gamification</span><span class="tag">States</span><span class="tag">Badges</span></div>
+      </div>
+    </div>
+    <div class="gap"></div>
+    <div class="spread rv">
+      <div class="shot navy"><div class="phone"><img src="daily-missions.png" alt="Airlearn Daily Missions screen" loading="lazy"></div></div>
+      <div>
+        <div class="num">03</div>
+        <h3>Daily Missions: small wins</h3>
+        <ul>
+          <li><span><b>Mascot hero.</b> The cat waves from the clouds over a soft sky, a calm start to the screen.</span></li>
+          <li><span><b>Level and chips.</b> A green level bar sits above streak, rewards and rank chips for quick status.</span></li>
+          <li><span><b>Ring progress for habits.</b> Water, sleep, steps and quizzes each get their own colour and live value.</span></li>
+          <li><span><b>Exercises below the fold.</b> Lessons show chapters, a progress bar and a completion tick.</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Dashboards</span><span class="tag">Habits</span><span class="tag">Rings</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">Close up</div>
+      <h2>Details that <span class="serif">make it feel alive.</span></h2>
+    </div>
+    <div class="details">
+      <figure class="d a rv"><img src="crops/mascot.png" alt="The cat mascot waving" loading="lazy"><figcaption>The guide</figcaption></figure>
+      <figure class="d b rv"><img src="crops/bridge.png" alt="Isometric day bridge" loading="lazy"><figcaption>Day bridge</figcaption></figure>
+      <figure class="d c rv"><img src="crops/tiles.png" alt="Reward tiles" loading="lazy"><figcaption>Reward states</figcaption></figure>
+      <figure class="d e rv"><img src="crops/progress.png" alt="Week strip and progress card" loading="lazy"><figcaption>Progress card</figcaption></figure>
+      <figure class="d f rv"><img src="crops/badges.png" alt="Achievement badges" loading="lazy"><figcaption>Achievements</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">System</div>
+      <h2>A small kit, <span class="serif">used with discipline.</span></h2>
+      <p class="p">Navy for structure, amber for the thing you should look at, green for the thing you should tap. Colours below are sampled from the screens.</p>
+    </div>
+    <div class="swatches rv">
+      <div class="sw" style="background:#27385E;color:#fff"><b>Navy</b><span>#27385E</span></div>
+      <div class="sw" style="background:#F4A217;color:#2a1a00"><b>Amber</b><span>#F4A217</span></div>
+      <div class="sw" style="background:#81C600;color:#10240a"><b>Green</b><span>#81C600</span></div>
+      <div class="sw" style="background:#E8F8FF;color:#27385E"><b>Sky</b><span>#E8F8FF</span></div>
+      <div class="sw" style="background:#2F54E0;color:#fff"><b>Ring blue</b><span>#2F54E0</span></div>
+    </div>
+    <div class="sys">
+      <div class="card type rv">
+        <h4>Typography</h4>
+        <div class="big">Hi Mark</div>
+        <div class="rows">
+          <div><span>Headline</span><b>Bold &middot; 34</b></div>
+          <div><span>Section title</span><b>Bold &middot; 22</b></div>
+          <div><span>Body</span><b>Regular &middot; 16</b></div>
+          <div><span>Caption</span><b>Medium &middot; 13</b></div>
+        </div>
+      </div>
+      <div class="card rv">
+        <h4>Components</h4>
+        <div class="comp">
+          <div class="pill"><span class="on">Wed</span><span>Thu</span><span>Fri</span></div>
+          <div class="bar"><i></i></div>
+          <div class="tiles"><div class="tile">Day 8</div><div class="tile on">Day 8</div><div class="tile">Day 9</div></div>
+          <div class="rings"><i class="ring"></i><i class="ring"></i><i class="ring"></i></div>
+          <div class="btn">Collect Reward</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="wrap rv">
+    <div class="eyebrow">Next</div>
+    <h2>More work, <span class="serif">same care.</span></h2>
+    <a class="cta" href="../index.html">All UI/UX work</a><a class="cta" href="../../index.html" style="background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line);margin-left:10px">Back to portfolio</a>
+  </div>
+</section>
+<footer>Airlearn UI &middot; designed by Vikas Banjare</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv,#stage');
+  if(!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++)els[i].classList.add('in');return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  for(var i=0;i<els.length;i++)io.observe(els[i]);
+  setTimeout(function(){document.getElementById('stage').classList.add('in')},250);
+})();
+</script>
+</body>
+</html>

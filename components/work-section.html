@@ -257,7 +257,7 @@
   if (!root || !WORK || !WORK.length) { return; }
 
   var DESK = '(min-width: 1024px) and (min-height: 560px)';   // identical string in the CSS
-  var FEATURED = ['podcast-videos', 'social-media-designs', 'wealthy-yt-ads', 'creative-designs', 'trailer-video'];
+  var FEATURED = ['podcast-videos', 'ui-ux-websites', 'social-media-designs', 'wealthy-yt-ads', 'creative-designs', 'trailer-video'];
   var FLIP_MS = 950, INTENT_MS = 90, SETTLE_MS = 110, FOCUS_GRACE_MS = 400, HYST_PX = 14;
   var ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
 
@@ -280,7 +280,7 @@
   }
   function kindOf(p) { return imgs(p).length && vids(p).length ? 'mix' : (vids(p).length ? 'film' : 'design'); }
   function kindLabel(p) { var k = kindOf(p); return k === 'mix' ? 'Design + film' : (k === 'film' ? 'Film' : 'Design'); }
-  function metaLabel(p) { return countLabel(p) || kindLabel(p); }   // "8 films", "1 piece · 2 films"; the kind word only when there is nothing to count
+  function metaLabel(p) { return p.label || countLabel(p) || kindLabel(p); }   // "8 films", "1 piece · 2 films"; the kind word only when there is nothing to count
   function posters(p) {   // playlist order; ids without a poster are skipped
     var out = [], v = vids(p), i;
     for (i = 0; i < v.length; i++) { if (p.posters && p.posters[v[i]]) { out.push(p.posters[v[i]]); } }
@@ -301,7 +301,7 @@
   function thumbOf(p) { return framesOf(p)[0]; }   // the row thumb is the frame the monitor opens on
   function usable(p) { return !!framesOf(p)[0]; }   // no cover, no frames, no posters: nothing to show, so no row
   function matchesFilter(p, f) {   // a mixed project matches both
-    return f === 'all' || (f === 'film' && vids(p).length > 0) || (f === 'design' && imgs(p).length > 0);
+    return f === 'all' || (f === 'film' && vids(p).length > 0) || (f === 'design' && (imgs(p).length > 0 || !!p.href));
   }
   function clamp01(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
 
@@ -587,6 +587,7 @@
       if (t.getAttribute) { s = t.getAttribute('data-slug') || (t.hasAttribute('data-vw2-open') ? activeSlug : null); }
       t = t.parentNode;
     }
+    if (s && bySlug[s] && bySlug[s].href) { window.location.href = bySlug[s].href; return; }   // a showcase hub, not an image gallery
     if (s && typeof window.__vbOpenProject === 'function') { window.__vbOpenProject(s); }
   });
 

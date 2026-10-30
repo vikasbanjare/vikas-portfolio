@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wealthy Website UI Showcase</title><meta name="description" content="Structured UI for trust and demo conversions: Wealthy fintech website, 2025."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet"><style>
+:root{--bg:#0E0A22;--bg2:#140F2E;--surface:#1B1540;--line:rgba(255,255,255,.1);--text:#F4F7FF;--mut:#B3ABD2;--mut2:#9890BC;--accent:#8B63FF;--accent-ink:#fff;--ease:cubic-bezier(.2,.7,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Lato",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.serif{font-family:"Playfair Display",serif;font-style:italic;font-weight:400}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600}
+.nav{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center}
+.nav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--mut)}.nav a:hover{color:var(--text)}
+.hero{position:relative;padding:120px 0 0;background:radial-gradient(900px 520px at 50% 12%,#3A1D9B 0%,rgba(14,10,34,0) 70%),#0E0A22;overflow:hidden}
+.hero .top{text-align:center}
+.hero h1{font-size:clamp(46px,9vw,132px);line-height:.94;letter-spacing:-.04em;font-weight:800;margin-top:18px}
+.hero h1 .serif{color:var(--accent);letter-spacing:-.02em}
+.hero .lede{max-width:600px;margin:22px auto 0;color:var(--mut);font-size:clamp(16px,2vw,19px)}
+.stage{position:relative;margin-top:54px}
+.stage.phones{height:clamp(420px,58vw,700px)}
+.phone{position:absolute;bottom:-60px;left:50%;width:clamp(170px,26vw,320px);aspect-ratio:750/1624;border-radius:clamp(26px,4vw,46px);background:#05070f;padding:clamp(5px,.9vw,10px);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 40px 80px rgba(0,0,0,.5);transition:transform .9s var(--ease)}
+.phone img{width:100%;height:100%;border-radius:clamp(21px,3.3vw,37px);object-fit:cover;object-position:top}
+.p1{transform:translateX(-142%) rotate(-7deg) translateY(30px)}.p2{transform:translateX(-50%) translateY(60px);z-index:2}.p3{transform:translateX(42%) rotate(7deg) translateY(30px)}
+.stage.in .p1{transform:translateX(-118%) rotate(-6deg)}.stage.in .p2{transform:translateX(-50%)}.stage.in .p3{transform:translateX(18%) rotate(6deg)}
+.herofig{border-radius:28px 28px 0 0;overflow:hidden;box-shadow:0 -10px 80px rgba(0,0,0,.35);max-height:clamp(260px,46vw,640px)}
+.herofig img{width:100%;object-fit:cover;object-position:top}
+.meta{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:3}
+.meta .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:34px;padding-bottom:34px}
+.meta b{display:block;font-size:17px;margin-top:6px;font-weight:700}
+section{padding:clamp(70px,10vw,130px) 0}
+.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-size:clamp(32px,5vw,58px);letter-spacing:-.03em;line-height:1.04;font-weight:800;margin-top:14px}
+h2 .serif{color:var(--accent)}
+.p{color:var(--mut);font-size:17px;max-width:640px;margin-top:20px}
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+.facts{display:grid;gap:14px}
+.fact{background:var(--surface);border-radius:20px;padding:22px 24px;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.fact i{font-style:normal;font-family:"Playfair Display",serif;font-size:34px;line-height:1;color:var(--accent)}
+.fact b{display:block;font-size:16px;margin-bottom:3px}.fact span{color:var(--mut);font-size:14.5px}
+.spread{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.spread.flip .shot{order:2}
+.shot{position:relative;display:grid;place-items:center;padding:clamp(24px,4vw,50px);border-radius:36px;background:var(--surface);overflow:hidden}
+.shot .ph{width:min(100%,300px);aspect-ratio:750/1624;border-radius:38px;background:#05070f;padding:8px;box-shadow:0 30px 60px rgba(8,14,36,.4),0 0 0 1px rgba(255,255,255,.12)}
+.shot .ph img{width:100%;height:100%;border-radius:30px;object-fit:cover;object-position:top}
+.shot.wide{padding:clamp(18px,3vw,36px)}
+.shot img.flat{width:100%;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.num{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(64px,9vw,110px);line-height:.8;color:var(--accent)}
+.spread h3{font-size:clamp(26px,3.4vw,42px);letter-spacing:-.03em;line-height:1.06;font-weight:800;margin:14px 0 0}
+.spread ul{list-style:none;margin-top:24px;display:grid;gap:15px}
+.spread li{display:grid;grid-template-columns:28px 1fr;gap:12px;color:var(--mut);font-size:16px}
+.spread li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:9px;margin-left:4px}
+.spread li b{color:var(--text);font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:99px;background:var(--surface);color:var(--mut)}
+.band .tag{background:var(--bg)}
+.gap{height:clamp(60px,8vw,110px)}
+/* scroll frames */
+.frame{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.1)}
+.frame .bar{display:flex;gap:7px;padding:12px 16px;background:#E9E9EE}
+.frame .bar i{width:11px;height:11px;border-radius:50%;background:#C9C9D2}
+.frame .scroll{max-height:clamp(380px,62vw,720px);overflow-y:auto;overscroll-behavior:contain;background:#fff}
+.frame .scroll img{width:100%}
+.hint{margin-top:12px;font-size:12.5px;color:var(--mut2);text-align:center}
+.mframe{width:min(100%,330px);margin:0 auto;border-radius:44px;background:#05070f;padding:9px;box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.12)}
+.mframe .scroll{height:clamp(500px,110vw,660px);overflow-y:auto;border-radius:36px;background:#fff;overscroll-behavior:contain}
+.mframe img{width:100%}
+.duo{display:grid;grid-template-columns:2.2fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;margin-top:50px}
+/* screen strip */
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:46px}
+.strip figure{position:relative}
+.strip .ph{aspect-ratio:750/1624;border-radius:30px;background:#05070f;padding:6px;box-shadow:0 20px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.1)}
+.strip .ph img{width:100%;height:100%;border-radius:24px;object-fit:cover;object-position:top}
+.strip figcaption{margin-top:12px;font-size:13px;font-weight:600;color:var(--mut);text-align:center}
+.strip.flat .ph{background:transparent;padding:0;box-shadow:none}
+.strip.flat .ph img{border-radius:0;object-fit:contain}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.step{background:var(--surface);border-radius:24px;padding:26px}
+.step i{font-style:normal;font-family:"Playfair Display",serif;font-size:40px;color:var(--accent);line-height:1}
+.step b{display:block;font-size:17px;margin:12px 0 6px}.step span{color:var(--mut);font-size:14.5px}
+.lists{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+.lcard{background:var(--surface);border-radius:24px;padding:28px}
+.lcard h4{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
+.lcard li{list-style:none;color:var(--mut);padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:46px}
+.ba>div{border-radius:26px;padding:30px}
+.ba .b{background:var(--surface)}.ba .a{background:var(--accent);color:var(--accent-ink)}
+.ba h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:14px;opacity:.8}
+.ba li{list-style:none;padding:10px 0;border-top:1px solid rgba(127,127,127,.25);font-weight:600}
+/* system */
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:44px}
+.sw{border-radius:22px;padding:20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end}
+.sw b{font-size:16px}.sw span{font-size:12.5px;opacity:.9;font-weight:500;letter-spacing:.04em}
+.sys{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.card{background:var(--surface);border-radius:28px;padding:30px}
+.band .card{background:var(--bg)}
+.card h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600}
+.type .big{font-size:clamp(40px,6vw,72px);letter-spacing:-.03em;line-height:1;margin-top:18px}
+.type .rows{margin-top:22px;display:grid;gap:12px;color:var(--mut)}
+.type .rows div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;font-size:14px}
+.type .rows b{color:var(--text)}
+.quote{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(28px,4.4vw,52px);line-height:1.15;max-width:900px;margin:0 auto;text-align:center}
+.credit{margin-top:44px;display:inline-flex;gap:12px;align-items:center;background:var(--surface);border-radius:99px;padding:10px 20px 10px 12px;font-size:14px;color:var(--mut);text-decoration:none}
+.credit b{color:var(--text)}.credit i{width:30px;height:30px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink);font-style:normal;font-weight:800;font-size:13px}
+.outro{text-align:center}.outro h2{margin-left:auto;margin-right:auto;max-width:760px}
+.cta{display:inline-block;margin-top:32px;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:16px 28px;border-radius:99px;transition:transform .3s var(--ease)}.cta:hover{transform:translateY(-3px)}
+.cta.ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line);margin-left:10px}
+footer{padding:30px 0 50px;color:var(--mut2);font-size:13px;text-align:center}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.rv.in{opacity:1;transform:none}
+@media (max-width:900px){
+ .meta .wrap{grid-template-columns:1fr 1fr}.intro,.spread,.sys,.duo,.ba,.lists{grid-template-columns:1fr}
+ .spread.flip .shot{order:0}.swatches{grid-template-columns:repeat(2,1fr)}
+ .strip{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr 1fr}
+ .stage.in .p1{transform:translateX(-104%) rotate(-5deg)}.stage.in .p3{transform:translateX(4%) rotate(5deg)}
+}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.cta.ghost{margin:12px 0 0}}
+@media (prefers-reduced-motion:reduce){.rv,.phone{transition:none}.rv{opacity:1;transform:none}}
+</style></head><body><header class="nav"><div class="wrap"><a href="../index.html">&larr; All UI/UX work</a><a href="https://mohitmehra.framer.website/website-ui-design">Original case study</a></div></header><div class="hero"><div class="wrap top"><div class="eyebrow">Fintech · Website UI · 2025</div><h1>Wealthy <span class="serif">website</span></h1><p class="lede">Structured UI focused on trust and demo conversions.</p></div><div class="wrap"><div class="stage"><div class="herofig"><img src="img/laptop.jpg" alt="Wealthy website on a laptop"></div></div></div></div><div class="meta"><div class="wrap"><div><span class="eyebrow">Company</span><b>Wealthy</b></div><div><span class="eyebrow">Service</span><b>Website UI</b></div><div><span class="eyebrow">Industry</span><b>Fintech</b></div><div><span class="eyebrow">Year</span><b>2025</b></div></div></div><section><div class="wrap intro"><div class="rv"><div class="eyebrow">The brief</div><h2>Structured UI for <span class="serif">trust and demos.</span></h2><p class="p">A website UI for Wealthy, a fintech platform built for distributors. The goal: move the site from a long feature list to a clear platform story that earns trust and drives demo bookings.</p></div><div class="facts rv"><div class="fact"><i>1</i><div><b>From listing to positioning</b><span>The product list becomes a platform story with a clear hierarchy.</span></div></div><div class="fact"><i>2</i><div><b>Modular product clarity</b><span>Products are grouped into scannable modules instead of one dense list.</span></div></div><div class="fact"><i>3</i><div><b>Tech-first positioning</b><span>Technology and API credibility sit next to the sales message.</span></div></div></div></div></section><section class="band"><div class="wrap"><div class="rv"><div class="eyebrow">The page</div><h2>The whole site, <span class="serif">top to bottom.</span></h2><p class="p">Scroll the frame to move through the full page design.</p></div><div class="rv" style="margin-top:46px;max-width:760px;margin-left:auto;margin-right:auto"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="scroll"><img src="img/fullpage.png" alt="" loading="lazy"></div></div><div class="hint">Scroll inside the frame to see the full page</div></div></div></section><section class=""><div class="wrap"><div class="rv"><div class="eyebrow">Positioning gap</div><h2>From feature listing to <span class="serif">platform positioning.</span></h2></div><div class="ba rv"><div class="b"><h4>Before</h4><ul><li>Dense product listing</li><li>Weak hierarchy</li><li>Limited tech emphasis</li></ul></div><div class="a"><h4>After</h4><ul><li>Modular product clarity</li><li>Strong section structure</li><li>Tech-first positioning</li></ul></div></div></div></section><section class="band"><div class="wrap"><div class="rv"><div class="eyebrow">Execution framework</div><h2>Outcome-focused, <span class="serif">in three phases.</span></h2><p class="p">Each phase prioritised clarity, hierarchy and conversion, so the experience reflects the scale and technology behind Wealthy.</p></div><div class="lists"><div class="lcard rv"><h4>Research &amp; positioning</h4><ul><li>Distributor persona</li><li>Market audit</li><li>Competitor analysis</li><li>Business goals</li></ul></div><div class="lcard rv"><h4>Architecture &amp; systems</h4><ul><li>Content hierarchy</li><li>Platform flow</li><li>Feature grouping</li><li>CTA mapping</li></ul></div><div class="lcard rv"><h4>Interface &amp; refinement</h4><ul><li>UI system</li><li>Component consistency</li><li>Hierarchy &amp; spacing</li><li>Handoff &amp; polish</li></ul></div></div></div></section><section class=""><div class="wrap"><div class="rv"><div class="eyebrow">Information architecture</div><h2>Authority before capability, <span class="serif">trust before conversion.</span></h2><p class="p">Each section builds on the previous one.</p></div><div class="steps" style="grid-template-columns:repeat(4,1fr)"><div class="step rv"><i>01</i><b>Authority</b><span>Establish scale and credibility first.</span></div><div class="step rv"><i>02</i><b>Products</b><span>Modular product ecosystem.</span></div><div class="step rv"><i>03</i><b>Onboarding</b><span>A clear, step-by-step path in.</span></div><div class="step rv"><i>04</i><b>Conversion</b><span>CTAs near high-intent sections.</span></div><div class="step rv"><i>05</i><b>Capability</b><span>What the platform can do.</span></div><div class="step rv"><i>06</i><b>Tech</b><span>Technology and API credibility.</span></div><div class="step rv"><i>07</i><b>Support</b><span>Help when it is needed.</span></div></div></div></section><section class="band"><div class="wrap"><div class="spread rv"><div class="shot wide" style=""><img class="flat" src="img/home.jpg" alt="" loading="lazy"></div><div><div class="num">01</div><h3>Product ecosystem</h3><ul><li><span><b>Modular grouping</b> improves scan speed.</span></li><li><span><b>Feature clusters</b> reduce cognitive load.</span></li><li><span><b>CTA anchored</b> near high-intent sections.</span></li></ul><div class="tags"><span class="tag">Products</span><span class="tag">Hierarchy</span><span class="tag">CTA</span></div></div></div><div class="gap"></div><div class="spread rv flip"><div class="shot wide" style=""><img class="flat" src="img/hero.jpg" alt="" loading="lazy"></div><div><div class="num">02</div><h3>Onboarding & tech</h3><ul><li><span><b>Step-by-step flow</b> reduces drop-off.</span></li><li><span><b>Tech credibility</b> reinforces trust.</span></li><li><span><b>API documentation</b> signals capability.</span></li></ul><div class="tags"><span class="tag">Onboarding</span><span class="tag">Platform</span><span class="tag">Trust</span></div></div></div></div></section><section class="band"><div class="wrap"><div class="rv"><div class="eyebrow">Live today</div><h2>The site, <span class="serif">as it ships.</span></h2><p class="p">Captured from wealthy.in with permission. Scroll inside each frame.</p></div><div class="duo rv"><div><div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="scroll"><img src="img/live-home.jpg" alt="" loading="lazy"></div></div><div class="hint">Home page · scroll inside the frame</div></div><div><div class="mframe"><div class="scroll"><img src="img/live-mobile.jpg" alt="" loading="lazy"></div></div><div class="hint">Home on mobile</div></div></div><div class="cols2 rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px"><div><div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="scroll"><img src="img/live-calculators.jpg" alt="" loading="lazy"></div></div><div class="hint">Calculators</div></div><div><div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="scroll"><img src="img/live-insights.jpg" alt="" loading="lazy"></div></div><div class="hint">Insights</div></div></div></div></section><section class=""><div class="wrap"><div class="rv"><div class="eyebrow">Visual system</div><h2>Typography <span class="serif">and colour.</span></h2><p class="p">Brand purple is used strategically to signal trust and drive action, paired with bold, confident typography that establishes strong hierarchy and clarity.</p></div><div class="swatches rv"><div class="sw" style="background:#5F29EB;color:#fff"><b>Brand purple</b><span>#5F29EB</span></div><div class="sw" style="background:#FFFFFF;color:#1a1030"><b>White</b><span>#FFFFFF</span></div><div class="sw" style="background:#927EC7;color:#fff"><b>Soft purple</b><span>#927EC7</span></div><div class="sw" style="background:#000000;color:#fff"><b>Black</b><span>#000000</span></div><div class="sw" style="background:#F9F6FE;color:#1a1030"><b>Lavender tint</b><span>#F9F6FE</span></div><div class="sw" style="background:#FCF5E7;color:#1a1030"><b>Cream</b><span>#FCF5E7</span></div></div><div class="sys"><div class="card type rv"><h4>Typography</h4><div class="big" style="font-family:'Playfair Display',serif;font-style:italic">Aa Playfair</div><div class="rows"><div><span>Headlines</span><b>Playfair · Bold</b></div><div><span>Body</span><b>Lato · Regular</b></div><div><span>Labels</span><b>Lato · Medium / Semibold</b></div></div></div><div class="card rv"><h4>Components</h4><div style="display:grid;gap:14px;margin-top:20px"><div style="background:#5F29EB;color:#fff;border-radius:99px;padding:14px 22px;font-weight:700;text-align:center">Book a demo</div><div style="background:#F9F6FE;color:#1a1030;border-radius:18px;padding:18px;font-weight:700">Products<br><span style="font-weight:400;font-size:14px;color:#6a5f8f">Modular, scannable, calm.</span></div><div style="background:#FCF5E7;color:#1a1030;border-radius:18px;padding:18px;font-weight:700">Trust strip<br><span style="font-weight:400;font-size:14px;color:#7a6a45">Authority first.</span></div></div></div></div></div></section><section class="band"><div class="wrap"><div class="rv"><div class="eyebrow">Conversion &amp; clarity</div><h2>Design outcomes, <span class="serif">in four lines.</span></h2></div><div class="steps" style="grid-template-columns:repeat(4,1fr)"><div class="step rv"><i>1</i><b>Stronger feature comprehension</b><span>Modular layouts enable faster scanning and understanding.</span></div><div class="step rv"><i>2</i><b>Clearer tech positioning</b><span>API-first messaging reinforces platform credibility.</span></div><div class="step rv"><i>3</i><b>Higher CTA visibility</b><span>Strategic placement at high-intent decision points.</span></div><div class="step rv"><i>4</i><b>Reduced cognitive friction</b><span>Progressive disclosure over information overload.</span></div></div></div></section><section class=""><div class="wrap"><div class="rv"><div class="eyebrow">Execution</div><h2>Four days. <span class="serif">One system.</span></h2><p class="p">Focused and outcome driven.</p></div><div class="steps"><div class="step rv"><i>Day 1</i><b>Research</b><span>Understanding how distributors actually work and where they face friction.</span></div><div class="step rv"><i>Day 2</i><b>Architecture</b><span>Simplifying the structure so everything is easier to find.</span></div><div class="step rv"><i>Day 3</i><b>Wireframes</b><span>Exploring layouts to make the experience more intuitive.</span></div><div class="step rv"><i>Day 4</i><b>Visual refinement</b><span>Improving clarity and consistency across screens.</span></div><div class="step rv"><i>Day 5</i><b>Final refinement</b><span>Polishing and aligning everything before delivery.</span></div></div><div style="text-align:center"><a class="credit" href="https://mohitmehra.framer.website/website-ui-design" target="_blank" rel="noopener"><i>MM</i><span>Designed by <b>Mohit Mehra</b> &middot; view the original case study</span></a></div></div></section><section class="outro"><div class="wrap rv"><div class="eyebrow">Next</div><h2>More work, <span class="serif">same care.</span></h2><a class="cta" href="../index.html">All UI/UX work</a><a class="cta ghost" href="../../index.html">Back to portfolio</a></div></section><footer>Wealthy website UI &middot; design by <a href="https://mohitmehra.framer.website/website-ui-design" target="_blank" rel="noopener">Mohit Mehra</a> &middot; showcased by Vikas Banjare</footer><script>(function(){var els=document.querySelectorAll('.rv,.stage');
+if(!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++)els[i].classList.add('in');return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+for(var i=0;i<els.length;i++)io.observe(els[i]);
+setTimeout(function(){var s=document.querySelector('.stage.phones');if(s)s.classList.add('in')},250)})();</script></body></html>

@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Crestline — screens (light)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F5F0;--card:#fff;--ink:#0B0B0B;--ink2:#5B5F66;--ink3:#8B9098;--line:#E6E6E0;--lime:#C8FF00;--limeD:#EEFFB0;--up:#0C8F52;--upBg:#E4F6EC;--dn:#D13B3B;--dnBg:#FBE9E9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#DCDCD4;font-family:Inter,system-ui,sans-serif;color:var(--ink);padding:40px;-webkit-font-smoothing:antialiased}
+.grid{display:grid;grid-template-columns:repeat(4,390px);gap:36px 36px;justify-content:center}
+.cap{font-size:12px;color:#5B5F66;margin:0 0 10px 6px;font-weight:600;letter-spacing:.04em}
+.phone{width:390px;height:844px;background:var(--bg);border-radius:44px;position:relative;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.35);border:8px solid #101010}
+.sb{height:46px;display:flex;justify-content:space-between;align-items:center;padding:6px 26px 0;font-weight:600;font-size:15px}
+.sb i{width:64px;height:20px;background:#101010;border-radius:10px;position:absolute;left:50%;top:10px;transform:translateX(-50%)}
+.sb b{font-weight:600;width:48px;height:12px;border:1.5px solid #101010;border-radius:4px;display:block}
+.pad{padding:0 20px}
+.num{font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:-.02em}
+.up{color:var(--up)}.dn{color:var(--dn)}
+.h1{font-size:30px;font-weight:700;letter-spacing:-.03em}
+.row{display:flex;align-items:center;justify-content:space-between}
+.mut{color:var(--ink2);font-size:13px}
+.tab{position:absolute;bottom:0;left:0;right:0;height:84px;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding-top:10px}
+.tab div{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:var(--ink3);font-weight:500}
+.tab div.on{color:var(--ink);font-weight:700}
+.tab svg{width:24px;height:24px}
+.tab .on svg{background:var(--lime);border-radius:8px;padding:3px;width:30px;height:30px}
+.card{background:var(--card);border-radius:22px;padding:18px;border:1px solid var(--line)}
+.chip{display:inline-flex;padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:600}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill{display:inline-flex;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:600}
+.btn{display:flex;justify-content:center;align-items:center;height:54px;border-radius:16px;background:var(--ink);color:#fff;font-weight:600;font-size:16px}
+.btn.lime{background:var(--lime);color:var(--ink)}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.logo{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff}
+.tile{width:62px;height:62px;border-radius:18px;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+.tile svg{width:30px;height:30px}
+.sep{height:1px;background:var(--line)}
+.key{height:62px;display:grid;place-items:center;font-size:24px;font-weight:500}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z M14 3.3A9 9 0 0 1 20.7 10H14z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-bars" viewBox="0 0 32 32"><path d="M5 26h22M9 26V16M16 26V8M23 26V13" stroke="#0B0B0B" stroke-width="2.4" stroke-linecap="round"/></symbol>
+<symbol id="i-fo" viewBox="0 0 32 32"><path d="M6 24l7-8 5 4 8-11" fill="none" stroke="#0B0B0B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="9" r="2.4" fill="#C8FF00" stroke="#0B0B0B" stroke-width="1.6"/></symbol>
+<symbol id="i-coins" viewBox="0 0 32 32"><ellipse cx="16" cy="10" rx="9" ry="4" fill="none" stroke="#0B0B0B" stroke-width="2.2"/><path d="M7 10v6c0 2.2 4 4 9 4s9-1.8 9-4v-6M7 16v6c0 2.2 4 4 9 4s9-1.8 9-4v-6" fill="none" stroke="#0B0B0B" stroke-width="2.2"/></symbol>
+<symbol id="i-ipo" viewBox="0 0 32 32"><rect x="6" y="14" width="20" height="12" rx="3" fill="none" stroke="#0B0B0B" stroke-width="2.2"/><path d="M16 5v13M11 11l5-6 5 6" fill="none" stroke="#0B0B0B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-gold" viewBox="0 0 32 32"><path d="M5 22l5-10h12l5 10z" fill="#C8FF00" stroke="#0B0B0B" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+<symbol id="i-fd" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="18" rx="4" fill="none" stroke="#0B0B0B" stroke-width="2.2"/><circle cx="16" cy="16" r="4" fill="none" stroke="#0B0B0B" stroke-width="2.2"/></symbol>
+<symbol id="i-bond" viewBox="0 0 32 32"><rect x="6" y="9" width="20" height="14" rx="2" fill="none" stroke="#0B0B0B" stroke-width="2.2"/><path d="M12 16h8" stroke="#0B0B0B" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-etf" viewBox="0 0 32 32"><rect x="6" y="14" width="9" height="12" rx="2" fill="none" stroke="#0B0B0B" stroke-width="2.2"/><rect x="17" y="6" width="9" height="20" rx="2" fill="#C8FF00" stroke="#0B0B0B" stroke-width="2.2"/></symbol>
+</defs></svg>
+
+<div class="grid">
+
+<!-- 1 SIGN IN -->
+<div><div class="cap">01 · SIGN IN</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad" style="margin-top:34px">
+  <div style="width:56px;height:56px;border-radius:18px;background:var(--lime);display:grid;place-items:center"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M4 22l8-9 6 5 10-12" fill="none" stroke="#0B0B0B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="h1" style="margin-top:22px">Welcome back,<br>Aarav</div><div class="mut" style="margin-top:10px">Enter your 4-digit PIN to continue</div>
+  <div style="display:flex;gap:16px;margin:30px 0 8px"><span style="width:18px;height:18px;border-radius:50%;background:var(--ink)"></span><span style="width:18px;height:18px;border-radius:50%;background:var(--ink)"></span><span style="width:18px;height:18px;border-radius:50%;background:var(--ink)"></span><span style="width:18px;height:18px;border-radius:50%;border:2px solid var(--ink3)"></span></div>
+ </div>
+ <div style="position:absolute;bottom:34px;left:20px;right:20px">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);text-align:center">
+   <div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div><div class="key">5</div><div class="key">6</div><div class="key">7</div><div class="key">8</div><div class="key">9</div>
+   <div class="key" style="font-size:13px;color:var(--ink2);font-weight:600">Use Face ID</div><div class="key">0</div><div class="key" style="font-size:20px">⌫</div></div>
+ </div></div></div>
+
+<!-- 2 HOME -->
+<div><div class="cap">02 · HOME</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad row" style="height:56px"><div style="font-weight:800;font-size:22px;letter-spacing:-.04em">crestline</div><div style="display:flex;gap:10px"><span class="tile" style="width:42px;height:42px;border-radius:50%"><svg viewBox="0 0 24 24" width="20" height="20"><use href="#i-eye" style="color:#0B0B0B"/></svg></span></div></div>
+ <div style="margin:6px 0;padding:12px 20px;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;gap:30px"><div><div style="font-size:11px;color:var(--ink3);font-weight:600">NIFTY 50</div><div class="num" style="font-size:15px">24,342.00 <span class="dn" style="font-size:12px">▼ 0.22%</span></div></div><div><div style="font-size:11px;color:var(--ink3);font-weight:600">SENSEX</div><div class="num" style="font-size:15px">80,912.65 <span class="up" style="font-size:12px">▲ 0.31%</span></div></div></div>
+ <div class="pad" style="margin-top:14px"><div class="card" style="background:#0B0B0B;color:#fff;border:none">
+  <div class="row"><span style="opacity:.7;font-size:13px">Portfolio value</span><span style="font-size:13px"><b style="border-bottom:2px solid var(--lime);padding-bottom:3px">Holdings</b> &nbsp;<span style="opacity:.6">Positions</span></span></div>
+  <div class="num" style="font-size:34px;margin:14px 0 10px">₹1,03,255.60</div>
+  <span class="pill" style="background:rgba(200,255,0,.18);color:var(--lime)">▲ +₹77.30 (0.07%)</span> <span style="opacity:.7;font-size:13px;margin-left:6px">today</span>
+  <div class="sep" style="background:rgba(255,255,255,.15);margin:14px 0 10px"></div><div style="font-size:13px;opacity:.75">Invested <b class="num" style="opacity:1">₹98,028.88</b></div></div></div>
+ <div class="pad" style="margin-top:22px"><div style="font-size:20px;font-weight:700;letter-spacing:-.02em">Products</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px;margin-top:14px;text-align:center;font-size:12px;font-weight:600">
+   <div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-bars"/></svg></div>Stocks</div><div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-fo"/></svg></div>F&amp;O</div><div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-coins"/></svg></div>Mutual funds</div><div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-ipo"/></svg></div>IPO</div>
+   <div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-etf"/></svg></div>ETFs</div><div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-gold"/></svg></div>Gold</div><div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-fd"/></svg></div>FD</div><div><div class="tile" style="margin:0 auto 7px"><svg><use href="#i-bond"/></svg></div>Bonds</div></div></div>
+ <div class="pad" style="margin-top:20px"><div class="row"><div style="font-size:20px;font-weight:700;letter-spacing:-.02em">Most bought</div><span style="font-weight:600;font-size:13px">View all</span></div>
+  <div style="display:flex;gap:12px;margin-top:12px"><div class="card" style="flex:0 0 168px;padding:14px"><div class="row" style="justify-content:flex-start;gap:8px"><span class="logo" style="background:#1B4F9C;width:32px;height:32px;font-size:10px">HD</span><div style="font-size:13px;font-weight:700">HDFC Bank<div class="mut" style="font-size:11px;font-weight:500">HDFCBANK</div></div></div><div class="num" style="font-size:17px;margin-top:12px">₹1,652.00</div><span class="pill up" style="background:var(--upBg);margin-top:6px">▲ +0.18%</span></div>
+  <div class="card" style="flex:0 0 168px;padding:14px"><div class="row" style="justify-content:flex-start;gap:8px"><span class="logo" style="background:#0E9A8A;width:32px;height:32px;font-size:10px">SZ</span><div style="font-size:13px;font-weight:700">Suzlon<div class="mut" style="font-size:11px;font-weight:500">SUZLON</div></div></div><div class="num" style="font-size:17px;margin-top:12px">₹47.29</div><span class="pill dn" style="background:var(--dnBg);margin-top:6px">▼ -0.67%</span></div></div></div>
+ <div class="tab"><div class="on"><svg><use href="#i-home"/></svg>Home</div><div><svg><use href="#i-eye"/></svg>Watchlist</div><div><svg><use href="#i-pie"/></svg>Portfolio</div><div><svg><use href="#i-list"/></svg>Orders</div><div><svg><use href="#i-user"/></svg>Account</div></div></div></div>
+
+<!-- 3 PORTFOLIO -->
+<div><div class="cap">03 · PORTFOLIO</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad"><div class="h1" style="margin-top:8px">Portfolio</div><div class="mut" style="margin-top:14px">Current value</div><div class="num" style="font-size:36px;margin-top:2px">₹1,03,255.60</div>
+  <div class="up num" style="font-size:14px;margin-top:6px">+₹5,226.72 (+5.33%) overall · XIRR +16.2%</div><div class="mut" style="margin-top:4px">Invested <b class="num" style="color:var(--ink)">₹98,028.88</b> · Today <span class="up num">+₹77.30</span></div>
+  <div style="display:flex;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px;margin-top:18px"><div style="flex:1;text-align:center;padding:11px;border-radius:99px;background:var(--ink);color:#fff;font-weight:600;font-size:14px">Holdings · 6</div><div style="flex:1;text-align:center;padding:11px;color:var(--ink2);font-weight:600;font-size:14px">Positions · 2</div></div>
+  <div style="display:flex;gap:8px;margin:14px 0"><span class="chip on">All 6</span><span class="chip">Stocks 5</span><span class="chip">Suspended 1</span></div>
+  <div style="display:flex;flex-direction:column">
+   <div class="row" style="padding:14px 0;border-top:1px solid var(--line)"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#C9A24B">R</span><div style="font-weight:700;font-size:15px">Reliance Industries<div class="mut" style="font-weight:400;font-size:12px;margin-top:2px">22 shares · avg ₹1,209.73</div></div></div><div style="text-align:right"><div class="num" style="font-size:15px">₹27,456.00</div><div class="up num" style="font-size:12px">+3.16%</div></div></div>
+   <div class="row" style="padding:14px 0;border-top:1px solid var(--line)"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#2F6FE0">T</span><div style="font-weight:700;font-size:15px">Tata Consultancy Services<div class="mut" style="font-weight:400;font-size:12px;margin-top:2px">6 shares · avg ₹3,120.00</div></div></div><div style="text-align:right"><div class="num" style="font-size:15px">₹20,472.60</div><div class="up num" style="font-size:12px">+9.36%</div></div></div>
+   <div class="row" style="padding:14px 0;border-top:1px solid var(--line)"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#1CA5E0">C</span><div style="font-weight:700;font-size:15px">Canara Bank<div class="mut" style="font-weight:400;font-size:12px;margin-top:2px">148 shares · avg ₹110.14</div></div></div><div style="text-align:right"><div class="num" style="font-size:15px">₹19,425.00</div><div class="up num" style="font-size:12px">+19.17%</div></div></div>
+   <div class="row" style="padding:14px 0;border-top:1px solid var(--line)"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#1B4F9C">H</span><div style="font-weight:700;font-size:15px">HDFC Bank<div class="mut" style="font-weight:400;font-size:12px;margin-top:2px">8 shares · avg ₹1,544.20</div></div></div><div style="text-align:right"><div class="num" style="font-size:15px">₹13,216.00</div><div class="up num" style="font-size:12px">+6.98%</div></div></div></div></div>
+ <div class="tab"><div><svg><use href="#i-home"/></svg>Home</div><div><svg><use href="#i-eye"/></svg>Watchlist</div><div class="on"><svg><use href="#i-pie"/></svg>Portfolio</div><div><svg><use href="#i-list"/></svg>Orders</div><div><svg><use href="#i-user"/></svg>Account</div></div></div></div>
+
+<!-- 4 MUTUAL FUNDS -->
+<div><div class="cap">04 · MUTUAL FUNDS</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad"><div class="row" style="height:52px"><div class="h1" style="font-size:24px">Mutual funds</div><span class="chip">Search</span></div>
+  <div style="display:flex;gap:22px;font-weight:600;font-size:15px;border-bottom:1px solid var(--line);padding:6px 0 0"><span style="padding-bottom:9px;border-bottom:3px solid var(--ink)">Explore</span><span style="color:var(--ink3)">Dashboard</span><span style="color:var(--ink3)">SIPs</span></div>
+  <div class="card" style="background:var(--limeD);border-color:#DDF28A;margin-top:16px"><div style="font-weight:700;font-size:15px">Start a SIP from ₹100 a month</div><div class="mut" style="margin-top:4px;color:#3C4A10">Direct plans only. No commission, so more of your money stays invested.</div></div>
+  <div class="row" style="margin:20px 0 10px"><b style="font-size:18px;letter-spacing:-.02em">Collections</b><span style="font-weight:600;font-size:13px">See all 10</span></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px 6px;text-align:center;font-size:11.5px;font-weight:600">
+   <div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-coins"/></svg></div>Index funds</div><div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-etf"/></svg></div>Large cap</div><div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-bars"/></svg></div>Mid cap</div><div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-fo"/></svg></div>Small cap</div>
+   <div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-pie"/></svg></div>Flexi cap</div><div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-fd"/></svg></div>Tax saver</div><div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-bond"/></svg></div>Debt</div><div><div class="tile" style="margin:0 auto 6px"><svg><use href="#i-gold"/></svg></div>Gold &amp; silver</div></div>
+  <div style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin:20px 0 4px">Popular on Crestline</div>
+  <div class="row" style="padding:12px 0;border-bottom:1px solid var(--line)"><div><b style="font-size:15px">Parag Parikh Flexi Cap</b><div class="mut" style="font-size:12px">Flexi cap · Very high risk · 0.63%</div></div><div style="text-align:right"><b class="up num">+21.4%</b><div class="mut" style="font-size:11px">3Y a year</div></div></div>
+  <div class="row" style="padding:12px 0;border-bottom:1px solid var(--line)"><div><b style="font-size:15px">HDFC Mid Cap</b><div class="mut" style="font-size:12px">Mid cap · Very high risk · 0.74%</div></div><div style="text-align:right"><b class="up num">+26.8%</b><div class="mut" style="font-size:11px">3Y a year</div></div></div></div>
+ <div class="tab"><div class="on"><svg><use href="#i-home"/></svg>Home</div><div><svg><use href="#i-eye"/></svg>Watchlist</div><div><svg><use href="#i-pie"/></svg>Portfolio</div><div><svg><use href="#i-list"/></svg>Orders</div><div><svg><use href="#i-user"/></svg>Account</div></div></div></div>
+
+<!-- 5 BUY PAD -->
+<div><div class="cap">05 · BUY PAD</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad"><div class="row" style="height:50px"><span style="font-size:22px">←</span><span class="mut">Order</span><span style="width:22px"></span></div>
+  <div class="row"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#2F6FE0">T</span><div><b style="font-size:18px">TCS</b><div class="mut" style="font-size:12px">NSE · Tata Consultancy Services</div></div></div><div style="text-align:right"><div class="num" style="font-size:17px">₹3,412.30</div><div class="up num" style="font-size:12px">+0.84%</div></div></div>
+  <div style="display:flex;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px;margin-top:20px"><div style="flex:1;text-align:center;padding:10px;border-radius:99px;background:var(--up);color:#fff;font-weight:700;font-size:14px">Buy</div><div style="flex:1;text-align:center;padding:10px;color:var(--ink2);font-weight:600;font-size:14px">Sell</div></div>
+  <div style="display:flex;gap:8px;margin:14px 0"><span class="chip on">Delivery</span><span class="chip">Intraday</span><span class="chip">+ Hedge</span></div>
+  <div class="card"><div class="row"><span class="mut">Quantity</span><span class="num" style="font-size:26px">12</span></div><div class="sep" style="margin:12px 0"></div><div class="row"><span class="mut">Limit price</span><span class="num" style="font-size:26px">₹3,410.00</span></div><div class="sep" style="margin:12px 0"></div><div class="row"><span class="mut">Order type</span><b style="font-size:14px">Limit</b></div></div>
+  <div class="row mut" style="margin:16px 4px 0"><span>Required</span><b class="num" style="color:var(--ink)">₹40,920.00</b></div><div class="row mut" style="margin:6px 4px 0"><span>Available</span><b class="num" style="color:var(--ink)">₹52,310.40</b></div></div>
+ <div style="position:absolute;left:20px;right:20px;bottom:24px">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);text-align:center;font-size:20px;margin-bottom:12px"><div class="key" style="height:42px">1</div><div class="key" style="height:42px">2</div><div class="key" style="height:42px">3</div></div>
+  <div style="height:62px;border-radius:20px;background:var(--ink);position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600"><span style="position:absolute;left:6px;width:50px;height:50px;border-radius:15px;background:var(--lime);display:grid;place-items:center;color:var(--ink);font-size:20px">→</span>Swipe to buy</div></div></div></div>
+
+<!-- 6 ORDER STATUS -->
+<div><div class="cap">06 · ORDER PLACED · WAITING</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad" style="text-align:center;margin-top:40px"><div style="width:84px;height:84px;margin:0 auto;border-radius:50%;background:var(--limeD);display:grid;place-items:center"><div style="width:52px;height:52px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:24px">✓</div></div>
+  <div class="h1" style="font-size:26px;margin-top:22px">Order placed</div><div class="mut" style="margin-top:8px;font-size:14px;padding:0 16px">Your limit is <b>₹3,410.00</b> and the last price is <b>₹3,412.30</b>. It will fill when TCS trades at or below your price.</div></div>
+ <div class="pad" style="margin-top:26px"><div class="card"><div class="row"><b>Buy 12 · TCS</b><span class="pill" style="background:#FFF4D6;color:#8A6100">Waiting</span></div><div class="sep" style="margin:12px 0"></div>
+  <div class="row mut"><span>Order ID</span><span class="num" style="color:var(--ink);font-size:12px">240915000417</span></div><div class="row mut" style="margin-top:8px"><span>Valid till</span><span>Today, 3:30 PM</span></div><div class="row mut" style="margin-top:8px"><span>Charges (est.)</span><span class="num" style="color:var(--ink);font-size:13px">₹46.12</span></div></div>
+  <div style="margin-top:18px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ink3)">WHAT HAPPENS NEXT</div>
+  <div style="margin-top:10px;display:flex;flex-direction:column;gap:12px;font-size:14px"><div style="display:flex;gap:12px"><span style="width:22px;height:22px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:12px">✓</span>Sent to exchange</div><div style="display:flex;gap:12px"><span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--ink3)"></span>Waiting for your price</div><div style="display:flex;gap:12px;color:var(--ink3)"><span style="width:22px;height:22px;border-radius:50%;border:2px dashed var(--line)"></span>Shares credited in 1 day</div></div></div>
+ <div style="position:absolute;left:20px;right:20px;bottom:30px;display:flex;flex-direction:column;gap:10px"><div class="btn">Track order</div><div class="btn ghost">Go to home</div></div></div></div>
+
+<!-- 7 ADD FUNDS -->
+<div><div class="cap">07 · ADD FUNDS (UPI)</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad"><div class="row" style="height:50px"><span style="font-size:22px">←</span><b>Add money</b><span style="width:22px"></span></div>
+  <div class="mut" style="margin-top:10px">Amount</div><div class="num" style="font-size:44px;margin:4px 0 12px">₹ 25,000</div>
+  <div style="display:flex;gap:8px"><span class="chip">+ ₹5,000</span><span class="chip">+ ₹10,000</span><span class="chip on">+ ₹25,000</span></div>
+  <div class="card" style="margin-top:20px;padding:6px 18px"><div class="row" style="padding:12px 0"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#5B2BD6;width:36px;height:36px">G</span><b style="font-size:15px">UPI app</b></div><span style="width:20px;height:20px;border-radius:50%;border:6px solid var(--ink);background:#fff"></span></div><div class="sep"></div><div class="row" style="padding:12px 0"><div style="display:flex;gap:12px;align-items:center"><span class="logo" style="background:#8B9098;width:36px;height:36px">B</span><b style="font-size:15px">Net banking</b></div><span style="width:20px;height:20px;border-radius:50%;border:2px solid var(--line)"></span></div></div>
+  <div class="mut" style="margin:16px 4px;font-size:12.5px;line-height:1.5">Money from your linked bank account only. Funds reflect in seconds and can be used as margin right away.</div></div>
+ <div style="position:absolute;left:20px;right:20px;bottom:30px"><div class="btn lime">Pay ₹25,000</div></div></div></div>
+
+<!-- 8 SIP -->
+<div><div class="cap">08 · START A SIP</div><div class="phone">
+ <div class="sb">9:41<i></i><b></b></div>
+ <div class="pad"><div class="row" style="height:50px"><span style="font-size:22px">←</span><b>Start SIP</b><span style="width:22px"></span></div>
+  <div class="card" style="padding:14px"><b style="font-size:16px">Parag Parikh Flexi Cap</b><div class="mut" style="font-size:12px;margin-top:3px">Direct · Growth · Very high risk</div></div>
+  <div class="mut" style="margin-top:20px">Monthly amount</div><div class="num" style="font-size:44px;margin:4px 0 10px">₹ 5,000</div>
+  <div class="card" style="padding:6px 18px"><div class="row" style="padding:13px 0"><span class="mut">Date</span><b>5th of every month</b></div><div class="sep"></div><div class="row" style="padding:13px 0"><span class="mut">Start</span><b>5 Nov 2026</b></div><div class="sep"></div><div class="row" style="padding:13px 0"><span class="mut">Step-up</span><b>10% every year</b></div></div>
+  <div class="card" style="margin-top:14px;background:#fff"><div class="mut" style="font-size:12px">If invested for 10 years at 12% a year (illustration)</div><div class="num" style="font-size:26px;margin-top:6px">₹17.4 lakh</div><div style="height:8px;background:#EEF0EA;border-radius:6px;margin-top:12px;overflow:hidden"><div style="width:34%;height:100%;background:var(--ink)"></div></div><div class="row mut" style="font-size:11.5px;margin-top:8px"><span>Invested ₹6 lakh</span><span>Returns ₹11.4 lakh</span></div></div></div>
+ <div style="position:absolute;left:20px;right:20px;bottom:30px"><div class="btn">Set up auto-pay</div></div></div></div>
+
+</div></body></html>

@@ -7,3 +7,7 @@ __pycache__/
 # design explorations, not shipped
 prototypes/
 .gstack/
+
+# raw downloads for the UI/UX showcases (large; the web-sized copies in img/ are what ships)
+case-studies/*/raw/
+case-studies/*/_*.html

@@ -546,6 +546,17 @@ WORKDATA = [{
     "posters": poster_paths(p), "frames": frame_paths(p),
     "url": p["url_behance"],
 } for p in projects]
+# 14th project: the UI/UX showcases. No gallery images (it opens case-studies/ instead), so it adds
+# nothing to the piece count; `href` + `label` are read by components/work-section.html.
+_ux_frames = ["assets/uiux/work-mosaic.jpg"] + [f"assets/uiux/{k}.jpg" for k in
+              ("crestline", "airlearn", "wealthy-app", "wealthy-web", "leadsquared", "pulllogic", "purple-finance")]
+for _f in _ux_frames:
+    assert (ROOT / _f).exists(), f"missing {_f}"
+WORKDATA.append({
+    "slug": "ui-ux-websites", "title": "UI/UX & Websites", "tags": ["UI/UX", "Web design"],
+    "kind": "image", "cover": _ux_frames[0], "images": [], "videos": [], "posters": {},
+    "frames": _ux_frames, "url": "case-studies/", "href": "case-studies/", "label": "7 showcases",
+})
 _local = sum(1 for p in WORKDATA for s in p["images"] if not s.startswith("http"))
 _total = sum(len(p["images"]) for p in WORKDATA)
 
@@ -589,6 +600,7 @@ VB_WORK = [{
     "slug": w["slug"], "title": w["title"], "tags": w["tags"], "kind": w["kind"],
     "cover": w["cover"], "images": w["images"], "videos": w["videos"],
     "posters": w["posters"], "frames": w["frames"],
+    **({"href": w["href"], "label": w["label"]} if w.get("href") else {}),
 } for w in WORKDATA]
 work_js = """
 (function () {
@@ -669,6 +681,39 @@ tpl = tpl.replace("</head>", parts.TOOLS_CSS + "</head>", 1)
 
 # menu gets a Tools entry pointing at the new section
 tpl = tpl.replace('<a href="#os"', '<a href="#tools"', 1) if '<a href="#os"' in tpl else tpl
+
+# 4f-bis. UI/UX & websites — new section 03 right after the work list. Static markup + CSS
+#         (every card is a plain link to case-studies/<slug>/showcase.html), so no script.
+#         Everything from the old 03 onward shifts down one, like the Tools insert above.
+for n in range(10, 2, -1):
+    old_txt, new_txt = f"{n:02d} — ", f"{n + 1:02d} — "
+    old_lbl, new_lbl = f"{n:02d} &mdash; ", f"{n + 1:02d} &mdash; "
+    if old_txt in tpl:
+        tpl = tpl.replace(old_txt, new_txt)
+    if old_lbl in tpl:
+        tpl = tpl.replace(old_lbl, new_lbl)
+
+ux = (ROOT / "components" / "uiux-section.html").read_text(encoding="utf-8")
+ux_css = re.search(r"<style>(.*?)</style>", ux, re.S).group(1)
+ux_sec = re.search(r"(<section data-vbux.*?</section>)", ux, re.S).group(1)
+assert "[data-vbux]" in ux_css and "<script" not in ux_sec
+work_end = tpl.index("</section>", tpl.index('id="work"')) + len("</section>")
+tpl = tpl[:work_end] + ux_sec + tpl[work_end:]
+tpl = tpl.replace("</head>", "<style>" + ux_css + "</style></head>", 1)
+
+# menu: add a UI/UX tab after Work and renumber the tabs in order
+_a = re.compile(r'<a href="#(\w+)" data-menu-link="1"[^>]*>.*?</a>', re.S)
+_tools = next(m for m in _a.finditer(tpl) if m.group(1) == "tools")
+_work = next(m for m in _a.finditer(tpl) if m.group(1) == "work")
+_ux = _tools.group(0).replace('href="#tools"', 'href="#uiux"').replace(">Tools</a>", ">UI/UX</a>")
+assert ">UI/UX</a>" in _ux
+tpl = tpl[:_work.end()] + "\n    " + _ux + tpl[_work.end():]
+_count = [0]
+def _renum(m):
+    _count[0] += 1
+    return re.sub(r'(letter-spacing:\.16em; color:#5d6e8e;">)\d\d(</span>)', lambda k: k.group(1) + f"{_count[0]:02d}" + k.group(2), m.group(0), count=1)
+tpl = _a.sub(_renum, tpl)
+print(f"  ui/ux section      : {len(re.findall('vux-card', ux_sec))} cards, menu tabs renumbered ({_count[0]})")
 
 # 4g. Experience gets substance: logo, dates, scope, expandable detail.
 #     The stack row lands in the Tools section.
