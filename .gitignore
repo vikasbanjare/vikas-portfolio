@@ -11,3 +11,6 @@ prototypes/
 # raw downloads for the UI/UX showcases (large; the web-sized copies in img/ are what ships)
 case-studies/*/raw/
 case-studies/*/_*.html
+
+# the original Pocket design bundle (real names and numbers), never published
+case-studies/crestline/source-design/
