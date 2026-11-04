@@ -259,4 +259,4 @@ def purple():
 
 
 def build():
-    return {'wealthy-web': wealthy_web(), 'wealthy-app': wealthy_app(), 'leadsquared': leadsquared(), 'pulllogic': pulllogic(), 'purple-finance': purple()}
+    return {'wealthy-web': wealthy_web(), 'wealthy-app': wealthy_app(), 'purple-finance': purple()}

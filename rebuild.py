@@ -549,13 +549,13 @@ WORKDATA = [{
 # 14th project: the UI/UX showcases. No gallery images (it opens case-studies/ instead), so it adds
 # nothing to the piece count; `href` + `label` are read by components/work-section.html.
 _ux_frames = ["assets/uiux/work-mosaic.jpg"] + [f"assets/uiux/{k}.jpg" for k in
-              ("crestline", "airlearn", "wealthy-app", "wealthy-web", "leadsquared", "pulllogic", "purple-finance")]
+              ("crestline", "airlearn", "wealthy-app", "wealthy-web", "leadsquared", "purple-finance")]
 for _f in _ux_frames:
     assert (ROOT / _f).exists(), f"missing {_f}"
 WORKDATA.append({
     "slug": "ui-ux-websites", "title": "UI/UX & Websites", "tags": ["UI/UX", "Web design"],
     "kind": "image", "cover": _ux_frames[0], "images": [], "videos": [], "posters": {},
-    "frames": _ux_frames, "url": "case-studies/", "href": "case-studies/", "label": "7 showcases",
+    "frames": _ux_frames, "url": "case-studies/", "href": "case-studies/", "label": "6 showcases",
 })
 _local = sum(1 for p in WORKDATA for s in p["images"] if not s.startswith("http"))
 _total = sum(len(p["images"]) for p in WORKDATA)

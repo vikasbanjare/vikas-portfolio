@@ -11,8 +11,8 @@ EMAIL, LINKEDIN, BEHANCE = "vikas.banjare@gmail.com", "https://www.linkedin.com/
 SITE = "https://vikasbanjare.github.io/vikas-portfolio/case-studies/"
 page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>UI/UX &amp; Websites — Vikas Banjare</title>
-<meta name="description" content="Apps, websites and the thinking behind them: seven UI/UX showcases by Vikas Banjare.">
-<link rel="canonical" href="{SITE}"><meta property="og:title" content="UI/UX &amp; Websites — Vikas Banjare"><meta property="og:description" content="Apps, websites and the thinking behind them. Seven showcases."><meta property="og:image" content="{SITE}../assets/uiux/crestline.jpg"><meta property="og:type" content="website">
+<meta name="description" content="Apps, websites and the thinking behind them: six UI/UX showcases by Vikas Banjare.">
+<link rel="canonical" href="{SITE}"><meta property="og:title" content="UI/UX &amp; Websites — Vikas Banjare"><meta property="og:description" content="Apps, websites and the thinking behind them. Six showcases."><meta property="og:image" content="{SITE}../assets/uiux/crestline.jpg"><meta property="og:type" content="website">
 <link rel="icon" href="../assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Onest:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>*{{margin:0}}body{{background:#04060d}}{css}
