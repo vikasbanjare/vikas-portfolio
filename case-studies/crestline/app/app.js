@@ -149,7 +149,7 @@ function enhance(root,key){
   var pre=$('[data-preset]',root);if(pre){pickByText(pre,[S.scr.preset]);var so=$('[data-ssort]',root);so.value=S.scr.sort;so.addEventListener('change',function(){S.scr.sort=so.value;screener(root)});screener(root)}
   if(key==='ScreenFilters'){$$('[data-flt]',root).forEach(function(r){r.value=S.scr.flt[r.getAttribute('data-k')];paint(r);$('[data-v="'+r.getAttribute('data-k')+'"]',root).textContent=fmtv(r.getAttribute('data-fmt'),+r.value)});var sc=$('[data-sectors]',root);[].slice.call(sc.children).forEach(function(k){setOn(sc,k,!S.scr.off[k.textContent.trim()])});fcount(root)}
   $$('[data-calc]',root).forEach(recalc);
-  var srch=$('[data-search]',root);if(srch){var run=function(){var q=srch.value.trim().toLowerCase();$$('[data-sr]',root).forEach(function(r){r.hidden=!q||r.getAttribute('data-sr').indexOf(q)<0});var sec=$('[data-sec]',root);if(sec)sec.hidden=q.length>0&&!/nip|fund|etf|pay|mtf|sma/.test(q);layout(root)};srch.addEventListener('input',run);run()}
+  var srch=$('[data-search]',root);if(srch){var run=function(){var q=srch.value.trim().toLowerCase();$$('[data-sr]',root).forEach(function(r){r.hidden=!q||r.getAttribute('data-sr').indexOf(q)<0});var sec=$('[data-sec]',root);if(sec)sec.hidden=q.length>0&&!/nip|fund|etf|pay|mtf|sma/.test(q);if(!window.CR_HTML){var rows=$$('[data-sr]',root),any=false,boxes=[];rows.forEach(function(r){if(boxes.indexOf(r.parentElement)<0)boxes.push(r.parentElement)});boxes.forEach(function(b){var on=rows.some(function(r){return r.parentElement===b&&!r.hidden});any=any||on;b.hidden=!on;var h=b.previousElementSibling;if(h&&$('h2',h))h.hidden=!on});var none=$('.nomatch',root);if(!none){none=document.createElement('p');none.className='nomatch';none.style.color=T().gr;root.appendChild(none)}none.hidden=!q||any||!!(sec&&!sec.hidden);none.textContent='Nothing matches "'+q+'". Try a company name or a feature such as IPO.'}layout(root)};srch.addEventListener('input',run);run()}
   $$('[data-snap]',root).forEach(function(sn){var dots=$$('[data-sdot]',root);if(!dots.length)return;sn.addEventListener('scroll',function(){var i=Math.round(sn.scrollLeft/sn.clientWidth);dots.forEach(function(d,j){d.style.background=j===i?T().br:T().track})},{passive:true})});
   $$('.rg',root).forEach(function(r){r.addEventListener('input',function(){paint(r);var v=$('[data-v="'+r.getAttribute('data-k')+'"]',root);if(v)v.textContent=fmtv(r.getAttribute('data-fmt'),+r.value);var b=r.closest('[data-calc]');if(b)recalc(b);if(r.hasAttribute('data-flt')){S.scr.flt[r.getAttribute('data-k')]=+r.value;fcount(root)}})});
 }
@@ -243,5 +243,14 @@ var rt=0;addEventListener('resize',function(){fit();clearTimeout(rt);rt=setTimeo
 fit();setInterval(tick,1300);
 var clock=function(){var d=new Date();$('#clock').textContent=d.getHours()%12+(d.getHours()%12?'':12)+':'+('0'+d.getMinutes()).slice(-2)};clock();setInterval(clock,3e4);
 (document.fonts&&document.fonts.ready||Promise.resolve()).then(function(){var h=(location.hash||'').slice(1);S.stack=[];nav(D().S[h]?h:'Splash',{fade:1})});
+// Screens were generated with a link inside a link in places. Browsers split those apart, which makes uneven rows, so keep one link per row.
+function unnest(h){var re=/<(\/?)a\b([^>]*)>/g,parts=[],open=[],last=0,m;
+  while((m=re.exec(h))){parts.push(h.slice(last,m.index));last=re.lastIndex;
+    if(m[1]){var t=open.pop();parts.push(t==='span'?'</span>':'</a>');continue}
+    if(!open.length){open.push(parts.length);parts.push(m[0]);continue}
+    var to=m[2].match(/href="([^"]*)"/);if(to)parts[open[0]]=parts[open[0]].replace(/href="[^"]*"/,'href="'+to[1]+'"');
+    open.push('span');parts.push('<span'+m[2].replace(/\s*href="[^"]*"/,'').replace(/\s*data-l="1"/,'')+'>')}
+  parts.push(h.slice(last));return parts.join('')}
+var subst0=subst;subst=function(k,h){return subst0(k,unnest(h))};
 window.CR_APP={nav:nav,pop:pop,S:S,setTheme:setTheme};
 })();
