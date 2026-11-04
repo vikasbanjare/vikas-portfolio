@@ -102,7 +102,7 @@ SCRIPT = """
           '</div>';
         card.addEventListener('mouseenter', function () {
           card.style.transform = 'translateY(-6px)';
-          card.style.borderColor = 'rgba(182,245,0,.5)';
+          
           card.style.boxShadow = '0 22px 50px rgba(0,0,0,.55)';
           var im = card.querySelector('img'); if (im) im.style.transform = 'scale(1.06)';
         });
@@ -268,7 +268,7 @@ TOOLS_CSS = """
 [data-vbpipe] g[data-node] { transition: opacity .35s ease; cursor: default; }
 [data-vbpipe].vb-focus g[data-node]:not(.vb-on) { opacity:.25; }
 .vb-tcard { animation: vbRise .7s cubic-bezier(.2,.7,.3,1) both; }
-.vb-tcard:hover { border-color: rgba(182,245,0,.5) !important; transform: translateY(-5px); }
+.vb-tcard:hover { transform: translateY(-5px); }
 @media (prefers-reduced-motion: reduce) {
   [data-vbpipe] .vb-wire, [data-vbpipe] .vb-tool > circle:first-child, .vb-tcard { animation: none !important; }
 }
@@ -387,7 +387,7 @@ TOOLS_SCRIPT = """
       card.setAttribute('data-cursor', t.url ? 'Visit' : 'Built');
       card.style.cssText =
         'display:flex; flex-direction:column; gap:10px; padding:22px 20px 20px; border-radius:16px; ' +
-        'border:1px solid ' + (t.accent ? 'rgba(182,245,0,.34)' : 'rgba(255,255,255,.1)') + '; ' +
+        'border:1px solid rgba(255,255,255,.1); ' +
         'background:' + (t.accent ? 'rgba(182,245,0,.055)' : 'rgba(255,255,255,.035)') + '; ' +
         'text-decoration:none; transition:transform .45s cubic-bezier(.2,.7,.3,1), border-color .4s ease; ' +
         'animation-delay:' + (i * 0.09) + 's;';
@@ -532,7 +532,7 @@ EXP_SCRIPT = """
       card.setAttribute('data-cursor', 'Read');
       card.style.cssText =
         'display:flex; flex-direction:column; gap:14px; padding:24px 22px; border-radius:16px; cursor:pointer; ' +
-        'border:1px solid ' + (e.now ? 'rgba(182,245,0,.32)' : 'rgba(255,255,255,.1)') + '; ' +
+        'border:1px solid rgba(255,255,255,.1); ' +
         'background:' + (e.now ? 'rgba(182,245,0,.05)' : 'rgba(255,255,255,.035)') + '; ' +
         'transition:border-color .4s ease, transform .45s cubic-bezier(.2,.7,.3,1); ' +
         'opacity:0; transform:translateY(24px);';
@@ -565,7 +565,7 @@ EXP_SCRIPT = """
       });
       card.addEventListener('mouseenter', function () {
         card.style.transform = 'translateY(-5px)';
-        card.style.borderColor = 'rgba(182,245,0,.5)';
+        
       });
       card.addEventListener('mouseleave', function () {
         card.style.transform = 'none';

@@ -224,7 +224,7 @@
     </header>
 
     <div class="vw2-body">
-      <ol class="vw2-list" role="list"></ol>
+      <div class="vw2-listwrap"><ol class="vw2-list" role="list"></ol><button type="button" class="vw2-more"></button></div>
 
       <div class="vw2-mon">
         <div class="vw2-mon-in">
@@ -257,7 +257,8 @@
   if (!root || !WORK || !WORK.length) { return; }
 
   var DESK = '(min-width: 1024px) and (min-height: 560px)';   // identical string in the CSS
-  var FEATURED = ['podcast-videos', 'ui-ux-websites', 'social-media-designs', 'wealthy-yt-ads', 'creative-designs', 'trailer-video'];
+  var FEATURED = ['ui-ux-websites', 'podcast-videos', 'wealthy-yt-ads', 'trailer-video', 'social-media-designs', 'creative-designs'];
+  var LIMIT = FEATURED.length, expanded = false;   // the rest wait behind "See all"
   var FLIP_MS = 950, INTENT_MS = 90, SETTLE_MS = 110, FOCUS_GRACE_MS = 400, HYST_PX = 14;
   var ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
 
@@ -599,7 +600,7 @@
     var j, row, k = 0;
     for (j = 0; j < items.length; j++) {
       row = items[j].firstChild;
-      items[j].hidden = !matchesFilter(ORDER[j], current);
+      items[j].hidden = !matchesFilter(ORDER[j], current) || (current === 'all' && !expanded && j >= LIMIT);
       row.classList.add('vw2-notrans');      // rows that never played their entrance just appear: no .8s rise inside a 300ms budget
       row.classList.add('vw2-in');
       row.classList.remove('vw2-fin');
@@ -615,6 +616,7 @@
       k++;
     }
     list.classList.remove('vw2-out');
+    setMore();
     setStatus();
     dropHover();
     if (mqDesk.matches) { computeScroll(); }
@@ -635,6 +637,14 @@
     filts[i].querySelector('b').textContent = countFor(filts[i].getAttribute('data-f'));
     filts[i].addEventListener('click', function () { applyFilter(this.getAttribute('data-f')); });
   }
+  var moreBtn = root.querySelector('.vw2-more');
+  function setMore() { if (moreBtn) { moreBtn.classList.toggle('on', current === 'all' && !expanded); } }
+  if (moreBtn) {
+    moreBtn.textContent = 'See all ' + ORDER.length + ' projects';
+    moreBtn.addEventListener('click', function () { expanded = true; setMore(); swap(); });
+  }
+  for (i = LIMIT; i < items.length; i++) { items[i].hidden = true; }
+  setMore();
   setStatus();
 
   /* ---------- observers: pause everything off-screen; one-shot entrances ---------- */

@@ -767,6 +767,10 @@ manifest[EXP_UUID] = {"mime": "text/javascript", "compressed": False,
                       "data": base64.b64encode(exp_js.encode()).decode()}
 tpl = tpl.replace(head_anchor, head_anchor + f'\n<script src="{EXP_UUID}"></script>', 1)
 
+# 4g. Portfolio pass: light default, shorter page, clearer order (polish.py).
+import polish
+tpl = polish.apply(tpl, manifest, head_anchor, [WORK_CSS, ux_css, parts.TOOLS_CSS])
+
 # Safari (iOS and macOS) needs -webkit-backdrop-filter or every frosted panel —
 # header, menu, viewer bar, badges — renders flat. Run this last so it also
 # covers the markup injected above.
@@ -807,7 +811,7 @@ out = out.replace("<title>Bundled Page</title>", "<title>Vikas Banjare — Creat
 # silently as a dead section. Fail the build instead.
 if shutil.which("node"):
     import tempfile
-    for uuid in (GAL_UUID, WORK_UUID, TOOLS_UUID, EXP_UUID):
+    for uuid in (GAL_UUID, WORK_UUID, TOOLS_UUID, EXP_UUID, polish.POLISH_UUID):
         src = base64.b64decode(manifest[uuid]["data"]).decode()
         with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
             fh.write(src)
