@@ -168,34 +168,5 @@ def pulllogic():
 
 
 # ------------------------------------------------------------------ Crestline
-def purple():
-    S = []
-    S.append(g.intro('The project', 'Lending for small business, <span class="serif">made approachable.</span>',
-        'Purple Finance lends to micro, small and medium businesses. I designed the whole website. It has to do two jobs at once: reassure a shop owner that a loan is within reach, and give investors and regulators the disclosures they expect.',
-        [('One promise up front', 'Levelling the playing field, with real borrowers in the hero.'), ('Proof in numbers', 'Growth figures and branch reach sit right under the hero.'),
-         ('Two audiences, clear paths', 'Borrowers get eligibility and benefits. Investors get disclosures in one place.')]))
-    S.append(g.section(
-        g.heading('The pages', 'Home, about, loans <span class="serif">and investors.</span>', 'Captured from purplefinance.in with permission. Scroll inside each frame.')
-        + '<div class="duo rv"><div>' + g.browser_frame('img/home.jpg', 'Home · scroll inside the frame') + '</div><div>' + g.mobile_frame('img/home-mobile.jpg', 'Home on mobile') + '</div></div>'
-        + '<div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px"><div>' + g.browser_frame('img/msme.jpg', 'MSME loans') + '</div><div>' + g.browser_frame('img/about.jpg', 'About') + '</div><div>' + g.browser_frame('img/investors.jpg', 'Investors') + '</div></div>', band=True))
-    S.append(g.section(
-        g.heading('Structure', 'Each page, <span class="serif">one job.</span>')
-        + g.steps([('01', 'Home', 'A clear promise, growth in numbers, why choose us, and borrower stories.'), ('02', 'MSME loans', 'Benefits, eligibility and documents, then a loan eligibility calculator.'),
-                   ('03', 'About', 'History, vision and the people behind the company.'), ('04', 'Investors', 'Disclosures grouped so they are easy to find.')], cols=4)))
-    S.append(g.section(
-        g.heading('Visual system', 'Purple, paper <span class="serif">and plain type.</span>', 'Colours sampled from the live site.')
-        + g.swatches(SW(('Purple', '#772682', '#fff'), ('Paper', '#F4F5EF', '#1a1a1a'), ('Ink', '#000000', '#fff'), ('Soft purple', '#BF8CC7', '#2a0f30'))), band=True))
-    S.append('<section><div class="wrap" style="text-align:center"><a class="cta" href="https://www.purplefinance.in/" target="_blank" rel="noopener">Visit purplefinance.in</a><div style="margin-top:20px">' + g.credit('VB', 'Designed by <b>Vikas Banjare</b> &middot; every page, end to end') + '</div></div></section>')
-    return dict(title='Purple Finance Website Showcase', desc='The Purple Finance website: MSME lending, borrower stories and investor disclosures.',
-                bg='#140A17', bg2='#1B0F1F', surface='#24142A', mut='#C7B3CC', mut2='#A893AE', accent='#D9A6E2', accent_ink='#1B0F1F',
-                sans='"Plus Jakarta Sans",system-ui,sans-serif', serif='"Instrument Serif",serif', fonts=g.FONT_PJS,
-                herobg='radial-gradient(900px 520px at 50% 10%,#5A1C66 0%,rgba(20,10,23,0) 70%),#140A17',
-                kicker='Fintech · Website · Lending', h1='Purple <span class="serif">Finance</span>',
-                lede='A website for small-business lending: approachable for borrowers, complete for investors.', hero_vis=g.hero_fig('img/home.jpg', 'Purple Finance home page'),
-                meta=[('My role', 'Website design, end to end'), ('Company', 'Purple Finance'), ('Audience', 'MSME borrowers, investors'), ('Pages shown', 'Home, loans, about, investors')],
-                sections=S, stepcols=4, swn=4, outro_h2='More work, <span class="serif">same care.</span>',
-                footer='Purple Finance website &middot; designed by Vikas Banjare &middot; shown with permission', nav_label='Visit site', nav_link='https://www.purplefinance.in/')
-
-
 def build():
-    return {'wealthy-web': wealthy_web(), 'purple-finance': purple()}
+    return {'wealthy-web': wealthy_web(), }
