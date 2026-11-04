@@ -84,67 +84,6 @@ def wealthy_web():
 
 
 # ------------------------------------------------------------------ Wealthy Partner App
-def wealthy_app():
-    S = []
-    S.append(g.intro('Overview', 'Faster decisions, <span class="serif">less effort.</span>',
-        'Built for distributors managing multiple clients and portfolios, the Wealthy Partner App supports fast, everyday decision-making. As the product evolved, growing complexity began to slow users down. The redesign simplifies the experience and brings clarity to key information.',
-        [('Visual direction', 'Shaping the overall visual language, tone and interaction patterns.'),
-         ('Design system', 'UI guidelines and a consistent, scalable system across the app.'),
-         ('Cross-functional work', 'Close work with product and engineering to keep the interface clean and scalable.')]))
-    S.append(g.section(
-        g.heading('The screens', 'Core screens, <span class="serif">one language.</span>')
-        + g.strip(['img/s0%d.png' % i if i < 10 else 'img/s%d.png' % i for i in range(1, 7)],
-                  ['Home', 'Client profile', 'Tax saver', 'Wealth view', 'Mutual funds', 'Home, expanded']), band=True))
-    S.append(g.section(
-        g.spread('01', 'Structural re-architecture', [('Clearer modules.', 'The app was reorganised into clear functional modules.'),
-                 ('Faster navigation.', 'Distributors can quickly find clients, portfolios and transactions.'),
-                 ('Less load.', 'Each module reduces cognitive load and surfaces key actions first.')], ['Modules', 'Navigation', 'IA'], g.phone_vis('img/s05.png'))
-        + '<div class="gap"></div>'
-        + g.spread('02', 'Stronger visual hierarchy', [('Key metrics up front.', 'Important financial data is easy to scan instantly.'),
-                 ('Quick actions surfaced.', 'The actions that matter stay visible to support faster decisions.')], ['Hierarchy', 'Data', 'Actions'],
-                   g.phone_vis('img/s02.png'), flip=True)))
-    S.append(g.section(
-        g.heading('Problem & solution', 'Dense interface, <span class="serif">clearer paths.</span>',
-                  'As the app expanded with more features, the interface started to feel dense and harder to navigate. Distributors struggled to quickly scan financial data and access important actions.')
-        + g.beforeafter(['Dense, feature-heavy screens', 'Hard to scan financial data', 'Important actions buried'],
-                        ['Clear functional modules', 'Strong visual hierarchy', 'Key metrics and quick actions surfaced']), band=True))
-    S.append(g.section(
-        g.heading('Design objective', 'Three principles <span class="serif">guided the redesign.</span>')
-        + g.steps([('1', 'Visual clarity over complexity', 'Financial information should be easy to scan instantly.'),
-                   ('2', 'Speed over friction', 'Users should complete tasks quickly.'),
-                   ('3', 'Action over browsing', 'Important actions must remain visible.')], cols=3)
-        + '<p class="quote rv" style="margin-top:70px">&ldquo;Can a distributor act faster here?&rdquo;</p><p class="p rv" style="margin:18px auto 0;text-align:center">This question guided many design decisions.</p>'))
-    S.append(g.section(
-        g.heading('More screens', 'Across the <span class="serif">whole app.</span>')
-        + g.strip(['img/s%02d.png' % i for i in range(7, 14)][:7], ['Screen 07', 'Screen 08', 'Screen 09', 'Screen 10', 'Screen 11', 'Screen 12', 'Screen 13']), band=True))
-    S.append(g.section(
-        g.heading('Information architecture', 'Five modules, <span class="serif">one clear map.</span>', 'Get started leads to log in or sign up. From there the app splits into Home (quick actions and portfolio), Proposals (insights, choose a client), Store (all products), Clients (dashboard) and Resources (sales kit, poster gallery).')
-        + '<div class="rv" style="margin-top:46px;background:#fff;border-radius:28px;padding:28px"><img src="img/ia-map.svg" alt="Information architecture map" style="width:100%"></div>'))
-    S.append(g.section(
-        g.heading('System', 'One purple, <span class="serif">used with care.</span>')
-        + g.system(SW(('Partner purple', '#6725F4', '#fff'), ('Lavender', '#F8F4FF', '#1c1c1c'), ('Gain green', '#4FC16F', '#0b2a14'),
-                     ('Alert red', '#FF4E4E', '#fff'), ('Ink', '#1C1C1C', '#fff'), ('Grey', '#7E7E7E', '#fff')),
-                   'Aa Lato', 'font-family:Lato,sans-serif;font-weight:900',
-                   [('Typeface', 'Lato'), ('Scale', 'Defined type scale'), ('Colour', 'Purple for action, green and red for gain and loss')],
-                   'Components', '<div style="display:grid;gap:14px;margin-top:20px"><div style="background:#6725F4;color:#fff;border-radius:14px;padding:14px;font-weight:700;text-align:center">Complete Now</div><div style="background:#F8F4FF;color:#1c1c1c;border-radius:16px;padding:16px;display:flex;justify-content:space-between"><b>Portfolio</b><b style="color:#4FC16F">+12.5%</b></div><div style="background:#F8F4FF;color:#1c1c1c;border-radius:16px;padding:16px;display:flex;justify-content:space-between"><b>Pending</b><b style="color:#FF4E4E">Action needed</b></div></div>'), band=True))
-    S.append(g.section(
-        g.heading('Where partners start', 'The partner website, <span class="serif">live.</span>', 'The app sits behind this page on wealthy.in, captured with permission.')
-        + '<div class="rv" style="margin-top:40px;max-width:820px;margin-left:auto;margin-right:auto">' + g.browser_frame('img/live-partner.jpg', 'wealthy.in/partner · scroll inside the frame') + '</div>', band=True))
-    S.append('<section><div class="wrap" style="text-align:center">' + g.credit('MM', 'Designed by <b>Mohit Mehra</b>, Creative Lead &middot; view the original case study', MOHIT_APP) + '</div></section>')
-    return dict(title='Wealthy Partner App Showcase', desc='UI redesign of the Wealthy Partner App for distributors, 2025.',
-                bg='#0E0A22', bg2='#140F2E', surface='#1B1540', mut='#B3ABD2', mut2='#9890BC', accent='#8B63FF', accent_ink='#fff',
-                sans=SANS_LATO, serif='"Playfair Display",serif', fonts=FONT_PLAYFAIR_LATO,
-                herobg='radial-gradient(900px 520px at 50% 12%,#3A1D9B 0%,rgba(14,10,34,0) 70%),#0E0A22',
-                kicker='Fintech · Mobile app UI · 2025', h1='Wealthy <span class="serif">Partner</span> App',
-                lede='Built for distributors managing multiple clients and portfolios.',
-                hero_vis=g.hero_phones(['img/s02.png', 'img/s01.png', 'img/s03.png']),
-                meta=[('Design', 'Mohit Mehra'), ('Company', 'Wealthy'), ('Platform', 'Mobile app'), ('Year', '2025')],
-                sections=S, cols=6, stepcols=3, swn=6, outro_h2='More work, <span class="serif">same care.</span>',
-                footer='Wealthy Partner App &middot; design by <a href="' + MOHIT_APP + '" target="_blank" rel="noopener">Mohit Mehra</a> &middot; showcased by Vikas Banjare',
-                nav_label='Original case study', nav_link=MOHIT_APP)
-
-
-# ------------------------------------------------------------------ LeadSquared
 def leadsquared():
     S = []
     S.append(g.intro('The brief', 'One page, <span class="serif">three personas.</span>',
@@ -259,4 +198,4 @@ def purple():
 
 
 def build():
-    return {'wealthy-web': wealthy_web(), 'wealthy-app': wealthy_app(), 'purple-finance': purple()}
+    return {'wealthy-web': wealthy_web(), 'purple-finance': purple()}
