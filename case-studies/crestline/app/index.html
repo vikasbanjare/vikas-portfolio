@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body style="margin:0"><title>Crestline App</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="screens.css">
+<style>
+/* Layout: a phone in the middle of the page, with a guide beside it on wider screens. On a phone, the app fills the screen. */
+:root{--bg:#E9ECF6;--fg:#171A22;--dim:#5F6475;--panel:#FFFFFF;--line:rgba(23,26,34,.1);--tint:#EDEFFA;--accent:#2A42B8;--font:Satoshi,"Anek Devanagari",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0D13;--fg:#F1F2F5;--dim:#A0A6B5;--panel:#191C24;--line:rgba(255,255,255,.1);--tint:#232A42;--accent:#A9BAFF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B0D13;--fg:#F1F2F5;--dim:#A0A6B5;--panel:#191C24;--line:rgba(255,255,255,.1);--tint:#232A42;--accent:#A9BAFF;color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);overflow:hidden}
+a{color:inherit;text-decoration:none}button{cursor:pointer}
+#stage{height:100%;display:flex;align-items:center;justify-content:center;gap:40px;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+#fitbox{flex:none;position:relative}
+#phone{position:relative;width:390px;height:844px;border-radius:44px;overflow:hidden;transform-origin:0 0;background:#000;box-shadow:0 0 0 9px #14161F,0 30px 60px -20px rgba(16,20,40,.45)}
+#view{position:absolute;inset:0;overflow:hidden}
+.layer{position:absolute;inset:0;z-index:1}.scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}.scroll::-webkit-scrollbar{display:none}
+.dock{position:absolute;inset:0;pointer-events:none;z-index:4}.dock>*{pointer-events:auto}.fade{position:absolute;left:0;right:0;bottom:0;pointer-events:none!important;display:none}
+.layer.sheet{top:58px;border-radius:22px 22px 0 0;overflow:hidden;z-index:6;box-shadow:0 -10px 40px rgba(0,0,0,.28)}.layer.sheet::before{content:"";position:absolute;z-index:7;top:8px;left:50%;margin-left:-18px;width:36px;height:4px;border-radius:2px;background:rgba(128,132,150,.5)}.layer.sheet [data-root]>:first-child{margin-top:-30px}
+.backdrop{position:absolute;inset:0;background:rgba(10,12,22,.45);z-index:5}
+#status{position:absolute;top:0;left:0;right:0;height:46px;z-index:9;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 6px;font-size:13px;font-weight:500;pointer-events:none;color:#171A22;transition:background .2s}
+[data-app-theme="DK"] #status{color:#F1F2F5}
+.scrolled #status{background:rgba(245,246,252,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}[data-app-theme="DK"] .scrolled #status{background:rgba(16,18,24,.82)}
+#status .right{display:flex;align-items:center;gap:8px}#status .tag{height:22px;padding:0 9px;border-radius:11px;display:inline-flex;align-items:center;font-size:11.5px;background:rgba(23,26,34,.08)}[data-app-theme="DK"] #status .tag{background:rgba(255,255,255,.12)}
+#more{display:none;pointer-events:auto;border:0;background:rgba(23,26,34,.08);color:inherit;width:28px;height:22px;border-radius:11px;font:inherit;line-height:1}
+#panel{flex:0 1 320px;min-width:0;max-height:calc(100% - 28px);overflow-y:auto;padding:22px;border-radius:22px;background:var(--panel);display:grid;gap:18px;font-size:14px;line-height:1.42}
+#panel h1{margin:0;font-size:24px;font-weight:500;letter-spacing:-.02em}#panel h2{margin:0 0 6px;font-size:13px;font-weight:500;color:var(--dim)}#panel p{margin:0}.dim{color:var(--dim)}
+#here{font-size:16px;font-weight:500}
+.notice{padding:12px 14px;border-radius:14px;background:var(--tint);font-size:13.5px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}.btns button,#restart{height:38px;padding:0 14px;border:0;border-radius:12px;background:var(--tint);color:var(--fg);font:500 13.5px var(--font)}.btns button[aria-pressed="true"]{background:var(--accent);color:var(--panel)}
+#alts{display:grid;gap:2px}#alts button,#jump button{display:block;width:100%;min-height:36px;padding:7px 10px;border:0;border-radius:10px;background:none;color:var(--fg);font:400 13.5px var(--font);text-align:left}#alts button:hover,#jump button:hover,#alts button:focus-visible,#jump button:focus-visible{background:var(--tint)}
+#find{display:block;width:100%;box-sizing:border-box;height:40px;padding:0 12px;border:0;border-radius:12px;background:var(--tint);color:var(--fg);font:400 14px var(--font)}
+#jump summary{padding:8px 2px;font-weight:500;cursor:pointer}#jump details{border-top:1px solid var(--line)}
+#toast{position:absolute;left:50%;bottom:104px;z-index:12;max-width:80%;padding:10px 16px;border-radius:14px;transform:translateX(-50%);translate:0;background:#171A22;color:#FFF;font-size:13.5px;font-weight:500;white-space:nowrap;box-shadow:0 10px 26px -10px rgba(0,0,0,.5);pointer-events:none}#closepanel{display:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:759px){#stage{display:block;padding:0}#fitbox{position:absolute;inset:0;width:auto!important;height:auto!important}#phone{width:100%;height:100%;border-radius:0;box-shadow:none}#more{display:inline-block}
+ #panel{position:fixed;inset:auto 0 0 0;max-height:82%;z-index:30;border-radius:22px 22px 0 0;box-shadow:0 -14px 50px rgba(0,0,0,.35);padding:22px max(16px,env(safe-area-inset-right,0px)) calc(22px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transform:translateY(102%);transition:transform .28s cubic-bezier(.2,.8,.2,1)}.panel-open #panel{transform:none}#closepanel{display:block}}
+@media (prefers-reduced-motion:reduce){#panel{transition:none}}
+</style>
+<div id="stage">
+  <div id="fitbox"><div id="phone"><div id="view"></div><div id="status"><span id="clock">9:41</span><span class="right"><span class="tag">Sample data</span><button id="more" type="button" aria-label="Open the guide">···</button></span></div></div></div>
+  <aside id="panel" aria-label="Guide to this prototype">
+    <div><h1>Crestline</h1><p class="dim" style="margin-top:4px">A concept investing app. Tap through it as you would on a phone.</p></div>
+    <p class="notice">All prices, holdings and orders are simulated. Nothing here is live market data, no money moves, and nothing you type leaves this page.</p>
+    <div><h2>You are on</h2><div id="here" aria-live="polite"></div></div>
+    <div><h2>Other paths from this screen</h2><div id="alts"></div></div>
+    <div><h2>Look</h2><div class="btns"><button type="button" data-themebtn="LT" aria-pressed="true">Light</button><button type="button" data-themebtn="DK" aria-pressed="false">Dark</button><button type="button" id="restart">Start again</button></div></div>
+    <div><h2>Jump to any screen</h2><input id="find" type="search" placeholder="Search 387 screens" aria-label="Search screens"><div id="jump" style="margin-top:8px"></div></div>
+    <button type="button" id="closepanel" class="btns" style="height:44px;border:0;border-radius:12px;background:var(--tint);color:var(--fg);font:500 14px var(--font)">Back to the app</button>
+  </aside>
+</div>
+<script src="calc.js"></script>
+<script src="meta.js"></script>
+<script src="screens-lt.js"></script>
+<script src="app.js"></script>
+</body></html>

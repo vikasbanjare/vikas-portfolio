@@ -68,7 +68,7 @@ footer{padding:48px 0 64px;font-size:14.5px;color:var(--ink2)}footer p{max-width
 @media (max-width:620px){body{font-size:16px}nav.top .links{display:none}.tldr{grid-template-columns:1fr}.ins{grid-template-columns:96px minmax(0,1fr);gap:14px;padding:16px}.grid5,.grid3,.strip{grid-template-columns:repeat(2,minmax(0,1fr))}.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:10px}.dl{gap:10px}.frame{border-radius:16px;height:1040px;min-height:0}.lb{grid-template-columns:1fr}.lb>button{display:none}.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.seq img{animation:none}.seq img:nth-child(3){opacity:1}.gal img{transition:none}}
 </style></head><body>
-<nav class="top" aria-label="Page"><div class="w"><a class="home" href="../">← All UI/UX work</a><div class="links"><a href="#problem">Problem</a><a href="#decisions">Decisions</a><a href="#prototype">Prototype</a><a href="#system">System</a><a href="#screens">All screens</a><a href="#proof">What is proven</a></div></div></nav>
+<nav class="top" aria-label="Page"><div class="w"><a class="home" href="../">← All UI/UX work</a><div class="links"><a href="#problem">Problem</a><a href="#decisions">Decisions</a><a href="#prototype">Prototype</a><a href="#app">Working app</a><a href="#system">System</a><a href="#screens">All screens</a><a href="#proof">What is proven</a></div></div></nav>
 <header class="hero"><div class="w">
 <span class="tagc">Self-initiated concept · fictional broker · not a live product</span>
 <h1>Crestline</h1>
@@ -126,6 +126,18 @@ footer{padding:48px 0 64px;font-size:14.5px;color:var(--ink2)}footer p{max-width
 <p class="sub">Press the glowing control on the phone. Click-through of the final screens with sample data.</p>
 <iframe class="frame" src="v5/prototype.html" title="Crestline click-through prototype" loading="lazy"></iframe>
 <a class="cta soft" href="v5/prototype.html">Open it full screen</a>
+</div></section>
+
+<section id="app"><div class="w">
+<span class="eb">Working app</span><h2>Every journey, in one app you can use.</h2>
+<p class="sub">387 screens across 18 areas, in light and dark. It covers the checks and documents each product needs, turning on F&amp;O, commodities and currency, NRI and family accounts, stock SIPs, deposits, pension and insurance. Prices and orders are simulated, and nothing you type leaves the page.</p>
+<a class="cta solid" href="app/">Open the working app</a>
+<div class="grid3">
+<figure class="sh"><img src="v5/native/kyc-hub.jpg" alt="KYC and documents screen listing what each product asks for" loading="lazy" width="660" height="1434"><figcaption>Each product asks for its own checks</figcaption></figure>
+<figure class="sh"><img src="v5/native/fo-proof.jpg" alt="F&amp;O income proof screen with eight accepted documents" loading="lazy" width="660" height="1434"><figcaption>F&amp;O income proof, step by step</figcaption></figure>
+<figure class="sh"><img src="v5/native/offline.jpg" alt="Home screen as skeleton shapes with a no internet card" loading="lazy" width="660" height="1434"><figcaption>No internet: skeleton shapes, then saved numbers</figcaption></figure>
+</div>
+<p class="sub" style="margin-top:34px">These pictures are from a native SwiftUI build of the same design, which I run on my own iPhone. It is a private build and is not on the App Store.</p>
 </div></section>
 
 <section class="tint" id="states"><div class="w">
