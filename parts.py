@@ -276,16 +276,16 @@ TOOLS_CSS = """
 """
 
 TOOLS_SECTION = """
-<section id="tools" style="position:relative; padding:clamp(70px,11vh,140px) clamp(20px,6vw,90px); background:#04060d;">
-  <div style="max-width:1240px; margin:0 auto;">
+<section id="tools" style="position:relative; padding:clamp(70px,11vh,140px) clamp(20px,5vw,72px); background:#04060d;">
+  <div style="max-width:1296px; margin:0 auto;">
     <div style="margin-bottom:clamp(30px,5vh,54px);">
-      <span style="display:block; font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:#b6f500; margin-bottom:15px;">04 &mdash; Tools</span>
+      <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:#b6f500; margin-bottom:15px;">Tools</span>
       <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,5vw,64px); line-height:1.04; font-weight:500; letter-spacing:-.035em; color:#f6f9ff; max-width:17ch;">Software I built to <span style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:#b6f500;">do the work.</span></h2>
-      <p style="margin-top:18px; max-width:58ch; font-size:clamp(14.5px,1.4vw,17px); line-height:1.62; color:#8da0c4;">This is where the 70% automation number comes from. Each one sits on a stage of the pipeline below and takes the repetitive pass off a real production schedule.</p>
+      <p style="margin-top:18px; max-width:58ch; font-size:clamp(14.5px,1.4vw,17px); line-height:1.62; color:#8da0c4;">Where the 70% automation comes from. Each tool takes one repetitive step off the schedule.</p>
     </div>
 
-    <div style="position:relative; border:1px solid rgba(255,255,255,.1); border-radius:18px; background:linear-gradient(180deg, rgba(12,23,54,.5), rgba(4,6,13,0)); padding:clamp(20px,3vw,38px) clamp(14px,2vw,30px); margin-bottom:clamp(20px,3vh,34px); overflow-x:auto;">
-      <svg data-vbpipe viewBox="0 0 1020 178" preserveAspectRatio="xMidYMid meet" style="display:block; width:100%; min-width:620px; height:auto; overflow:visible;" role="img" aria-label="Production pipeline: idea, ContentIntel, CutPilot, Pulse, Daxio, live">
+    <div style="position:relative; border:1px solid rgba(255,255,255,.1); border-radius:18px; background:linear-gradient(180deg, rgba(12,23,54,.5), rgba(4,6,13,0)); padding:clamp(14px,2vw,24px) clamp(14px,2vw,30px) 4px; margin-bottom:clamp(20px,3vh,34px); overflow-x:auto;">
+      <svg data-vbpipe viewBox="0 30 1020 116" preserveAspectRatio="xMidYMid meet" style="display:block; width:100%; min-width:620px; height:auto; overflow:visible;" role="img" aria-label="Production pipeline: idea, ContentIntel, CutPilot, Pulse, Daxio, live">
         <line class="vb-wire" x1="70" y1="62" x2="950" y2="62" stroke="#2f6bff" stroke-opacity=".55" stroke-width="1.6"></line>
         __NODES__
       </svg>
@@ -347,19 +347,19 @@ TOOLS_DATA = [
      "logo": None, "glyph": "\u25c8",
      "one": "Checks a post before you publish it.",
      "desc": "Paste a script, thumbnail or title and it grades them the way the algorithm would \u2014 then rewrites the weak parts."},
-    {"slug": "voiceflow", "name": "VoiceFlow", "tag": "Mac app (internal tool)",
+    {"slug": "voiceflow", "name": "VoiceFlow", "tag": "Mac app · internal",
      "url": None, "accent": False,
      "logo": "voiceflow-mark.svg", "glyph": None,
      "one": "Talk, and it types.",
      "desc": "Dictation for the Mac. Runs Whisper on-device, cleans the text up, and types it into whatever app you are already in."},
-    {"slug": "pulse", "name": "Pulse", "tag": "Premiere extension (internal tool)",
+    {"slug": "pulse", "name": "Pulse", "tag": "Premiere · internal",
      "url": None, "accent": False,
      "logo": "pulse-logo-primary.svg", "glyph": None,
      "one": "Cuts and captions inside Premiere.",
      "desc": "Transcribes the footage, builds the rough cut from the transcript, then adds the subtitles \u2014 without leaving the timeline."},
-    {"slug": "daxio", "name": "Daxio", "tag": "Review tool (internal tool)",
+    {"slug": "daxio", "name": "Daxio", "tag": "Review tool · internal",
      "url": None, "accent": False,
-     "logo": "daxio-mark-white.svg", "glyph": None,
+     "logo": "daxio-mark-white.svg", "glyph": None, "tile": "#0a0f1e",
      "one": "Notes that stick to the frame.",
      "desc": "Review that is tied to the timeline. A comment lands on the exact frame it is about, so feedback is never ambiguous and nothing gets lost in a thread."},
 ]
@@ -392,12 +392,12 @@ TOOLS_SCRIPT = """
         'text-decoration:none; transition:transform .45s cubic-bezier(.2,.7,.3,1), border-color .4s ease; ' +
         'animation-delay:' + (i * 0.09) + 's;';
       var mark = t.logo
-        ? '<img src="' + t.logo + '" alt="' + t.name + '" style="width:54px; height:54px; object-fit:contain; display:block; border-radius:13px;">'
+        ? '<img src="' + t.logo + '" alt="' + t.name + '" style="width:54px; height:54px; object-fit:contain; display:block; border-radius:13px;' + (t.tile ? ' background:' + t.tile + '; padding:11px; box-sizing:border-box;' : '') + '">'
         : '<span style="width:54px; height:54px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:25px; background:' + (t.accent ? 'rgba(182,245,0,.13)' : 'rgba(127,212,255,.11)') + '; color:' + (t.accent ? '#b6f500' : '#7fd4ff') + ';">' + (t.glyph || t.name[0]) + '</span>';
       card.innerHTML =
         '<span style="display:flex; align-items:center; gap:13px; margin-bottom:2px;">' +
           mark +
-          '<span style="font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:' + (t.accent ? '#b6f500' : '#5d6e8e') + ';">' + t.tag + '</span>' +
+          '<span style="font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:' + (t.accent ? '#b6f500' : '#5d6e8e') + ';">' + t.tag + '</span>' +
         '</span>' +
         '<span style="font-family:\\'Space Grotesk\\',sans-serif; font-size:20px; font-weight:600; letter-spacing:-.02em; color:#f6f9ff;">' + t.name + '</span>' +
         '<span style="font-family:\\'Space Grotesk\\',sans-serif; font-size:14.5px; font-weight:500; line-height:1.4; color:' + (t.accent ? '#b6f500' : '#cfe0ff') + ';">' + t.one + '</span>' +
@@ -501,11 +501,11 @@ FIGMA_MARK = (
 )
 
 EXPERIENCE_BLOCK = """
-<div data-vbexp style="max-width:1240px; margin:clamp(34px,5vh,60px) auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(14px,1.8vw,22px);"></div>
+<div data-vbexp style="max-width:1296px; margin:clamp(34px,5vh,60px) auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(14px,1.8vw,22px);"></div>
 """
 
 STACK_BLOCK = """
-<div style="max-width:1240px; margin:clamp(30px,5vh,56px) auto 0; padding-top:clamp(24px,4vh,40px); border-top:1px solid rgba(255,255,255,.1);">
+<div style="max-width:1296px; margin:clamp(30px,5vh,56px) auto 0; padding-top:clamp(24px,4vh,40px); border-top:1px solid rgba(255,255,255,.1);">
   <span style="display:block; font-size:10.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:#5d6e8e; margin-bottom:20px;">What I work in</span>
   <div data-vbstack style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:clamp(18px,2.4vw,34px);"></div>
 </div>
@@ -542,7 +542,7 @@ EXP_SCRIPT = """
       }).join('');
       card.innerHTML =
         '<span style="display:flex; align-items:center; gap:13px;">' +
-          '<span style="width:52px; height:52px; border-radius:12px; background:#fff; display:flex; align-items:center; justify-content:center; padding:8px; flex:0 0 auto;">' +
+          '<span style="width:88px; height:52px; border-radius:12px; background:#fff; border:1px solid rgba(16,24,48,.08); display:flex; align-items:center; justify-content:center; padding:8px 10px; flex:0 0 auto; box-sizing:border-box;">' +
             '<img src="' + e.logo + '" alt="' + e.name + '" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">' +
           '</span>' +
           '<span style="display:flex; flex-direction:column; gap:3px; min-width:0;">' +
@@ -553,7 +553,7 @@ EXP_SCRIPT = """
         '<span style="font-family:\\'Space Grotesk\\',sans-serif; font-size:13.5px; font-weight:600; color:#cfe0ff;">' + e.role + '</span>' +
         '<span style="font-size:13.5px; line-height:1.62; color:#8da0c4;">' + e.lead + '</span>' +
         '<ul data-exp-more style="max-height:0; overflow:hidden; transition:max-height .55s cubic-bezier(.2,.7,.3,1); margin:0; padding:0;">' + bullets + '</ul>' +
-        '<span data-exp-toggle style="font-size:12px; font-weight:600; color:' + (e.now ? '#b6f500' : '#7fd4ff') + ';">Read the detail +</span>';
+        '<span data-exp-toggle style="margin-top:auto; font-size:13px; font-weight:600; color:#b6f500;">Read the detail +</span>';
 
       var open = false;
       card.addEventListener('click', function () {

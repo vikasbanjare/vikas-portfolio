@@ -90,8 +90,7 @@ R = [
     ("Creative studio · AI-native", "Creative lead · 8 years · Video · Design · AI"),
     ("One core.<br>Every craft<br>in orbit.", "Vikas Banjare"),
     ("aifloh designs, films, builds and automates — video, websites, SEO and AI working as one system that revolves around your brand.",
-     "I direct, shoot, cut and automate — eight years building content engines end to end for fintech and edtech brands, "
-     "with custom AI workflows that take up to 70% of the production load."),
+     "Eight years at Mirae Asset, Wealthy and Unacademy."),
 
     ("Start a project →", "See the work →"),
     (">See the work<", ">Get in touch<"),
@@ -163,19 +162,18 @@ R = [
 
     # ── 07 studio ──
     ("aifloh is one team that designs, films, builds and automates. No handoffs, no three vendors blaming each other, no six-week wait for a deck nobody reads.",
-     "I run the whole creative function — brand films, product demos, podcasts, performance creatives, newsletters and landing pages. "
-     "No handoffs between three vendors, no six-week wait for a deck nobody reads."),
+     "I run the whole creative function, from brand films to landing pages. One person, no handoffs."),
     ("Work with us →", "Work with me →"),
     ("strategy. We ship", "strategy. I ship"),
     ("Numbers the", "The numbers"),
     ("finance team likes.", "behind the work."),
     ("One team, one loop", "One hand, end to end"),
     ("The person who writes it edits it, and the person who designs it ships it. Feedback lands in hours, not sprints.",
-     "I join the briefing, build the storyboard, shoot it, cut it and ship it. Feedback lands in hours, not sprints."),
+     "I brief, storyboard, shoot, cut and ship. Feedback lands in hours."),
     ("You do not get a folder of files. You get the machine that keeps producing them after we leave.",
-     "Templated systems and design libraries, so the tenth asset costs a fraction of the first."),
+     "Templates and libraries make the tenth asset cheap."),
     ("Automation takes the repetitive eighty percent. Humans keep the twenty percent that people actually remember.",
-     "Custom AI automation cut a full day of podcast editing to roughly 30 minutes. The judgement calls stay human."),
+     "AI cuts a day of podcast editing to 30 minutes. The judgement stays human."),
 
     # ── 07 team block → four projects, each caption matching its own image ──
     ("The people doing it", "A closer look"),
@@ -192,26 +190,26 @@ R = [
 
     # ── 08 results ──
     ("Averaged across engagements from the last twelve months. Replace with your own audited figures.",
-     "Straight off the record — eight years across Mirae Asset, Wealthy and Unacademy."),
+     "From the record, not estimates."),
     ("3.4×", "2,000+"),
     ("Pipeline lift", "Videos produced"),
     ("Median increase in qualified inbound within two quarters of launch.",
-     "Led a team of editors producing 2,000+ educational videos at Unacademy."),
+     "Educational videos, with my editing team at Unacademy."),
     ("68%", "70%"),
     ("Less production time", "Design work automated"),
     ("Same output volume, fewer hours, because the boring half runs itself.",
-     "AI-assisted workflows and templated systems raised throughput without adding headcount."),
+     "Of daily design work, run by AI and templates."),
     ("11 days", "1M+"),
     ("Idea to live", "Subs in one month"),
     ("Average time from approved concept to a shipped, measurable page.",
-     "New YouTube subscribers in a single month across the channels I produced for."),
+     "New YouTube subscribers in a single month."),
 
     # ── 08 quote cards: factual, attributed to the role — not invented praise ──
     ("They replaced four vendors and shipped more in a month than we had all quarter.",
-     "Built custom AI automation for podcast and social editing — a full day of manual work cut to roughly 30 minutes."),
+     "Custom AI editing cut a full day of work to 30 minutes."),
 
     ("The automations alone paid for the engagement. The film was the part our board kept quoting.",
-     "Designed studio setups for 150+ channels and re-engineered workflows — productivity up 25%, output up 35%."),
+     "Studio setups for 150+ channels: productivity up 25%, output up 35%."),
 
     # ── 09 contact ──
     ("Tell us what", "Tell me what"),
@@ -775,7 +773,7 @@ tpl = polish.apply(tpl, manifest, head_anchor, [WORK_CSS, ux_css, parts.TOOLS_CS
 # header, menu, viewer bar, badges — renders flat. Run this last so it also
 # covers the markup injected above.
 _plain = len(re.findall(r'(?<!-webkit-)backdrop-filter:', tpl))
-tpl = re.sub(r'(?<!-webkit-)backdrop-filter:\s*([^;"]+)',
+tpl = re.sub(r'(?<!-webkit-)backdrop-filter:\s*([^;"}]+)',   # stop at } too, or a stylesheet rule runs into the next one
              lambda m: f"-webkit-backdrop-filter:{m.group(1)}; backdrop-filter:{m.group(1)}", tpl)
 assert len(re.findall(r'(?<!-webkit-)backdrop-filter:', tpl)) == _plain, "prefix pass incomplete"
 print(f"  safari prefixes    : {_plain} backdrop-filter rules")
