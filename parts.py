@@ -435,7 +435,7 @@ EXPERIENCE = [
      "place": "Mumbai", "dates": "Oct 2025 — Present", "logo": "__MIRAE__", "now": True,
      "lead": "Own the creative feedback loop for m.Stock: performance ads, films, social and CRM creative.",
      "points": [
-        "Built a creative scorecard that rates every ad on cost per install and cost per in-app action, finding the winners to scale and a 14% spend leak to cut.",
+        "Built a simple scorecard for every ad, showing which ones to grow and where the budget could work harder.",
         "Produce event-ready films from script and use-case inputs: sit in the briefing, build the storyboard, then shoot and cut the final piece.",
         "Combine screen recordings, product demos, graphics and callouts with synced VO, subtitles and captions — exported for event screens, web and social.",
         "Built custom AI automation for podcast and social editing, cutting a full day of manual work to roughly 30 minutes.",

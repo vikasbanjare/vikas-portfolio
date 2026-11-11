@@ -109,7 +109,7 @@ python3 rebuild.py && git add -A && git commit -m "…" && git push   # deploy (
    analytics (`AN_UUID`).
 8. `-webkit-backdrop-filter` pass; `node --check` on every injected script; write.
 
-Section order after the build (polish.py runs last): hero · `#results` · `#adwins` · `#method` · `#work` · `#tools` · `#clients` (Brands) · `#experience` · `#studio` · `#contact`. Section labels carry no numbers. Menu links: `#results #work #uiux #tools #studio #contact`.
+Section order after the build (polish.py runs last): hero · `#results` · `#adstory` (link to `performance/`) · `#work` · `#tools` · `#clients` (Brands) · `#experience` · `#studio` · `#contact`. Section labels carry no numbers. Menu links: `#results #work #uiux #tools #studio #contact`.
 
 9. **Portfolio pass** (`polish.py`, last step before the Safari prefixes): light is the default (`vb-theme` in localStorage, `html.vb-light`), dark stays on the switch. It removes `#os`, `#launches`, the career map and "A closer look", moves `#results` up, and adds the light hero tiles. The dark styles of injected components are mapped to light automatically by `light_css()`; cards scripts draw late get `themeLate()`. The work list shows `FEATURED` first, the rest behind "See all".
 

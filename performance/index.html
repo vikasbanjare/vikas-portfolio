@@ -1,0 +1,143 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>What makes an ad work · Vikas Banjare</title>
+<meta name="description" content="What I learned making app ads for m.Stock by Mirae Asset: the words, design and formats people responded to.">
+<meta property="og:title" content="What makes an ad work"><meta property="og:image" content="https://vikasbanjare.github.io/vikas-portfolio/assets/og-card.jpg">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Onest:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fb;--card:#e9edf6;--ink:#0a0f1e;--body:#34415c;--quiet:#5b6980;--green:#4f7a00;--lime:#b6f500;--night:#0a0f1e;--gut:clamp(20px,5vw,72px);--e:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul{margin:0;padding:0}ul{list-style:none}a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:8px}
+main{overflow-x:clip}.w{max-width:1440px;margin:0 auto;padding:0 var(--gut)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
+.brand{font:600 18px/1 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.back{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:100px;background:var(--card);font:600 14.5px/1 'Space Grotesk',sans-serif}
+.k{display:block;margin-bottom:14px;font:600 12.5px/1.3 'Space Grotesk',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+h1{font:600 clamp(52px,10vw,156px)/.94 'Space Grotesk',sans-serif;letter-spacing:-.05em}
+h1 em{font:italic 400 1.04em/.9 'Instrument Serif',serif;letter-spacing:-.03em;color:var(--green)}
+.lead{max-width:30em;margin-top:clamp(20px,3vh,32px);font-size:clamp(18px,1.6vw,23px);line-height:1.4;color:var(--body)}
+.hero{padding-top:clamp(40px,8vh,96px);padding-bottom:clamp(40px,6vh,72px)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.stat{padding:clamp(24px,2.6vw,36px);border-radius:18px;background:var(--night);color:#fff}
+.stat b{display:block;font:400 clamp(52px,6.4vw,96px)/.95 'Instrument Serif',serif;letter-spacing:-.02em;color:var(--lime)}
+.stat span{display:block;margin-top:12px;font-size:clamp(15px,1.25vw,18px);line-height:1.35;color:#dbe3f2}
+section.w{padding-top:clamp(64px,11vh,128px)}
+h2{font:600 clamp(34px,4.8vw,68px)/1.04 'Space Grotesk',sans-serif;letter-spacing:-.04em;margin-bottom:clamp(24px,4vh,44px)}
+.words li{display:grid;grid-template-columns:96px minmax(0,1fr) minmax(0,300px) 190px;align-items:center;gap:8px 32px;padding:clamp(20px,2.6vh,30px) 0;border-top:1px solid rgba(16,24,48,.12)}
+.words li:last-child{border-bottom:1px solid rgba(16,24,48,.12)}
+.words q{font:italic 400 clamp(32px,4.4vw,64px)/1.05 'Instrument Serif',serif;quotes:"\201C" "\201D";letter-spacing:-.015em}
+.words .why{font-size:clamp(15px,1.2vw,17px);color:var(--body)}.words .why b{display:block;font:600 clamp(17px,1.4vw,20px)/1.35 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:3px}
+.words .n{text-align:right;font:600 clamp(16px,1.3vw,19px)/1.4 'Space Grotesk',sans-serif;color:var(--green)}
+.words .th{width:96px;height:96px;object-fit:cover;border-radius:12px;display:block}
+h3.sub{margin:0 0 14px;font:600 clamp(19px,1.6vw,23px)/1.35 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.ads{display:grid;gap:clamp(12px,1.4vw,18px)}.ads+h3.sub,.ads+.ads{margin-top:clamp(28px,4vh,44px)}.ads.six{grid-template-columns:repeat(6,minmax(0,1fr))}.ads.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.vids{display:flex;flex-wrap:wrap;gap:clamp(12px,1.4vw,18px)}.vids video{display:block;height:clamp(220px,24vw,340px);width:auto;max-width:100%;border-radius:14px;background:var(--night)}.vids+h3.sub{margin-top:clamp(28px,4vh,44px)}
+.ad{margin:0}.ad img{display:block;width:100%;height:auto;border-radius:14px;background:var(--card)}.ads.tall .ad img{aspect-ratio:4/5;object-fit:cover}
+.ad figcaption{margin-top:10px}.ad b{display:block;font:600 15.5px/1.4 'Space Grotesk',sans-serif;letter-spacing:-.01em}.ad span{display:block;margin-top:3px;font-size:14px;line-height:1.4;color:var(--green);font-weight:500}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.card{padding:clamp(24px,2.4vw,34px);border-radius:18px;background:var(--card)}
+.card h3{font:600 clamp(21px,1.9vw,27px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-.025em;margin-bottom:10px}
+.card p{font-size:16px;line-height:1.5;color:var(--body)}
+.big{display:block;margin-bottom:14px;font:400 clamp(48px,5vw,76px)/1 'Instrument Serif',serif;letter-spacing:-.02em;color:var(--green)}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.duo>div{padding:clamp(28px,3.4vw,52px);border-radius:20px}.duo .a{background:var(--lime);color:#06140a}.duo .b{background:var(--night);color:#fff}
+.duo h3{font:600 clamp(30px,3.6vw,52px)/1.04 'Space Grotesk',sans-serif;letter-spacing:-.04em}
+.duo p{margin-top:16px;font-size:clamp(16px,1.3vw,19px);line-height:1.45}.duo .b p{color:#dbe3f2}
+.next{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.next .card i{display:block;margin-bottom:12px;font:italic 400 36px/1 'Instrument Serif',serif;color:var(--green)}
+.end{margin-top:clamp(56px,10vh,112px);padding-top:clamp(48px,8vh,88px);padding-bottom:clamp(36px,5vh,56px);background:var(--night);color:#fff}
+.end h2{margin-bottom:24px}.end a.cta{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:100px;background:var(--lime);color:#06140a;font:600 16px/1 'Space Grotesk',sans-serif}
+.note{margin-top:clamp(36px,5vh,56px);max-width:62em;font-size:13.5px;line-height:1.55;color:#aab6cc}
+.rise{animation:rise .9s var(--e) both}.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.18s}@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+@media (max-width:900px){.stats,.grid3,.duo{grid-template-columns:minmax(0,1fr)}.next{grid-template-columns:repeat(2,minmax(0,1fr))}.words li{grid-template-columns:minmax(0,1fr)}.words .n{text-align:left}.ads.six{grid-template-columns:repeat(3,minmax(0,1fr))}.ads.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.next{grid-template-columns:minmax(0,1fr)}.ads.six{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}}
+</style></head><body>
+<header class="w top"><a class="brand" href="../">Vikas Banjare</a><a class="back" href="../">&larr; Back to portfolio</a></header>
+<main>
+<div class="w hero">
+<span class="k rise">m.Stock by Mirae Asset &middot; app ads</span>
+<h1 class="rise d1">What makes<br>an ad <em>work.</em></h1>
+<p class="lead rise d2">I made and studied a full season of app ads. Here&rsquo;s what people responded to.</p>
+</div>
+
+<div class="w"><div class="stats">
+<div class="stat"><b>28,500+</b><span>people installed the app</span></div>
+<div class="stat"><b>4.5&times;</b><span>bigger monthly budget by July</span></div>
+<div class="stat"><b>24%</b><span>cheaper to win each new user, even as the budget grew</span></div>
+</div></div>
+
+<section class="w">
+<span class="k">Top performers</span><h2>The ads that did best.</h2>
+<h3 class="sub">Images</h3>
+<div class="ads six"><figure class="ad"><img src="../assets/perf/gold-etf.jpg" alt="Gold ETF ad" loading="lazy"><figcaption><b>Gold ETF</b><span>71% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/scalper-mode.jpg" alt="Scalper Mode ad" loading="lazy"><figcaption><b>Scalper Mode</b><span>66% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/ten-orders.jpg" alt="10 Orders Every Second ad" loading="lazy"><figcaption><b>10 Orders Every Second</b><span>48% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/research-calls.jpg" alt="Free Research Calls ad" loading="lazy"><figcaption><b>Free Research Calls</b><span>46% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/fast-intraday.jpg" alt="Fast Intraday Trading ad" loading="lazy"><figcaption><b>Fast Intraday Trading</b><span>32% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/four-x-capital.jpg" alt="4&times; Capital ad" loading="lazy"><figcaption><b>4&times; Capital</b><span>Strong on new and active users</span></figcaption></figure></div>
+<h3 class="sub">Videos</h3>
+<div class="ads four"><figure class="ad"><img src="../assets/perf/v-instant-margin.jpg" alt="Instant Margin ad" loading="lazy"><figcaption><b>Instant Margin</b><span>37% cheaper per active user</span></figcaption></figure><figure class="ad"><img src="../assets/perf/v-margin-position.jpg" alt="Margin Position ad" loading="lazy"><figcaption><b>Margin Position</b><span>13% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/v-smart-portfolios.jpg" alt="Smart Portfolios ad" loading="lazy"><figcaption><b>Smart Portfolios</b><span>9% cheaper than average</span></figcaption></figure><figure class="ad"><img src="../assets/perf/v-research-calls.jpg" alt="Free Research Calls ad" loading="lazy"><figcaption><b>Free Research Calls</b><span>Strong on new and active users</span></figcaption></figure></div>
+</section>
+
+<section class="w">
+<span class="k">The words</span><h2>Say one clear thing.</h2>
+<ul class="words">
+<li><img class="th" src="../assets/perf/gold-etf.jpg" alt="" loading="lazy"><q>Gold too expensive?</q><span class="why"><b>Ask a question</b>It speaks to something people already feel.</span><span class="n">71% cheaper<br>than average</span></li>
+<li><img class="th" src="../assets/perf/scalper-mode.jpg" alt="" loading="lazy"><q>Scalper Mode</q><span class="why"><b>Give it a name</b>A named feature feels real and worth trying.</span><span class="n">66% cheaper<br>than average</span></li>
+<li><img class="th" src="../assets/perf/ten-orders.jpg" alt="" loading="lazy"><q>10 orders every second</q><span class="why"><b>Use a real number</b>A number is easy to believe and remember.</span><span class="n">48% cheaper<br>than average</span></li>
+<li><img class="th" src="../assets/perf/research-calls.jpg" alt="" loading="lazy"><q>Free research calls</q><span class="why"><b>Offer something useful</b>A free, trusted benefit is an easy yes.</span><span class="n">46% cheaper<br>than average</span></li>
+</ul>
+</section>
+
+<section class="w">
+<span class="k">The design</span><h2>Let the product lead.</h2>
+<div class="grid3">
+<div class="card"><span class="big">8 of 9</span><h3>Show the real app.</h3><p>Nearly all the best-value ads put the actual app screen up front.</p></div>
+<div class="card"><span class="big">Half</span><h3>Product first, people second.</h3><p>Ads built around the product cost about half as much as ads built around a face.</p></div>
+<div class="card"><span class="big">One</span><h3>One big line.</h3><p>The ads that did best kept to a single message, with nothing competing with it.</p></div>
+</div>
+</section>
+
+<section class="w">
+<span class="k">Images and video</span><h2>Each has its own job.</h2>
+<div class="duo">
+<div class="a"><h3>Images bring people in.</h3><p>Images won new users for 20% less. They&rsquo;re the fast, affordable way to grow.</p></div>
+<div class="b"><h3>Video keeps them.</h3><p>People who came from video were 59% more active in the app. Videos that explained one feature did best.</p></div>
+</div>
+</section>
+
+<section class="w">
+<span class="k">Smart calls</span><h2>What I&rsquo;d tell any team.</h2>
+<div class="grid3">
+<div class="card"><span class="big">56%</span><h3>Simple offers go further.</h3><p>Easy investing offers won new users for less than half the cost of technical ones.</p></div>
+<div class="card"><span class="big">14%</span><h3>Make the budget work harder.</h3><p>I found 14% of the budget that could be moved to the ads doing better.</p></div>
+<div class="card"><span class="big">Early</span><h3>Good ads show early.</h3><p>Ads that started well kept doing well, so the good ones can get more budget sooner.</p></div>
+</div>
+</section>
+
+<section class="w">
+<span class="k">How I work</span><h2>Learn, make, repeat.</h2>
+<div class="next">
+<div class="card"><i>1</i><h3>Look</h3><p>See what people responded to.</p></div>
+<div class="card"><i>2</i><h3>Pick one idea</h3><p>One thing to try each round.</p></div>
+<div class="card"><i>3</i><h3>Make it</h3><p>Quick new versions, made with AI.</p></div>
+<div class="card"><i>4</i><h3>Grow what works</h3><p>More budget behind the ads bringing real users.</p></div>
+</div>
+</section>
+
+<section class="w">
+<span class="k">Wealthy</span><h2>Ads and designs for Wealthy.</h2>
+<h3 class="sub">Meta ads</h3>
+<div class="ads six"><figure class="ad"><img src="../assets/perf/wealthy/ai-tools.jpg" alt="Wealthy ad: AI tools for your business" loading="lazy"><figcaption><b>AI tools for your business</b></figcaption></figure><figure class="ad"><img src="../assets/perf/wealthy/more-ways.jpg" alt="Wealthy ad: More ways to grow" loading="lazy"><figcaption><b>More ways to grow</b></figcaption></figure><figure class="ad"><img src="../assets/perf/wealthy/keep-selling.jpg" alt="Wealthy ad: Keep selling insurance" loading="lazy"><figcaption><b>Keep selling insurance</b></figcaption></figure><figure class="ad"><img src="../assets/perf/wealthy/grow-mfd.jpg" alt="Wealthy ad: Grow your business" loading="lazy"><figcaption><b>Grow your business</b></figcaption></figure><figure class="ad"><img src="../assets/perf/wealthy/when-clients-ask.jpg" alt="Wealthy ad: When clients ask" loading="lazy"><figcaption><b>When clients ask</b></figcaption></figure><figure class="ad"><img src="../assets/perf/wealthy/one-need.jpg" alt="Wealthy ad: Clients have many more needs" loading="lazy"><figcaption><b>Clients have many more needs</b></figcaption></figure></div>
+<h3 class="sub">Meta videos</h3>
+<div class="vids"><figure class="ad"><video src="../assets/perf/wealthy/trail-income.mp4" poster="../assets/perf/wealthy/trail-income.jpg" controls playsinline preload="none"></video><figcaption><b>You can sell mutual funds too</b></figcaption></figure><figure class="ad"><video src="../assets/perf/wealthy/more-products.mp4" poster="../assets/perf/wealthy/more-products.jpg" controls playsinline preload="none"></video><figcaption><b>One app, many products</b></figcaption></figure></div>
+<h3 class="sub">YouTube ad films</h3>
+<div class="ads four"><figure class="ad"><img src="../assets/posters/Ue5FrWQ22dv.jpg" alt="Wealthy ad film still" loading="lazy"><figcaption><b>Wealthy YouTube ad</b><span>Campaign film</span></figcaption></figure><figure class="ad"><img src="../assets/posters/It7qHBhrcqT.jpg" alt="Wealthy ad film still" loading="lazy"><figcaption><b>Wealthy YouTube ad</b><span>Campaign film</span></figcaption></figure><figure class="ad"><img src="../assets/posters/JNLiwdqkjxh.jpg" alt="Wealthy ad film still" loading="lazy"><figcaption><b>Wealthy YouTube ad</b><span>Campaign film</span></figcaption></figure><figure class="ad"><img src="../assets/posters/RuDvkBsfa-S.jpg" alt="Wealthy ad film still" loading="lazy"><figcaption><b>Wealthy YouTube ad</b><span>Campaign film</span></figcaption></figure></div>
+<h3 class="sub">Social designs</h3>
+<div class="ads four tall"><figure class="ad"><img src="../assets/img/social-media-designs/07.jpeg" alt="India&rsquo;s highest tax payers" loading="lazy"><figcaption><b>India&rsquo;s highest tax payers</b></figcaption></figure><figure class="ad"><img src="../assets/img/social-media-designs/08.jpeg" alt="Top countries investing in India" loading="lazy"><figcaption><b>Top countries investing in India</b></figcaption></figure><figure class="ad"><img src="../assets/img/social-media-designs/09.jpeg" alt="Popular mutual fund categories" loading="lazy"><figcaption><b>Popular mutual fund categories</b></figcaption></figure><figure class="ad"><img src="../assets/img/social-media-designs/14.jpeg" alt="India&rsquo;s most profitable companies" loading="lazy"><figcaption><b>India&rsquo;s most profitable companies</b></figcaption></figure></div>
+</section>
+
+<div class="end"><div class="w">
+<h2>Need ads that pay for themselves?</h2>
+<a class="cta" href="../#contact">Let&rsquo;s talk &rarr;</a>
+<p class="note">Based on Google app campaigns for m.Stock, May to July 2026. These are patterns from real ads, not controlled tests. &ldquo;Cheaper&rdquo; means cost per app install compared with the campaign average; &ldquo;active&rdquo; means in-app actions per install.</p>
+</div></div>
+</main>
+</body></html>
