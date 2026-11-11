@@ -555,6 +555,15 @@ WORKDATA.append({
     "kind": "image", "cover": _ux_frames[0], "images": [], "videos": [], "posters": {},
     "frames": _ux_frames, "url": "case-studies/", "href": "case-studies/", "label": "6 showcases",
 })
+# 15th project: the performance ads. Like UI/UX it opens its own page (performance/) instead of a gallery.
+_ad_frames = ["assets/perf/cover.jpg"] + [f"assets/perf/mstock-films/{k}.jpg" for k in ("margin-position", "smart-portfolios", "research-calls")] + ["assets/perf/wealthy/more-products.jpg"]
+for _f in _ad_frames:
+    assert (ROOT / _f).exists(), f"missing {_f}"
+WORKDATA.append({
+    "slug": "performance-ads", "title": "Performance Ads", "tags": ["Performance", "Ads"],
+    "kind": "image", "cover": _ad_frames[0], "images": [], "videos": [], "posters": {},
+    "frames": _ad_frames, "url": "performance/", "href": "performance/", "label": "m.Stock & Wealthy · ads and results",
+})
 _local = sum(1 for p in WORKDATA for s in p["images"] if not s.startswith("http"))
 _total = sum(len(p["images"]) for p in WORKDATA)
 

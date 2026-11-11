@@ -80,8 +80,6 @@ HERO_REEL = """<div class="vbr" data-vbr><img class="vbr-f" src="assets/posters/
 <div class="vbr-side"><span class="vbr-now" data-vbr-now><b>01</b> / 08 &middot; Podcast Videos</span><div class="vbr-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div>
 </div>"""
 
-ADSTORY = """<section id="adstory"><a class="vbp" href="performance/"><span class="vbp-k">The story behind the ads</span><span class="vbp-t">What makes an ad work.</span><span class="vbp-d">What I learned making app ads for m.Stock by Mirae Asset.</span><span class="vbp-go">Read it &rarr;</span></a></section>"""
-
 CSS = """
 body{font-family:'Onest',system-ui,sans-serif}
 [data-hero] a{white-space:nowrap}
@@ -111,17 +109,6 @@ body{font-family:'Onest',system-ui,sans-serif}
 /* these brand files carry wide empty margins, so their marks read tiny next to the rest */
 #clients img[alt="DataFlow Group"]{transform:scale(2.3)}#clients img[alt="Purple Finance"]{transform:scale(1.9)}
 #clients img[alt="i30 Learning Centre"]{transform:scale(2)}#clients img[alt="The Hub Bengaluru"]{transform:scale(1.5)}
-/* one link out to the ad story; the data itself lives on performance/ */
-#adstory{position:relative;z-index:2;background:#04060d;padding:0 clamp(20px,5vw,72px) clamp(24px,4vh,48px)}
-.vbp{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:6px 32px;max-width:1296px;margin:0 auto;padding:clamp(28px,4vw,52px);border-radius:20px;background:#0a0f1e;color:#fff;text-decoration:none;font-family:'Onest',system-ui,sans-serif;transition:translate .5s cubic-bezier(.2,.7,.3,1)}
-.vbp-k{grid-column:1/-1;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b6f500}
-.vbp-t{grid-column:1;margin-top:8px;font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,4.6vw,64px);font-weight:600;line-height:1.02;letter-spacing:-.04em}
-.vbp-d{grid-column:1;font-size:clamp(15px,1.3vw,18px);line-height:1.45;color:#cfd8ea}
-.vbp-go{grid-column:2;grid-row:2/4;align-self:center;display:inline-flex;align-items:center;min-height:50px;padding:0 26px;border-radius:100px;background:#b6f500;color:#06140a;font:600 15px/1 'Space Grotesk',sans-serif;white-space:nowrap}
-@media (hover:hover){.vbp:hover{translate:0 -4px}}
-@media (max-width:640px){.vbp{grid-template-columns:minmax(0,1fr)}.vbp-go{grid-column:1;grid-row:auto;justify-self:start;margin-top:14px}}
-html.vb-light #adstory{background:#f4f6fb}
-/* ---- light ---- */
 html.vb-light [data-vbgal] h3{color:#f6f9ff!important}
 html.vb-light [data-vbgal] h3~*,html.vb-light [data-vbgal] div>span{color:#a9bcdd}
 html.vb-light #experience{background:#f4f6fb!important}
@@ -364,7 +351,7 @@ def apply(tpl, manifest, head_anchor, dark_css):
     block = tpl[a:b]
     tpl = tpl[:a] + tpl[b:]
     at = tpl.index("<section data-vbwork2")
-    tpl = tpl[:at] + block + ADSTORY + tpl[at:]
+    tpl = tpl[:at] + block + tpl[at:]
 
     # the numbers on section labels could never match the menu, so the labels lose them
     tpl = re.sub(r">\d{2,3} — ([^<]{2,40}<)", r">\1", tpl)
