@@ -72,7 +72,7 @@ def _section(tpl, sid):
 
 
 HERO_REEL = """<div class="vbr" data-vbr><img class="vbr-f" src="assets/posters/-KFeN_snxTq.jpg" alt="" data-label="Podcast Videos"><img class="vbr-f" src="assets/posters/Ue5FrWQ22dv.jpg" alt="" data-label="Wealthy YT Ads"><img class="vbr-f" src="assets/posters/CfjDPnZeIzE.jpg" alt="" data-label="Trailer Video"><img class="vbr-f" src="assets/posters/It7qHBhrcqT.jpg" alt="" data-label="Wealthy YT Ads"><img class="vbr-f" src="assets/posters/Em7TeX2SqTn.jpg" alt="" data-label="Podcast Videos"><img class="vbr-f" src="assets/posters/WKC6FEWm7QR.jpg" alt="" data-label="Trailer Video"><img class="vbr-f" src="assets/posters/R94zxhnXTCH.jpg" alt="" data-label="Podcast Videos"><img class="vbr-f" src="assets/posters/JNLiwdqkjxh.jpg" alt="" data-label="Wealthy YT Ads"><div class="vbr-flash"></div><div class="vbr-shade"></div>
-<div class="vbr-in"><div class="vbr-main"><p class="vbr-kick"><i></i>Performance creative lead &middot; Mumbai &middot; works remote</p>
+<div class="vbr-in"><div class="vbr-main"><p class="vbr-kick"><i></i>AI-powered creative &middot; Video &middot; Edit &middot; Design</p>
 <h2 class="vbr-h">Vikas Banjare</h2>
 <p class="vbr-p">Ads that earn their spend.</p>
 <p class="vbr-s">I make fintech app ads with AI, learn what people respond to, and make the next round better.</p>
