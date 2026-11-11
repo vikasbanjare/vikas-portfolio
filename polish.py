@@ -72,12 +72,22 @@ def _section(tpl, sid):
 
 
 HERO_REEL = """<div class="vbr" data-vbr><img class="vbr-f" src="assets/posters/-KFeN_snxTq.jpg" alt="" data-label="Podcast Videos"><img class="vbr-f" src="assets/posters/Ue5FrWQ22dv.jpg" alt="" data-label="Wealthy YT Ads"><img class="vbr-f" src="assets/posters/CfjDPnZeIzE.jpg" alt="" data-label="Trailer Video"><img class="vbr-f" src="assets/posters/It7qHBhrcqT.jpg" alt="" data-label="Wealthy YT Ads"><img class="vbr-f" src="assets/posters/Em7TeX2SqTn.jpg" alt="" data-label="Podcast Videos"><img class="vbr-f" src="assets/posters/WKC6FEWm7QR.jpg" alt="" data-label="Trailer Video"><img class="vbr-f" src="assets/posters/R94zxhnXTCH.jpg" alt="" data-label="Podcast Videos"><img class="vbr-f" src="assets/posters/JNLiwdqkjxh.jpg" alt="" data-label="Wealthy YT Ads"><div class="vbr-flash"></div><div class="vbr-shade"></div>
-<div class="vbr-in"><div class="vbr-main"><p class="vbr-kick"><i></i>Showreel &middot; Creative lead, Mumbai</p>
+<div class="vbr-in"><div class="vbr-main"><p class="vbr-kick"><i></i>Performance creative lead &middot; Mumbai &middot; works remote</p>
 <h2 class="vbr-h">Vikas Banjare</h2>
-<p class="vbr-p">Films, design and AI for fintech and edtech brands.</p>
-<div class="vbr-btns"><a href="#work">See the work &rarr;</a><a href="#contact">Get in touch</a></div></div>
+<p class="vbr-p">Ads that earn their spend.</p>
+<p class="vbr-s">I make fintech app ads at volume with AI, read the results by offer, angle and format, and brief the next round.</p>
+<div class="vbr-btns"><a href="#work">See the work &rarr;</a><a href="#adwins">See ad results &rarr;</a></div></div>
 <div class="vbr-side"><span class="vbr-now" data-vbr-now><b>01</b> / 08 &middot; Podcast Videos</span><div class="vbr-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div>
 </div>"""
+
+LEARNED = """<section id="adwins"><div class="vbt-in"><span class="vbt-k">Ad results &middot; m.Stock by Mirae Asset</span><h2 class="vbt-h">What 39 ads taught me.</h2><p class="vbl-sub">Google App campaigns, May to July 2026: 28,532 installs and 1,575 in-app actions. I built a scorecard rating every creative on cost per install and cost per in-app action.</p><div class="vbl-g"><div class="vbl-c w3"><h3>Images win the install. Video wins the user.</h3><p class="vbl-s">Cost per install</p><div class="vbl-b"><div class="vbl-r on"><span>Image</span><i><u style="width:80%"></u></i><b>20% cheaper</b></div><div class="vbl-r"><span>Video</span><i><u style="width:100%"></u></i><b></b></div></div><p class="vbl-s">Cost per in-app action</p><div class="vbl-b"><div class="vbl-r on"><span>Video</span><i><u style="width:79%"></u></i><b>21% cheaper</b></div><div class="vbl-r"><span>Image</span><i><u style="width:100%"></u></i><b></b></div></div><p class="vbl-s">In-app actions per 100 installs</p><div class="vbl-b"><div class="vbl-r on"><span>Video</span><i><u style="width:100%"></u></i><b>59% more</b></div><div class="vbl-r"><span>Image</span><i><u style="width:63%"></u></i><b></b></div></div></div><div class="vbl-c w3"><h3>The offer sets the price.</h3><p class="vbl-s">Cost per install, against platform and API ads</p><div class="vbl-b"><div class="vbl-r on"><span>Investing</span><i><u style="width:44%"></u></i><b>&minus;56%</b></div><div class="vbl-r"><span>Research calls</span><i><u style="width:64%"></u></i><b>&minus;36%</b></div><div class="vbl-r"><span>F&amp;O, intraday</span><i><u style="width:66%"></u></i><b>&minus;34%</b></div><div class="vbl-r"><span>Flat brokerage</span><i><u style="width:70%"></u></i><b>&minus;30%</b></div><div class="vbl-r"><span>Margin funding</span><i><u style="width:72%"></u></i><b>&minus;28%</b></div><div class="vbl-r"><span>Platform, API</span><i><u style="width:100%"></u></i><b>baseline</b></div></div></div><div class="vbl-c w3"><h3>Cheapest images.</h3><p class="vbl-s">Cost per install, against the campaign average</p><div class="vbl-b"><div class="vbl-r on"><span>Gold ETF</span><i><u style="width:29%"></u></i><b>&minus;71%</b></div><div class="vbl-r on"><span>Scalper Mode</span><i><u style="width:34%"></u></i><b>&minus;66%</b></div><div class="vbl-r"><span>10 orders a second</span><i><u style="width:52%"></u></i><b>&minus;48%</b></div><div class="vbl-r"><span>Stocks, flat fee</span><i><u style="width:53%"></u></i><b>&minus;47%</b></div><div class="vbl-r"><span>Free research calls</span><i><u style="width:54%"></u></i><b>&minus;46%</b></div></div></div><div class="vbl-c w3"><h3>Cheapest videos.</h3><p class="vbl-s">Cost per install, against the campaign average</p><div class="vbl-b"><div class="vbl-r on"><span>Margin position</span><i><u style="width:87%"></u></i><b>&minus;13%</b></div><div class="vbl-r"><span>Smart portfolios</span><i><u style="width:91%"></u></i><b>&minus;9%</b></div><div class="vbl-r"><span>Instant margin</span><i><u style="width:93%"></u></i><b>&minus;7%</b></div><div class="vbl-r"><span>Research calls</span><i><u style="width:99%"></u></i><b>&minus;1%</b></div></div><p class="vbl-d">Instant margin was the standout: 37% below average per in-app action.</p></div><div class="vbl-c w3"><h3>What text worked.</h3><p class="vbl-s">On-image line, cost per install against average</p><div class="vbl-q"><div><span>&ldquo;Gold too expensive?&rdquo; <em>a question</em></span><b>&minus;71%</b></div><div><span>&ldquo;Scalper Mode&rdquo; <em>a named feature</em></span><b>&minus;66%</b></div><div><span>&ldquo;10 orders every second&rdquo; <em>a number</em></span><b>&minus;48%</b></div><div><span>&ldquo;Free research calls&rdquo; <em>free, with proof</em></span><b>&minus;46%</b></div><div><span>&ldquo;Get up to 80% funding&rdquo;</span><b>+99%</b></div><div><span>&ldquo;Invest smarter&rdquo; <em>a vague promise</em></span><b>+112%</b></div><div><span>&ldquo;A powerful trading platform&rdquo; <em>a vague claim</em></span><b>+130%</b></div></div></div><div class="vbl-c w3"><h3>What design worked.</h3><p class="vbl-s">Worked</p><ul class="vbl-l"><li>The real app screen up front: 8 of the 9 cheapest ads</li><li>One big line, nothing competing with it</li><li>Landscape or square before portrait</li></ul><p class="vbl-s">Didn&rsquo;t</p><ul class="vbl-l"><li>Abstract tech art: the costliest ad of all had no app screen</li><li>A person in place of the product</li></ul></div><div class="vbl-c w3"><h3>Faces mostly didn&rsquo;t work.</h3><p class="vbl-s">Median cost per install, images</p><div class="vbl-b"><div class="vbl-r on"><span>No face</span><i><u style="width:51%"></u></i><b>half the cost</b></div><div class="vbl-r"><span>Face</span><i><u style="width:100%"></u></i><b>about 2&times;</b></div></div><p class="vbl-d">None of the 9 cheapest ads has a face. One face ad still won, and only 6 used one, so I&rsquo;d test it before calling it.</p></div><div class="vbl-c w3"><h3>Found the leak.</h3><p class="vbl-s">Platform and API image ads</p><div class="vbl-b"><div class="vbl-r"><span>Share of spend</span><i><u style="width:100%"></u></i><b>14.4%</b></div><div class="vbl-r on"><span>Share of in-app actions</span><i><u style="width:31%"></u></i><b>4.5%</b></div></div><p class="vbl-d">Three times more spend than the real users it brought.</p></div><div class="vbl-c w2"><span class="vbl-n">32%</span><h3>Don&rsquo;t trust the platform&rsquo;s rating.</h3><p class="vbl-d">Ads Google rated Best cost 32% more per install than ads rated Low.</p></div><div class="vbl-c w2"><span class="vbl-n">6 of 10</span><h3>Portrait is a risk.</h3><p class="vbl-d">Portrait cost more than landscape for 6 of 10 creatives, by up to 11.3&times;.</p></div><div class="vbl-c w2"><span class="vbl-n">0.53&ndash;0.70</span><h3>Cheap stays cheap.</h3><p class="vbl-d">Cost rank held month to month, so losers can be called early.</p></div></div><div class="vbl-next"><b>Next test</b><span>The same offer, with and without a face, to settle it.</span></div><p class="vbl-f">Shown as comparisons. Google decides where spend goes, so this is not a clean A/B test. Text, faces and design were read from the ad images, so treat them as patterns, not proof. The export has no watch-time data.</p></div></section>"""
+
+METHOD = """<section id="method"><div class="vbt-in"><span class="vbt-k">Method</span><h2 class="vbt-h">How I test creative.</h2>
+<ol class="vbt-g"><li><span class="vbt-n">1</span><span class="vbt-t">Read</span><span class="vbt-d">Results by hook, angle and format.</span></li>
+<li><span class="vbt-n">2</span><span class="vbt-t">Hypothesise</span><span class="vbt-d">One hypothesis per round.</span></li>
+<li><span class="vbt-n">3</span><span class="vbt-t">Make</span><span class="vbt-d">Variants, produced with AI.</span></li>
+<li><span class="vbt-n">4</span><span class="vbt-t">Decide</span><span class="vbt-d">Kill, keep or scale on cost per real user.</span></li></ol>
+<div class="vbt-m">I watch <b>Hook rate</b><b>Hold</b><b>CTR</b><b>CPA</b><b>Frequency</b><b>CPM</b></div></div></section>"""
 
 CSS = """
 body{font-family:'Onest',system-ui,sans-serif}
@@ -99,7 +109,7 @@ body{font-family:'Onest',system-ui,sans-serif}
   #results>div:first-of-type,#results [style*="repeat(auto-fit"]{gap:10px}
 }
 /* ---- one grid for every section: 72px edges, even rhythm, cards that line up ---- */
-#results,#work,#uiux,#tools,#clients,#experience,#studio{padding-top:clamp(56px,9vh,104px)!important;padding-bottom:clamp(56px,9vh,104px)!important}
+#results,#adwins,#method,#work,#tools,#clients,#experience,#studio{padding-top:clamp(56px,9vh,104px)!important;padding-bottom:clamp(56px,9vh,104px)!important}
 #contact{padding-top:clamp(56px,9vh,104px)!important}
 [data-vbux] .vux-card{display:flex;flex-direction:column}
 [data-vbux] .vux-body{display:flex;flex-direction:column;flex:1;padding:18px 0 0}
@@ -108,6 +118,51 @@ body{font-family:'Onest',system-ui,sans-serif}
 /* these brand files carry wide empty margins, so their marks read tiny next to the rest */
 #clients img[alt="DataFlow Group"]{transform:scale(2.3)}#clients img[alt="Purple Finance"]{transform:scale(1.9)}
 #clients img[alt="i30 Learning Centre"]{transform:scale(2)}#clients img[alt="The Hub Bengaluru"]{transform:scale(1.5)}
+/* results: the two ad-performance tiles lead, wider than the three production numbers */
+[data-vbfigs]{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+[data-vbfigs]>:nth-child(-n+2){grid-column:span 3}[data-vbfigs]>:nth-child(n+3){grid-column:span 2}
+@media (max-width:760px){[data-vbfigs]{grid-template-columns:minmax(0,1fr)!important}[data-vbfigs]>*{grid-column:auto!important}}
+/* what the ads taught me */
+.vbl-sub{margin:calc(-1*clamp(14px,2vh,26px)) 0 clamp(24px,3.4vh,36px);max-width:60ch;font-size:16px;line-height:1.5;color:#a9bcdd}
+.vbl-g{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.vbl-c{padding:clamp(20px,2.2vw,30px);border-radius:16px;background:rgba(255,255,255,.05)}.vbl-c.w3{grid-column:span 3}.vbl-c.w2{grid-column:span 2}
+.vbl-c h3{margin:0 0 14px;font-family:'Space Grotesk',sans-serif;font-size:clamp(19px,1.7vw,24px);line-height:1.15;font-weight:600;letter-spacing:-.02em;color:#f6f9ff}
+.vbl-s{margin:14px 0 8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8da0c4}
+.vbl-b{display:grid;gap:7px}.vbl-r{display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr) 92px;align-items:center;gap:12px;font-size:14px;color:#a9bcdd}
+.vbl-r i{display:block;height:10px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden}.vbl-r u{display:block;height:100%;border-radius:5px;background:rgba(255,255,255,.28)}
+.vbl-r b{font-weight:600;text-align:right;color:#eaf0ff}.vbl-r.on u{background:#b6f500}.vbl-r.on span,.vbl-r.on b{color:#f6f9ff}
+.vbl-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.vbl-two ul{margin:0;padding:0;list-style:none;font-size:15px;line-height:1.75;color:#eaf0ff}.vbl-two .vbl-s{margin-top:0}
+.vbl-d{margin:14px 0 0;font-size:14.5px;line-height:1.5;color:#a9bcdd}.vbl-c.w2 h3{margin-bottom:0}.vbl-c.w2 .vbl-d{margin-top:8px}
+.vbl-n{display:block;margin-bottom:10px;font:400 clamp(40px,4.4vw,60px)/1 'Instrument Serif',serif;letter-spacing:-.02em;color:#b6f500}
+.vbl-next{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:clamp(12px,1.6vw,20px);padding:18px clamp(20px,2.2vw,30px);border-radius:16px;background:#b6f500;color:#06140a;font-size:15.5px;line-height:1.45}.vbl-next b{font-family:'Space Grotesk',sans-serif;font-weight:700}
+.vbl-q{display:grid;gap:9px}.vbl-q div{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:14.5px;line-height:1.35;color:#eaf0ff}.vbl-q b{flex:none;font-weight:600}.vbl-q em{display:block;font-style:normal;font-size:13px;color:#8da0c4}
+.vbl-l{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:14.5px;line-height:1.4;color:#eaf0ff}
+html.vb-light .vbl-q div,html.vb-light .vbl-l{color:#0a0f1e}html.vb-light .vbl-q em{color:#5b6980}
+.vbl-f{margin:14px 0 0;font-size:13px;line-height:1.5;color:#8da0c4}
+@media (max-width:900px){.vbl-c.w3,.vbl-c.w2{grid-column:span 6}}
+@media (max-width:520px){.vbl-r{grid-template-columns:minmax(0,104px) minmax(0,1fr) 78px;gap:8px;font-size:13px}}
+html.vb-light .vbl-sub,html.vb-light .vbl-d,html.vb-light .vbl-r{color:#4c5a75}html.vb-light .vbl-c{background:#e9edf6}html.vb-light .vbl-c h3,html.vb-light .vbl-r.on span,html.vb-light .vbl-r.on b,html.vb-light .vbl-r b,html.vb-light .vbl-two ul{color:#0a0f1e}
+html.vb-light .vbl-s,html.vb-light .vbl-f{color:#5b6980}html.vb-light .vbl-r i{background:rgba(16,24,48,.08)}html.vb-light .vbl-r u{background:rgba(16,24,48,.28)}html.vb-light .vbl-r.on u{background:#6f9e00}html.vb-light .vbl-n{color:#4f7a00}
+/* how I test creative */
+#method,#adwins{position:relative;z-index:2;background:#04060d;padding-left:clamp(20px,5vw,72px);padding-right:clamp(20px,5vw,72px);font-family:'Onest',system-ui,sans-serif;color:#eaf0ff}
+.vbt-in{max-width:1296px;margin:0 auto}
+.vbt-k{display:block;margin-bottom:14px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b6f500}
+.vbt-h{margin:0 0 clamp(28px,4vh,44px);font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,4.2vw,60px);line-height:1.05;font-weight:600;letter-spacing:-.035em;color:#f6f9ff}
+.vbt-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin:0;padding:0;list-style:none}
+.vbt-g li{padding:24px 22px;border-radius:16px;background:rgba(255,255,255,.05)}
+.vbt-n{display:block;font:italic 400 34px/1 'Instrument Serif',serif;color:#b6f500}
+.vbt-t{display:block;margin-top:14px;font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;letter-spacing:-.02em;color:#f6f9ff}
+.vbt-d{display:block;margin-top:6px;font-size:14.5px;line-height:1.5;color:#a9bcdd}
+.vbt-m{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;font-size:13.5px;color:#a9bcdd}
+.vbt-m b{padding:7px 13px;border-radius:100px;background:rgba(255,255,255,.07);font-weight:500;color:#eaf0ff}
+@media (max-width:900px){.vbt-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.vbt-g{grid-template-columns:minmax(0,1fr)}}
+html.vb-light #method,html.vb-light #adwins{background:#f4f6fb;color:#1c2740}
+html.vb-light .vbt-k,html.vb-light .vbt-n{color:#4f7a00}
+html.vb-light .vbt-h,html.vb-light .vbt-t{color:#0a0f1e}
+html.vb-light .vbt-g li{background:#e9edf6}
+html.vb-light .vbt-d,html.vb-light .vbt-m{color:#4c5a75}
+html.vb-light .vbt-m b{background:#e9edf6;color:#1c2740}
 /* ---- light ---- */
 html.vb-light [data-vbgal] h3{color:#f6f9ff!important}
 html.vb-light [data-vbgal] h3~*,html.vb-light [data-vbgal] div>span{color:#a9bcdd}
@@ -156,7 +211,8 @@ html.vb-light [data-hero] .vbr .vbr-kick i{width:8px;height:8px;border-radius:50
 @keyframes vbBlink{50%{opacity:.25}}
 html.vb-light [data-hero] .vbr .vbr-h{margin:0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(52px,9vw,148px);line-height:.92;letter-spacing:-.05em;color:#fff!important}
 html.vb-light [data-hero] .vbr .vbr-p{margin:18px 0 0;max-width:30ch;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(22px,2.3vw,34px);line-height:1.15;color:#d9f99d!important}
-.vbr-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+html.vb-light [data-hero] .vbr .vbr-s{margin:12px 0 0;max-width:52ch;font-size:clamp(15px,1.2vw,18px);line-height:1.45;color:rgba(255,255,255,.86)!important}
+.vbr-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .vbr-btns a{display:inline-flex;align-items:center;min-height:50px;padding:0 26px;border-radius:100px;font:600 15px/1 'Space Grotesk',sans-serif;text-decoration:none;white-space:nowrap}
 html.vb-light [data-hero] .vbr .vbr-btns a:first-child{background:#b6f500!important;color:#06140a!important}
 html.vb-light [data-hero] .vbr .vbr-btns a+a{background:rgba(255,255,255,.14)!important;color:#fff!important;backdrop-filter:blur(10px)}
@@ -177,6 +233,7 @@ html.vb-light.vb-ontop [data-chrome="header"] a:not([href="#contact"]),html.vb-l
 html.vb-light.vb-ontop [data-chrome="header"] button{background:rgba(255,255,255,.14)!important;border-color:rgba(255,255,255,.2)!important}
 html.vb-light.vb-ontop [data-chrome="header"] svg [stroke]{stroke:#fff}
 html.vb-light.vb-ontop [data-chrome="bar1"],html.vb-light.vb-ontop [data-chrome="bar2"]{background:#fff!important}
+@media (max-width:760px){html.vb-light [data-hero] .vbr .vbr-kick{font-size:11px;letter-spacing:.06em;white-space:nowrap}}
 @media (max-width:760px){.vbr-in{flex-direction:column;align-items:stretch;gap:26px}.vbr-side{flex:none;text-align:left}.vbr-btns a{padding:0 20px;font-size:14.5px;min-height:48px}}
 @media (prefers-reduced-motion:reduce){.vbr-f.on,.vbr-bars span.on:after,.vbr-kick i{animation:none}.vbr-flash{display:none}}
 @keyframes vbUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
@@ -336,12 +393,34 @@ def apply(tpl, manifest, head_anchor, dark_css):
     # monogram avatars: a tinted disc, not a lime ring
     sub("border:1px solid rgba(182,245,0,.35); background:rgba(182,245,0,.08)", "border:0; background:rgba(182,245,0,.16)")
 
+    # the homepage leads with ads: UI/UX leaves the scroll and the menu; its row in the work list still opens case-studies/
+    a, b = _section(tpl, "uiux")
+    tpl = tpl[:a] + tpl[b:]
+    tpl, n = re.subn(r'\s*<a href="#uiux" data-menu-link="1"[^>]*>.*?</a>', "", tpl, count=1, flags=re.S)
+    assert n == 1, "uiux menu link missing"
+
+    sub("Everyone sells<br>strategy. I ship<br>the thing.", "I make the ad,<br>read the data,<br>make the next one.")
+
+    # results: ad performance first, production numbers after
+    a, b = _section(tpl, "results")
+    tiles = re.findall(r'<div data-reveal="fig".*?</div>', tpl[a:b], re.S)
+    assert len(tiles) == 3 and "2,000+" in tiles[0] and "70%" in tiles[1] and "1M+" in tiles[2], "results tiles changed"
+    def tile(fig, label, desc):
+        return tiles[0].replace("2,000+", fig).replace("Videos produced", label).replace("Educational videos, with my editing team at Unacademy.", desc)
+    new = [tile("11 of 39", "Creatives won on both metrics", "Won on cost per install and cost per in-app action, taking 44.5% of spend."),
+           tile("24%", "Lower cost per install at 4.5&times; the spend", "May to July: monthly spend grew 4.5&times; while cost per install fell."), tiles[1], tiles[0], tiles[2]]
+    gap = tpl[a:b][tpl[a:b].index(tiles[0]) + len(tiles[0]):tpl[a:b].index(tiles[1])]
+    i0 = tpl.index(tiles[0], a)
+    i1 = tpl.index(tiles[2], a) + len(tiles[2])
+    tpl = tpl[:i0] + gap.join(new) + tpl[i1:]
+    sub('<div style="position:relative; max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));', '<div data-vbfigs style="position:relative; max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));')
+
     # results straight after the hero
     a, b = _section(tpl, "results")
     block = tpl[a:b]
     tpl = tpl[:a] + tpl[b:]
     at = tpl.index("<section data-vbwork2")
-    tpl = tpl[:at] + block + tpl[at:]
+    tpl = tpl[:at] + block + LEARNED + METHOD + tpl[at:]
 
     # the numbers on section labels could never match the menu, so the labels lose them
     tpl = re.sub(r">\d{2,3} — ([^<]{2,40}<)", r">\1", tpl)
@@ -350,7 +429,7 @@ def apply(tpl, manifest, head_anchor, dark_css):
     link = re.compile(r'<a href="#(\w+)" data-menu-link="1"[^>]*>.*?</a>', re.S)
     hits = list(link.finditer(tpl))
     by = {h.group(1): h.group(0) for h in hits}
-    order = [k for k in ("results", "work", "uiux", "tools", "studio", "contact") if k in by]
+    order = [k for k in ("results", "work", "tools", "studio", "contact") if k in by]
     assert len(order) == len(hits), f"menu changed: {list(by)}"
     start, end = hits[0].start(), hits[-1].end()
     sep = tpl[hits[0].end():hits[1].start()]

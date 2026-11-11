@@ -433,8 +433,9 @@ TOOLS_SCRIPT = """
 EXPERIENCE = [
     {"slug": "mirae", "name": "Mirae Asset Capital Markets", "role": "Design Studio Lead",
      "place": "Mumbai", "dates": "Oct 2025 — Present", "logo": "__MIRAE__", "now": True,
-     "lead": "Own the end-to-end creative function — brand films, product demos, podcasts, performance creatives, newsletters and landing pages.",
+     "lead": "Own the creative feedback loop for m.Stock: performance ads, films, social and CRM creative.",
      "points": [
+        "Built a creative scorecard that rates every ad on cost per install and cost per in-app action, finding the winners to scale and a 14% spend leak to cut.",
         "Produce event-ready films from script and use-case inputs: sit in the briefing, build the storyboard, then shoot and cut the final piece.",
         "Combine screen recordings, product demos, graphics and callouts with synced VO, subtitles and captions — exported for event screens, web and social.",
         "Built custom AI automation for podcast and social editing, cutting a full day of manual work to roughly 30 minutes.",
@@ -452,7 +453,7 @@ EXPERIENCE = [
      ]},
     {"slug": "unacademy", "name": "Unacademy", "role": "Studio Operations Specialist",
      "place": "Bengaluru", "dates": "Dec 2019 — Mar 2022", "logo": "__UNACADEMY__", "now": False,
-     "lead": "Led a team of editors producing 2,000+ educational videos, contributing to 1M+ new YouTube subscribers in a single month.",
+     "lead": "Led editors on 2,000+ videos; worked with 100+ creators on standards and delivery.",
      "points": [
         "Helped grow and optimise 100+ channels including Unacademy JEE, NEET and Let's Crack UPSC CSE, with daily quality audits at scale.",
         "Designed studio setups for 150+ channels and re-engineered workflows — productivity up 25%, output up 35%.",

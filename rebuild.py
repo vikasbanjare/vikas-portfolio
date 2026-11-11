@@ -162,14 +162,14 @@ R = [
 
     # ── 07 studio ──
     ("aifloh is one team that designs, films, builds and automates. No handoffs, no three vendors blaming each other, no six-week wait for a deck nobody reads.",
-     "I run the whole creative function, from brand films to landing pages. One person, no handoffs."),
+     "I run the whole creative function, from performance ads to brand films."),
     ("Work with us →", "Work with me →"),
     ("strategy. We ship", "strategy. I ship"),
     ("Numbers the", "The numbers"),
     ("finance team likes.", "behind the work."),
-    ("One team, one loop", "One hand, end to end"),
+    ("One team, one loop", "Player-coach"),
     ("The person who writes it edits it, and the person who designs it ships it. Feedback lands in hours, not sprints.",
-     "I brief, storyboard, shoot, cut and ship. Feedback lands in hours."),
+     "I still make the work, and I've led teams and written their playbooks."),
     ("You do not get a folder of files. You get the machine that keeps producing them after we leave.",
      "Templates and libraries make the tenth asset cheap."),
     ("Automation takes the repetitive eighty percent. Humans keep the twenty percent that people actually remember.",
